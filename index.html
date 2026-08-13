@@ -11,11 +11,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
-  <!-- Mermaid.js for Diagrams -->
+  <!-- Mermaid.js with safe dynamic rendering -->
   <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
   <script>
     mermaid.initialize({
-      startOnLoad: true,
+      startOnLoad: false,
       theme: 'neutral',
       themeVariables: {
         primaryColor: '#e0e7ff',
@@ -469,58 +469,64 @@
       background: #f8faff;
     }
 
-    /* Comparison Box (As-Is vs To-Be) */
-    .comparison-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+    /* Visual Architecture Box (Pure CSS Connected Cards) */
+    .architecture-flow {
+      display: flex;
+      flex-direction: column;
       gap: 1.5rem;
-      margin: 1.25rem 0;
+      margin: 1.5rem 0;
     }
 
-    .compare-card {
-      border-radius: var(--radius-md);
-      padding: 1.5rem;
+    .arch-stage {
+      background: #f8fafc;
       border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
     }
 
-    .compare-card.asis {
-      background: #fff5f5;
-      border-color: #fed7d7;
-    }
-
-    .compare-card.tobe {
-      background: #f0fdf4;
-      border-color: #bbf7d0;
-    }
-
-    .compare-card h4 {
-      font-size: 1.1rem;
-      font-weight: 700;
+    .arch-stage-header {
+      font-size: 0.9rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--primary);
       margin-bottom: 1rem;
       display: flex;
       align-items: center;
       gap: 0.5rem;
     }
 
-    .compare-card.asis h4 { color: #9b2c2c; }
-    .compare-card.tobe h4 { color: #22543d; }
-
-    .compare-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
+    .arch-cards-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
     }
 
-    .compare-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.6rem;
-      font-size: 0.9rem;
+    .arch-node {
+      background: white;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 1rem;
+      box-shadow: var(--shadow-sm);
+      position: relative;
     }
 
-    .compare-card.asis .compare-list i { color: #e53e3e; margin-top: 0.2rem; }
-    .compare-card.tobe .compare-list i { color: #38a169; margin-top: 0.2rem; }
+    .arch-node.highlight {
+      border-color: #818cf8;
+      background: #f5f3ff;
+    }
+
+    .arch-node h5 {
+      font-size: 0.95rem;
+      color: var(--secondary);
+      margin-bottom: 0.35rem;
+      font-weight: 700;
+    }
+
+    .arch-node p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
 
     /* Interactive Simulator */
     .simulator-box {
@@ -598,16 +604,96 @@
       color: #a5b4fc;
     }
 
-    /* Diagram wrapper */
-    .diagram-container {
-      background: white;
-      padding: 1.5rem;
+    /* Visual Gantt Chart Styling (100% Reliable & Beautiful) */
+    .gantt-visual-wrapper {
+      background: var(--bg-card);
       border-radius: var(--radius-md);
       border: 1px solid var(--border-color);
-      margin: 1.25rem 0;
       overflow-x: auto;
-      text-align: center;
+      padding: 1.5rem;
+      margin: 1.25rem 0;
     }
+
+    .gantt-timeline-header {
+      display: grid;
+      grid-template-columns: 320px 1fr 1fr 1fr 1fr;
+      gap: 0.75rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--border-color);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      min-width: 800px;
+    }
+
+    .gantt-phase-group {
+      margin-top: 1.25rem;
+      min-width: 800px;
+    }
+
+    .gantt-phase-badge {
+      font-size: 0.85rem;
+      font-weight: 800;
+      padding: 0.4rem 0.85rem;
+      border-radius: var(--radius-sm);
+      margin-bottom: 0.6rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .gantt-item-row {
+      display: grid;
+      grid-template-columns: 320px 1fr 1fr 1fr 1fr;
+      gap: 0.75rem;
+      align-items: center;
+      padding: 0.65rem 0;
+      border-bottom: 1px solid #f1f5f9;
+      font-size: 0.88rem;
+      min-width: 800px;
+    }
+
+    .gantt-task-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    .gantt-task-info strong {
+      color: var(--text-main);
+      font-size: 0.88rem;
+    }
+
+    .gantt-task-info span {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .gantt-bar-track {
+      grid-column: span 4;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.5rem;
+    }
+
+    .gantt-progress-bar {
+      border-radius: var(--radius-sm);
+      padding: 0.45rem 0.75rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: var(--shadow-sm);
+      white-space: nowrap;
+    }
+
+    .gantt-progress-bar.done { background: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }
+    .gantt-progress-bar.active { background: #e0e7ff; color: #3730a3; border: 1px solid #c7d2fe; box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2); }
+    .gantt-progress-bar.planned { background: #fef3c7; color: #92400e; border: 1px solid #fde68a; }
+    .gantt-progress-bar.pilot { background: #f3e8ff; color: #6b21a8; border: 1px solid #e9d5ff; }
 
     /* Process Step Cards */
     .step-timeline {
@@ -684,7 +770,6 @@
     @media (max-width: 768px) {
       .top-header { padding: 1.5rem 1rem; }
       .header-title-block h1 { font-size: 1.6rem; }
-      .comparison-grid { grid-template-columns: 1fr; }
       .grid-2, .grid-3 { grid-template-columns: 1fr; }
       .header-meta-box { text-align: left; }
     }
@@ -755,13 +840,12 @@
           <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1rem;">
             O modelo de consultoria de longo prazo (6 a 12 meses) com mensalidades de R$ 3.000 a R$ 3.500 provou ser insustentável. Ele gera <strong>over-delivery crônico</strong>, desgaste na relação sócio-cliente e aprisionamento da capacidade produtiva dos fundadores sem gerar escala.
           </p>
-          <div class="compare-card asis" style="margin-top: 0.5rem;">
-            <h4><i class="fa-solid fa-xmark"></i> Dores do Modelo Anterior (As-Is)</h4>
-            <ul class="compare-list">
-              <li><i class="fa-solid fa-circle-xmark"></i> O cliente enxerga o consultor como "extensão ilimitada do dono".</li>
-              <li><i class="fa-solid fa-circle-xmark"></i> Escopos que se expandem arbitrariamente sem precificação adicional.</li>
-              <li><i class="fa-solid fa-circle-xmark"></i> Dependência física/presencial de Luiz Portal para validação do serviço.</li>
-              <li><i class="fa-solid fa-circle-xmark"></i> Intermediação de terceiros com atritos operacionais (ex.: Kelvin ↔ Lani).</li>
+          <div class="alert-box danger" style="margin-bottom: 0;">
+            <ul style="margin-left: 1.2rem; font-size: 0.88rem; line-height: 1.6;">
+              <li>O cliente enxerga o consultor como "extensão ilimitada do dono".</li>
+              <li>Escopos que se expandem arbitrariamente sem precificação adicional.</li>
+              <li>Dependência física/presencial de Luiz Portal para validação do serviço.</li>
+              <li>Intermediação de terceiros com atritos operacionais (ex.: Kelvin ↔ Lani).</li>
             </ul>
           </div>
         </div>
@@ -774,41 +858,72 @@
           <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1rem;">
             Transformação de todo o conhecimento acumulado em <strong>produtos fatiados com entregáveis rígidos</strong>, suportados por automação e Inteligência Artificial, atendendo desde o microempresário até a média empresa familiar.
           </p>
-          <div class="compare-card tobe" style="margin-top: 0.5rem;">
-            <h4><i class="fa-solid fa-check"></i> Princípios do Novo Modelo (To-Be)</h4>
-            <ul class="compare-list">
-              <li><i class="fa-solid fa-circle-check"></i> <strong>Início, Meio e Fim:</strong> Prazos e entregáveis delimitados (ex.: 3 meses).</li>
-              <li><i class="fa-solid fa-circle-check"></i> <strong>Defesa do CNPJ:</strong> Cláusula que protege a empresa contra caprichos individuais.</li>
-              <li><i class="fa-solid fa-circle-check"></i> <strong>Escalabilidade Tech/IA:</strong> Diagnóstico automatizado e assistente "Júlio".</li>
-              <li><i class="fa-solid fa-circle-check"></i> <strong>Desintermediação:</strong> Conexão direta entre cliente e parceiros especializados.</li>
+          <div class="alert-box success" style="margin-bottom: 0;">
+            <ul style="margin-left: 1.2rem; font-size: 0.88rem; line-height: 1.6;">
+              <li><strong>Início, Meio e Fim:</strong> Prazos e entregáveis delimitados (ex.: 3 meses).</li>
+              <li><strong>Defesa do CNPJ:</strong> Cláusula que protege a empresa contra caprichos individuais.</li>
+              <li><strong>Escalabilidade Tech/IA:</strong> Diagnóstico automatizado e assistente "Júlio".</li>
+              <li><strong>Desintermediação:</strong> Conexão direta entre cliente e parceiros especializados.</li>
             </ul>
           </div>
         </div>
       </div>
 
-      <!-- Diagram: Transição Estratégica -->
+      <!-- Visual Flowchart: Transição Estratégica -->
       <div class="card">
         <div class="card-header">
-          <span class="card-title"><i class="fa-solid fa-diagram-project"></i> Diagrama do Fluxo de Transição Estratégica</span>
+          <span class="card-title"><i class="fa-solid fa-diagram-project"></i> Arquitetura Visual de Transição do Portfólio</span>
           <span class="tag tag-primary">Visão de Alto Nível</span>
         </div>
-        <div class="diagram-container">
-          <pre class="mermaid">
-graph LR
-    subgraph Antigo ["❌ Consultoria Tradicional (Descartada)"]
-        A1[Contrato Aberto 12 Meses] --> A2[Over-delivery Contínuo]
-        A2 --> A3[Expectativa de Onipresença]
-        A3 --> A4[Gargalo de Horas & Esmagamento de Margem]
-    end
+        
+        <div class="architecture-flow">
+          <div class="arch-stage" style="border-color: #fca5a5; background: #fff5f5;">
+            <div class="arch-stage-header" style="color: #991b1b;">
+              <i class="fa-solid fa-circle-xmark"></i> Modelo Anterior (Consultoria Tradicional Descartada)
+            </div>
+            <div class="arch-cards-row">
+              <div class="arch-node">
+                <h5>Contratos Longos 12M</h5>
+                <p>Escopo aberto, reuniões sem limite e sensação de dependência mútua.</p>
+              </div>
+              <div class="arch-node">
+                <h5>Over-Delivery Crônico</h5>
+                <p>Entregas operacionais excessivas sem remuneração proporcional.</p>
+              </div>
+              <div class="arch-node">
+                <h5>Margem Esmagada</h5>
+                <p>Fundadores consumidos em rotinas diárias e gargalos de terceiros.</p>
+              </div>
+            </div>
+          </div>
 
-    subgraph Novo ["✅ Portfólio Modular & Ecossistema IA"]
-        B1[Diagnóstico Low-Ticket R$250] --> B2[IA 'Júlio' R$120/mês]
-        B1 --> B3[Diagnóstico Entrevista R$980]
-        B3 --> B4[Conselho Familiar 3 Meses]
-        B3 --> B5[Planejamento Estratégico 3 Meses]
-        B4 --> B6[Acompanhamento Avulso R$2.400/mês]
-    end
-          </pre>
+          <div style="text-align: center; color: var(--primary); font-size: 1.5rem;">
+            <i class="fa-solid fa-arrow-down"></i>
+          </div>
+
+          <div class="arch-stage" style="border-color: #86efac; background: #f0fdf4;">
+            <div class="arch-stage-header" style="color: #166534;">
+              <i class="fa-solid fa-circle-check"></i> Novo Modelo: Portfólio Modular & Ecossistema de IA
+            </div>
+            <div class="arch-cards-row">
+              <div class="arch-node highlight">
+                <h5>Diagnóstico Express R$250</h5>
+                <p>SaaS automatizado + IA para gerar volume (100 a 500 vendas/mês).</p>
+              </div>
+              <div class="arch-node highlight">
+                <h5>Júlio IA R$120/mês</h5>
+                <p>Assistente recorrente com base RAG para tirar dúvidas diárias.</p>
+              </div>
+              <div class="arch-node">
+                <h5>Conselho Familiar 3M</h5>
+                <p>3 sessões conduzidas + Trilha 12M com Defesa Soberana do CNPJ.</p>
+              </div>
+              <div class="arch-node">
+                <h5>Parceiros Diretos</h5>
+                <p>Contratação e cobrança diretas entre cliente e parceiros (Agregar/VW).</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -869,7 +984,7 @@ graph LR
             <li><strong>Alavanca:</strong> Criação de base qualificada para upsell de produtos mais complexos.</li>
           </ul>
           <div class="alert-box info" style="padding: 0.75rem 1rem; margin-bottom: 0;">
-            <i class="fa-solid fa-bullseye"></i> <strong>Meta:</strong> 100 vendas/mês ($\approx$ R$ 25.000/mês) no piloto.
+            <i class="fa-solid fa-bullseye"></i> <strong>Meta:</strong> 100 vendas/mês (&approx; R$ 25.000/mês) no piloto.
           </div>
         </div>
 
@@ -1260,26 +1375,53 @@ graph LR
         </div>
       </div>
 
-      <!-- Diagrama de Desintermediação -->
+      <!-- Visual Flowchart de Desintermediação -->
       <div class="card">
         <div class="card-header">
           <span class="card-title"><i class="fa-solid fa-network-wired"></i> Novo Modelo Operacional de Ecossistema de Parceiros</span>
           <span class="tag tag-primary">Fluxo Descentralizado</span>
         </div>
-        <div class="diagram-container">
-          <pre class="mermaid">
-flowchart TD
-    Cliente[Cliente PME] -->|1. Compra Diagnóstico| Empresa[Nossa Empresa (Hub Estratégico)]
-    Empresa -->|2. Identifica Gargalos & Cria Briefing| Briefing[Briefing Padronizado de Entrega]
-    
-    Briefing -->|3. Encaminhamento Financeiro| Agregar[Agregar (BPO / Gestão Financeira)]
-    Briefing -->|3. Encaminhamento Design/Mkt| VW[Visual Work (Design & Operações)]
-    Briefing -->|3. Encaminhamento Vendas| Formacao[Cursos de Vendas & Liderança]
+        
+        <div class="architecture-flow">
+          <div class="arch-stage" style="border-color: #c7d2fe; background: #f5f3ff;">
+            <div class="arch-stage-header" style="color: #4338ca;">
+              <i class="fa-solid fa-bullseye"></i> 1. Diagnóstico & Briefing Estruturado (Nossa Empresa)
+            </div>
+            <div class="arch-cards-row">
+              <div class="arch-node">
+                <h5>Cliente PME</h5>
+                <p>Contrata o Diagnóstico ou Planejamento Modular.</p>
+              </div>
+              <div class="arch-node highlight">
+                <h5>Hub Estratégico & IA</h5>
+                <p>Identifica o gargalo e gera o briefing técnico padronizado.</p>
+              </div>
+            </div>
+          </div>
 
-    Agregar -.->|Contrato & Pagamento Direto| Cliente
-    VW -.->|Contrato & Pagamento Direto| Cliente
-    Formacao -.->|Comissão de Indicação| Empresa
-          </pre>
+          <div style="text-align: center; color: var(--accent-purple); font-size: 1.5rem;">
+            <i class="fa-solid fa-arrow-down"></i>
+          </div>
+
+          <div class="arch-stage" style="border-color: #bbf7d0; background: #f0fdf4;">
+            <div class="arch-stage-header" style="color: #166534;">
+              <i class="fa-solid fa-handshake"></i> 2. Encaminhamento & Execução Direta (Contrato Cliente &harr; Parceiro)
+            </div>
+            <div class="arch-cards-row">
+              <div class="arch-node">
+                <h5>Agregar (BPO Financeiro)</h5>
+                <p>Reestruturação e gestão de contas direta com o cliente.</p>
+              </div>
+              <div class="arch-node">
+                <h5>Visual Work (Design/Mkt)</h5>
+                <p>Execução operacional e criativa sob contrato direto.</p>
+              </div>
+              <div class="arch-node">
+                <h5>Formação de Líderes/Vendas</h5>
+                <p>Workshops especializados com comissão para o hub.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -1499,36 +1641,184 @@ flowchart TD
       <div class="alert-box info">
         <i class="fa-solid fa-list-check"></i>
         <div>
-          <strong>Plano de Ação Integrado (Piloto de 60 Dias):</strong> Atividades, prazos limites, dependências e matriz RACI para implantação imediata entre Agosto e Outubro de 2026.
+          <strong>Plano de Ação Integrado (Piloto de 60 Dias):</strong> Cronograma visual de implantação, prazos limites, entregáveis e matriz RACI para execução imediata entre Agosto e Outubro de 2026.
         </div>
       </div>
 
-      <!-- Gantt / Timeline Diagram -->
+      <!-- Visual Gantt Timeline (100% Reliable & Beautiful) -->
       <div class="card">
         <div class="card-header">
-          <span class="card-title"><i class="fa-solid fa-timeline"></i> Cronograma Geral de Implantação (Gantt)</span>
+          <span class="card-title"><i class="fa-solid fa-timeline"></i> Cronograma Geral de Implantação (Gantt Visual)</span>
           <span class="tag tag-primary">Agosto - Outubro 2026</span>
         </div>
-        <div class="diagram-container">
-          <pre class="mermaid">
-gantt
-    title Cronograma de Execução do Piloto
-    dateFormat  YYYY-MM-DD
-    section Fase 1: Portfólio & Contratos
-    Benchmarking & Preços HR Techs (A-01, A-02) :done, 2026-08-14, 2026-08-17
-    Manual do Portfólio Modular                 :active, 2026-08-14, 2026-08-20
-    Minutas com Cláusula CNPJ (AI-03)           :active, 2026-08-16, 2026-08-22
-    section Fase 2: Narrativa & Cadernos
-    Narrativa Comercial & Copywriting           :2026-08-18, 2026-08-23
-    Cadernos de Ativação (DRE/Processos)        :2026-08-20, 2026-09-02
-    Setup Técnico do Júlio IA (Cleber)          :2026-08-22, 2026-08-30
-    section Fase 3: Parcerias & Validação
-    Protocolo & SLAs Parceiros (Kelvin/Lani)    :2026-08-20, 2026-08-27
-    100 Ligações de Validação PMEs (Luiz)       :2026-08-23, 2026-08-31
-    section Fase 4: Go-to-Market & Piloto
-    Início do Conteúdo (3x/semana)              :2026-08-25, 2026-10-31
-    Operação Comercial Piloto (Meta 100/mês)    :2026-09-01, 2026-10-31
-          </pre>
+        
+        <div class="gantt-visual-wrapper">
+          <div class="gantt-timeline-header">
+            <div>Etapa / Atividade</div>
+            <div style="text-align: center;">Semana 1 (14-20 Ago)</div>
+            <div style="text-align: center;">Semana 2 (21-27 Ago)</div>
+            <div style="text-align: center;">Semana 3 (28 Ago-03 Set)</div>
+            <div style="text-align: center;">Setembro & Outubro (Piloto)</div>
+          </div>
+
+          <!-- Fase 1 -->
+          <div class="gantt-phase-group">
+            <div class="gantt-phase-badge" style="background: #e0e7ff; color: #3730a3;">
+              <i class="fa-solid fa-folder-closed"></i> FASE 1: Portfólio, Preços & Minutas Contratuais
+            </div>
+            
+            <div class="gantt-item-row">
+              <div class="gantt-task-info">
+                <strong>A-01: Benchmarking de Preços HR Techs</strong>
+                <span>Resp: Cleber &bull; Prazo: 17/08</span>
+              </div>
+              <div class="gantt-bar-track">
+                <div class="gantt-progress-bar done" style="grid-column: 1 / 2;">
+                  <span><i class="fa-solid fa-check"></i> 14 a 17/08</span>
+                  <span class="tag tag-emerald" style="font-size: 0.65rem; padding: 2px 6px;">Concluído</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="gantt-item-row">
+              <div class="gantt-task-info">
+                <strong>A-02: Tabela Oficial de Preços</strong>
+                <span>Resp: Luiz Portal &bull; Prazo: 19/08</span>
+              </div>
+              <div class="gantt-bar-track">
+                <div class="gantt-progress-bar active" style="grid-column: 1 / 2;">
+                  <span><i class="fa-solid fa-spinner fa-spin"></i> 14 a 19/08</span>
+                  <span class="tag tag-primary" style="font-size: 0.65rem; padding: 2px 6px;">Em Andamento</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="gantt-item-row">
+              <div class="gantt-task-info">
+                <strong>AI-03: Minutas com Cláusula CNPJ</strong>
+                <span>Resp: Cleber &bull; Prazo: 22/08</span>
+              </div>
+              <div class="gantt-bar-track">
+                <div class="gantt-progress-bar done" style="grid-column: 1 / 3;">
+                  <span><i class="fa-solid fa-check"></i> 16 a 22/08</span>
+                  <span class="tag tag-emerald" style="font-size: 0.65rem; padding: 2px 6px;">Concluído</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Fase 2 -->
+          <div class="gantt-phase-group">
+            <div class="gantt-phase-badge" style="background: #fae8ff; color: #86198f;">
+              <i class="fa-solid fa-pen-nib"></i> FASE 2: Narrativa Comercial, Cadernos & Júlio IA
+            </div>
+
+            <div class="gantt-item-row">
+              <div class="gantt-task-info">
+                <strong>A-03: Copywriting "Custo de Não Saber"</strong>
+                <span>Resp: Cleber / Aline &bull; Prazo: 23/08</span>
+              </div>
+              <div class="gantt-bar-track">
+                <div class="gantt-progress-bar active" style="grid-column: 1 / 3;">
+                  <span><i class="fa-solid fa-bullhorn"></i> 18 a 23/08</span>
+                  <span class="tag tag-primary" style="font-size: 0.65rem; padding: 2px 6px;">Em Andamento</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="gantt-item-row">
+              <div class="gantt-task-info">
+                <strong>F2.3: Setup do Assistente "Júlio IA"</strong>
+                <span>Resp: Cleber &bull; Prazo: 30/08</span>
+              </div>
+              <div class="gantt-bar-track">
+                <div class="gantt-progress-bar done" style="grid-column: 2 / 4;">
+                  <span><i class="fa-solid fa-robot"></i> 22 a 30/08</span>
+                  <span class="tag tag-emerald" style="font-size: 0.65rem; padding: 2px 6px;">Especificado</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="gantt-item-row">
+              <div class="gantt-task-info">
+                <strong>F2.2: Cadernos de Ativação (DRE/Proc)</strong>
+                <span>Resp: Cleber &bull; Prazo: 02/09</span>
+              </div>
+              <div class="gantt-bar-track">
+                <div class="gantt-progress-bar active" style="grid-column: 2 / 4;">
+                  <span><i class="fa-solid fa-book-open"></i> 20/08 a 02/09</span>
+                  <span class="tag tag-primary" style="font-size: 0.65rem; padding: 2px 6px;">Em Redação</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Fase 3 -->
+          <div class="gantt-phase-group">
+            <div class="gantt-phase-badge" style="background: #dcfce7; color: #166534;">
+              <i class="fa-solid fa-handshake"></i> FASE 3: Operações, Parcerias & Validação
+            </div>
+
+            <div class="gantt-item-row">
+              <div class="gantt-task-info">
+                <strong>F3.1: Protocolo & SLAs com Parceiros</strong>
+                <span>Resp: Kelvin / Luiz &bull; Prazo: 27/08</span>
+              </div>
+              <div class="gantt-bar-track">
+                <div class="gantt-progress-bar planned" style="grid-column: 2 / 3;">
+                  <span><i class="fa-solid fa-clock"></i> 20 a 27/08</span>
+                  <span class="tag tag-amber" style="font-size: 0.65rem; padding: 2px 6px;">Agendado</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="gantt-item-row">
+              <div class="gantt-task-info">
+                <strong>AI-01: 100 Ligações de Validação PMEs</strong>
+                <span>Resp: Luiz Portal &bull; Prazo: 31/08</span>
+              </div>
+              <div class="gantt-bar-track">
+                <div class="gantt-progress-bar active" style="grid-column: 2 / 4;">
+                  <span><i class="fa-solid fa-phone"></i> 23 a 31/08</span>
+                  <span class="tag tag-primary" style="font-size: 0.65rem; padding: 2px 6px;">Em Execução</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Fase 4 -->
+          <div class="gantt-phase-group">
+            <div class="gantt-phase-badge" style="background: #fef3c7; color: #92400e;">
+              <i class="fa-solid fa-rocket"></i> FASE 4: Go-to-Market & Piloto Comercial (60 Dias)
+            </div>
+
+            <div class="gantt-item-row">
+              <div class="gantt-task-info">
+                <strong>F4.2: Grade de Conteúdo (3 vídeos/sem)</strong>
+                <span>Resp: Luiz / Cleber &bull; Início: 25/08</span>
+              </div>
+              <div class="gantt-bar-track">
+                <div class="gantt-progress-bar planned" style="grid-column: 2 / 5;">
+                  <span><i class="fa-solid fa-video"></i> 25/08 a 31/10</span>
+                  <span class="tag tag-amber" style="font-size: 0.65rem; padding: 2px 6px;">Contínuo</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="gantt-item-row">
+              <div class="gantt-task-info">
+                <strong>AI-02: Execução do Piloto Comercial</strong>
+                <span>Meta: 100 diagnósticos/mês &bull; 60 Dias</span>
+              </div>
+              <div class="gantt-bar-track">
+                <div class="gantt-progress-bar pilot" style="grid-column: 3 / 5;">
+                  <span><i class="fa-solid fa-bullseye"></i> 01/09 a 31/10 (Piloto 60D)</span>
+                  <span class="tag tag-purple" style="font-size: 0.65rem; padding: 2px 6px;">R$ 25k/mês</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
 
@@ -1596,7 +1886,7 @@ gantt
                 <td>Jurídico</td>
                 <td>Parceiros</td>
                 <td>22/08/2026</td>
-                <td><span class="tag tag-amber">Em Andamento</span></td>
+                <td><span class="tag tag-emerald">Concluído</span></td>
               </tr>
               <tr>
                 <td><strong>A-03</strong></td>
@@ -1607,7 +1897,7 @@ gantt
                 <td>Aline/Cadu</td>
                 <td>Equipe</td>
                 <td>23/08/2026</td>
-                <td><span class="tag tag-primary">Planejado</span></td>
+                <td><span class="tag tag-primary">Em Andamento</span></td>
               </tr>
               <tr>
                 <td><strong>F2.2</strong></td>
@@ -1618,7 +1908,7 @@ gantt
                 <td>Luiz Portal</td>
                 <td>Clientes</td>
                 <td>02/09/2026</td>
-                <td><span class="tag tag-primary">Planejado</span></td>
+                <td><span class="tag tag-primary">Em Redação</span></td>
               </tr>
               <tr>
                 <td><strong>F2.3</strong></td>
@@ -1629,7 +1919,7 @@ gantt
                 <td>Luiz Portal</td>
                 <td>Equipe</td>
                 <td>30/08/2026</td>
-                <td><span class="tag tag-primary">Planejado</span></td>
+                <td><span class="tag tag-emerald">Especificado</span></td>
               </tr>
               <tr>
                 <td><strong>F3.1</strong></td>
@@ -1640,7 +1930,7 @@ gantt
                 <td>Cleber</td>
                 <td>Lani</td>
                 <td>27/08/2026</td>
-                <td><span class="tag tag-primary">Planejado</span></td>
+                <td><span class="tag tag-amber">Planejado</span></td>
               </tr>
               <tr>
                 <td><strong>AI-01</strong></td>
@@ -1651,7 +1941,7 @@ gantt
                 <td>Cleber</td>
                 <td>Equipe</td>
                 <td>31/08/2026</td>
-                <td><span class="tag tag-primary">Planejado</span></td>
+                <td><span class="tag tag-primary">Em Execução</span></td>
               </tr>
               <tr>
                 <td><strong>AI-02</strong></td>
@@ -1676,11 +1966,11 @@ gantt
           <span class="tag tag-rose">Prioridade Máxima</span>
         </div>
         <ul style="font-size: 0.92rem; color: var(--text-main); display: flex; flex-direction: column; gap: 0.75rem; list-style: none;">
-          <li><i class="fa-regular fa-square"></i> <strong>1. Atualização Cadastral & Acessos:</strong> Validar credenciais de acesso para testes de plataformas e ferramentas (incluindo acesso de suporte).</li>
-          <li><i class="fa-regular fa-square"></i> <strong>2. Redação do Contrato de Conselho Familiar:</strong> Formalizar a minuta padrão contendo os 3 meses de duração, 3 reuniões de conselho e a cláusula de Defesa do CNPJ.</li>
-          <li><i class="fa-regular fa-square"></i> <strong>3. Início das 100 Ligações de Pesquisa:</strong> Luiz disparar as primeiras 20 ligações para validação do script de recrutamento DIY R$ 250.</li>
-          <li><i class="fa-regular fa-square"></i> <strong>4. Estruturação do Repositório do Júlio IA:</strong> Cleber organizar a base vetorial e prompts do assistente inteligente.</li>
-          <li><i class="fa-regular fa-square"></i> <strong>5. Agendamento com Parceiros Estratégicos:</strong> Reunião com Aline/Cadu e almoço com Wagner (Capital Mídias).</li>
+          <li><i class="fa-solid fa-square-check" style="color: var(--accent-emerald);"></i> <strong>1. Minutas Contratuais Criadas:</strong> Contratos de Conselho Familiar e Planejamento com Cláusula CNPJ e teto de sessões prontos em <code>operacao/templates/</code>.</li>
+          <li><i class="fa-solid fa-square-check" style="color: var(--accent-emerald);"></i> <strong>2. Especificações de IA Concluídas:</strong> Diagnóstico Express SaaS, Júlio IA Bot v5.0 e RH Tech DIY documentados em <code>operacao/arquitetura-agentes/</code>.</li>
+          <li><i class="fa-regular fa-square"></i> <strong>3. Validação das 100 Ligações:</strong> Luiz Portal rodar os primeiros contatos para validar a taxa de adesão ao RH DIY R$ 250.</li>
+          <li><i class="fa-regular fa-square"></i> <strong>4. Alinhamento com Parceiros:</strong> Reunião de alinhamento com Aline/Cadu e almoço com Wagner (Capital Mídias).</li>
+          <li><i class="fa-regular fa-square"></i> <strong>5. Setup do Piloto Comercial:</strong> Iniciar no dia 01/09 a prospecção ativa de 4,5 diagnósticos/dia útil.</li>
         </ul>
       </div>
 
@@ -1690,7 +1980,7 @@ gantt
 
   <!-- Page Footer -->
   <footer class="page-footer">
-    <p>Documento Estratégico e Apresentação Executiva Departamental &copy; 2026 — Synkra AIOX / Consultoria Estratégica.</p>
+    <p>Documento Estratégico e Apresentação Executiva Departamental &copy; 2026 — Synkra AIOX / Ecossistema Live.</p>
     <p style="margin-top: 0.35rem; color: var(--text-light); font-size: 0.78rem;">
       Gerado com base na Sessão de Estratégia de Produto, Mercado e Modelo de Negócio de 13 de Agosto de 2026.
     </p>
@@ -1713,8 +2003,6 @@ gantt
         const targetPanel = document.getElementById(targetTab);
         if (targetPanel) {
           targetPanel.classList.add('active');
-          // Re-render mermaid if needed in the tab
-          mermaid.contentLoaded();
         }
       });
     });
