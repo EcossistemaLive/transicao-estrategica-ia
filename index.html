@@ -1,0 +1,1775 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plano Estratégico de Transição: Produtos Escaláveis & Ecossistema de IA</title>
+  
+  <!-- Google Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Mermaid.js for Diagrams -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'neutral',
+      themeVariables: {
+        primaryColor: '#e0e7ff',
+        primaryTextColor: '#1e1b4b',
+        primaryBorderColor: '#6366f1',
+        lineColor: '#4f46e5',
+        secondaryColor: '#f1f5f9',
+        tertiaryColor: '#ffffff'
+      }
+    });
+  </script>
+
+  <style>
+    :root {
+      --primary: #4338ca;
+      --primary-hover: #3730a3;
+      --primary-light: #eef2ff;
+      --primary-glow: rgba(67, 56, 202, 0.15);
+      --secondary: #0f172a;
+      --accent-blue: #0284c7;
+      --accent-emerald: #059669;
+      --accent-amber: #d97706;
+      --accent-rose: #e11d48;
+      --accent-purple: #7c3aed;
+      --bg-main: #f8fafc;
+      --bg-card: #ffffff;
+      --bg-glass: rgba(255, 255, 255, 0.85);
+      --border-color: #e2e8f0;
+      --border-focus: #818cf8;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --text-light: #94a3b8;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.04);
+      --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.06);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+      --radius-full: 9999px;
+      --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg-main);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Top Header Bar */
+    .top-header {
+      background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%);
+      color: white;
+      padding: 2.5rem 2rem 2rem 2rem;
+      border-bottom: 4px solid var(--primary);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .top-header::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.25) 0%, rgba(0,0,0,0) 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .header-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .header-title-block h1 {
+      font-size: 2.1rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(90deg, #ffffff 0%, #cbd5e1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .header-subtitle {
+      font-size: 1.05rem;
+      color: #94a3b8;
+      max-width: 780px;
+      font-weight: 400;
+    }
+
+    .header-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .badge-header {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #e2e8f0;
+      padding: 0.35rem 0.85rem;
+      border-radius: var(--radius-full);
+      font-size: 0.8rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      backdrop-filter: blur(4px);
+    }
+
+    .badge-header.highlight {
+      background: rgba(99, 102, 241, 0.3);
+      border-color: #818cf8;
+      color: #c7d2fe;
+    }
+
+    .header-meta-box {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 1.25rem 1.5rem;
+      border-radius: var(--radius-md);
+      backdrop-filter: blur(10px);
+      text-align: right;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .header-meta-box .meta-item {
+      font-size: 0.85rem;
+      color: #cbd5e1;
+    }
+
+    .header-meta-box strong {
+      color: #f8fafc;
+    }
+
+    /* Main Container & Layout */
+    .app-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1.5rem 1.5rem 4rem 1.5rem;
+    }
+
+    /* Department Navigation Tabs */
+    .tabs-nav-wrapper {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg-main);
+      padding: 0.75rem 0 1rem 0;
+      margin-bottom: 1.5rem;
+    }
+
+    .tabs-nav {
+      display: flex;
+      gap: 0.5rem;
+      background: var(--bg-card);
+      padding: 0.5rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-md);
+      overflow-x: auto;
+      scrollbar-width: thin;
+    }
+
+    .tabs-nav::-webkit-scrollbar {
+      height: 4px;
+    }
+    .tabs-nav::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+
+    .tab-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.75rem 1.2rem;
+      border-radius: var(--radius-md);
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: var(--transition);
+    }
+
+    .tab-btn i {
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+
+    .tab-btn:hover {
+      background: var(--primary-light);
+      color: var(--primary);
+    }
+
+    .tab-btn.active {
+      background: var(--primary);
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(67, 56, 202, 0.35);
+    }
+
+    .tab-btn.active i {
+      color: #ffffff;
+    }
+
+    /* Tab Content Panels */
+    .tab-panel {
+      display: none;
+      animation: fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .tab-panel.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Section Cards & Grid Layouts */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .card:hover {
+      box-shadow: var(--shadow-md);
+      border-color: #cbd5e1;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--secondary);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .card-title i {
+      color: var(--primary);
+    }
+
+    /* Custom Badges & Tags */
+    .tag {
+      padding: 0.25rem 0.65rem;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .tag-primary { background: var(--primary-light); color: var(--primary); }
+    .tag-emerald { background: #dcfce7; color: #15803d; }
+    .tag-amber { background: #fef3c7; color: #b45309; }
+    .tag-rose { background: #ffe4e6; color: #be123c; }
+    .tag-purple { background: #f3e8ff; color: #7e22ce; }
+    .tag-blue { background: #e0f2fe; color: #0369a1; }
+
+    /* Alert / Highlight Boxes */
+    .alert-box {
+      padding: 1.25rem 1.5rem;
+      border-radius: var(--radius-md);
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .alert-box.info {
+      background: #eff6ff;
+      border-left: 4px solid var(--accent-blue);
+      color: #1e40af;
+    }
+
+    .alert-box.warning {
+      background: #fffbeb;
+      border-left: 4px solid var(--accent-amber);
+      color: #92400e;
+    }
+
+    .alert-box.danger {
+      background: #fff1f2;
+      border-left: 4px solid var(--accent-rose);
+      color: #9f1239;
+    }
+
+    .alert-box.success {
+      background: #f0fdf4;
+      border-left: 4px solid var(--accent-emerald);
+      color: #166534;
+    }
+
+    .alert-box.ai {
+      background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+      border-left: 4px solid var(--accent-purple);
+      color: #5b21b6;
+    }
+
+    .alert-box i {
+      font-size: 1.3rem;
+      margin-top: 0.1rem;
+    }
+
+    /* KPI Highlight Metrics */
+    .kpi-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+
+    .kpi-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .kpi-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .kpi-value {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--secondary);
+      line-height: 1.2;
+    }
+
+    .kpi-sub {
+      font-size: 0.8rem;
+      color: var(--text-light);
+    }
+
+    .kpi-card.highlight {
+      border-color: #c7d2fe;
+      background: linear-gradient(180deg, #ffffff 0%, #f8faff 100%);
+    }
+
+    .kpi-card.highlight .kpi-value {
+      color: var(--primary);
+    }
+
+    /* Tables Style */
+    .table-container {
+      overflow-x: auto;
+      margin: 1.25rem 0;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      text-align: left;
+    }
+
+    th {
+      background: #f8fafc;
+      color: #334155;
+      font-weight: 700;
+      padding: 0.85rem 1rem;
+      border-bottom: 2px solid var(--border-color);
+      white-space: nowrap;
+    }
+
+    td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border-color);
+      color: #1e293b;
+      vertical-align: top;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:hover td {
+      background: #f8faff;
+    }
+
+    /* Comparison Box (As-Is vs To-Be) */
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin: 1.25rem 0;
+    }
+
+    .compare-card {
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      border: 1px solid var(--border-color);
+    }
+
+    .compare-card.asis {
+      background: #fff5f5;
+      border-color: #fed7d7;
+    }
+
+    .compare-card.tobe {
+      background: #f0fdf4;
+      border-color: #bbf7d0;
+    }
+
+    .compare-card h4 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .compare-card.asis h4 { color: #9b2c2c; }
+    .compare-card.tobe h4 { color: #22543d; }
+
+    .compare-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .compare-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-size: 0.9rem;
+    }
+
+    .compare-card.asis .compare-list i { color: #e53e3e; margin-top: 0.2rem; }
+    .compare-card.tobe .compare-list i { color: #38a169; margin-top: 0.2rem; }
+
+    /* Interactive Simulator */
+    .simulator-box {
+      background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%);
+      color: white;
+      padding: 2rem;
+      border-radius: var(--radius-lg);
+      margin: 1.5rem 0;
+      box-shadow: var(--shadow-xl);
+    }
+
+    .sim-controls {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .control-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .control-group label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #cbd5e1;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .control-group input[type="range"] {
+      width: 100%;
+      accent-color: #818cf8;
+      cursor: pointer;
+    }
+
+    .sim-results {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.25rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .sim-result-card {
+      background: rgba(255,255,255,0.06);
+      padding: 1.25rem;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+    }
+
+    .sim-result-card .res-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #94a3b8;
+    }
+
+    .sim-result-card .res-value {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #38bdf8;
+      margin-top: 0.25rem;
+    }
+
+    .sim-result-card.highlight {
+      background: rgba(99, 102, 241, 0.25);
+      border-color: #818cf8;
+    }
+
+    .sim-result-card.highlight .res-value {
+      color: #a5b4fc;
+    }
+
+    /* Diagram wrapper */
+    .diagram-container {
+      background: white;
+      padding: 1.5rem;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      margin: 1.25rem 0;
+      overflow-x: auto;
+      text-align: center;
+    }
+
+    /* Process Step Cards */
+    .step-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+      position: relative;
+    }
+
+    .step-timeline::before {
+      content: "";
+      position: absolute;
+      left: 20px;
+      top: 10px;
+      bottom: 10px;
+      width: 2px;
+      background: var(--border-color);
+    }
+
+    .step-item {
+      display: flex;
+      gap: 1.25rem;
+      position: relative;
+    }
+
+    .step-num {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1rem;
+      flex-shrink: 0;
+      z-index: 2;
+      box-shadow: 0 0 0 4px var(--bg-main);
+    }
+
+    .step-content {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.5rem;
+      flex-grow: 1;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .step-content h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+      color: var(--secondary);
+    }
+
+    .step-content p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Footer */
+    .page-footer {
+      text-align: center;
+      padding: 2.5rem 1rem;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border-color);
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 768px) {
+      .top-header { padding: 1.5rem 1rem; }
+      .header-title-block h1 { font-size: 1.6rem; }
+      .comparison-grid { grid-template-columns: 1fr; }
+      .grid-2, .grid-3 { grid-template-columns: 1fr; }
+      .header-meta-box { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Header -->
+  <header class="top-header">
+    <div class="header-content">
+      <div class="header-title-block">
+        <h1>Plano Estratégico de Transição: Produtos Escaláveis & IA</h1>
+        <p class="header-subtitle">
+          Plano operacional e departamental detalhado referente ao alinhamento estratégico de 13/08/2026 entre Luiz Portal e Cleber. Transição definitiva do modelo de consultoria artesanal para portfólio modular com início, meio e fim, apoiado em ecossistema de Inteligência Artificial.
+        </p>
+        <div class="header-tags">
+          <span class="badge-header highlight"><i class="fa-solid fa-microchip"></i> Foco em IA & Automação</span>
+          <span class="badge-header"><i class="fa-solid fa-ban"></i> Fim da "Consultoria Tradicional"</span>
+          <span class="badge-header"><i class="fa-solid fa-shield-halved"></i> Cláusula de Defesa do CNPJ</span>
+          <span class="badge-header"><i class="fa-solid fa-users"></i> ICP: PMEs (R$ 300k - R$ 1M/mês)</span>
+          <span class="badge-header"><i class="fa-solid fa-rocket"></i> Piloto de 60 Dias</span>
+        </div>
+      </div>
+      <div class="header-meta-box">
+        <div class="meta-item"><i class="fa-regular fa-calendar"></i> Data Base: <strong>13 de Agosto de 2026</strong></div>
+        <div class="meta-item"><i class="fa-solid fa-user-tie"></i> Estratégia Comercial: <strong>Luiz Portal</strong></div>
+        <div class="meta-item"><i class="fa-solid fa-laptop-code"></i> Liderança Técnica / IA: <strong>Cleber</strong></div>
+        <div class="meta-item"><i class="fa-solid fa-bullseye"></i> Meta Piloto: <strong>100 Diagnósticos / mês</strong></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation Tabs by Department -->
+  <div class="app-container">
+    <div class="tabs-nav-wrapper">
+      <nav class="tabs-nav" id="departmentTabs">
+        <button class="tab-btn active" data-tab="tab-board"><i class="fa-solid fa-landmark"></i> 1. Diretoria & Estratégia</button>
+        <button class="tab-btn" data-tab="tab-tech-ai"><i class="fa-solid fa-robot"></i> 2. Produto, Tech & IA</button>
+        <button class="tab-btn" data-tab="tab-commercial"><i class="fa-solid fa-briefcase"></i> 3. Comercial & GTM</button>
+        <button class="tab-btn" data-tab="tab-marketing"><i class="fa-solid fa-bullhorn"></i> 4. Marketing & Conteúdo</button>
+        <button class="tab-btn" data-tab="tab-operations"><i class="fa-solid fa-network-wired"></i> 5. Operações & Parcerias</button>
+        <button class="tab-btn" data-tab="tab-legal"><i class="fa-solid fa-scale-balanced"></i> 6. Governança & Jurídico</button>
+        <button class="tab-btn" data-tab="tab-finance"><i class="fa-solid fa-chart-line"></i> 7. Financeiro & Simulador</button>
+        <button class="tab-btn" data-tab="tab-roadmap"><i class="fa-solid fa-list-check"></i> 8. Roadmap & RACI</button>
+      </nav>
+    </div>
+
+    <!-- ==========================================
+         TAB 1: DIRETORIA & ESTRATÉGIA
+         ========================================== -->
+    <section class="tab-panel active" id="tab-board">
+      
+      <!-- Alert Box -->
+      <div class="alert-box danger">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <div>
+          <strong>Diretriz Executiva Mandatória:</strong> Banimento total do termo "Consultoria" em todas as propostas, site, redes sociais e comunicações comerciais. A nova declaração oficial de posicionamento é: <em>"Não fazemos consultoria. Estruturamos governança, diagnosticamos gargalos e entregamos produtos com início, meio e fim."</em>
+        </div>
+      </div>
+
+      <!-- Overview Grid -->
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title"><i class="fa-solid fa-arrows-split-up-and-left"></i> A Ruptura com o Modelo Antigo</span>
+            <span class="tag tag-rose">Mudança de Paradigma</span>
+          </div>
+          <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1rem;">
+            O modelo de consultoria de longo prazo (6 a 12 meses) com mensalidades de R$ 3.000 a R$ 3.500 provou ser insustentável. Ele gera <strong>over-delivery crônico</strong>, desgaste na relação sócio-cliente e aprisionamento da capacidade produtiva dos fundadores sem gerar escala.
+          </p>
+          <div class="compare-card asis" style="margin-top: 0.5rem;">
+            <h4><i class="fa-solid fa-xmark"></i> Dores do Modelo Anterior (As-Is)</h4>
+            <ul class="compare-list">
+              <li><i class="fa-solid fa-circle-xmark"></i> O cliente enxerga o consultor como "extensão ilimitada do dono".</li>
+              <li><i class="fa-solid fa-circle-xmark"></i> Escopos que se expandem arbitrariamente sem precificação adicional.</li>
+              <li><i class="fa-solid fa-circle-xmark"></i> Dependência física/presencial de Luiz Portal para validação do serviço.</li>
+              <li><i class="fa-solid fa-circle-xmark"></i> Intermediação de terceiros com atritos operacionais (ex.: Kelvin ↔ Lani).</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title"><i class="fa-solid fa-cubes-stacked"></i> O Novo Modelo: Portfólio Modular</span>
+            <span class="tag tag-emerald">Estado Futuro (To-Be)</span>
+          </div>
+          <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1rem;">
+            Transformação de todo o conhecimento acumulado em <strong>produtos fatiados com entregáveis rígidos</strong>, suportados por automação e Inteligência Artificial, atendendo desde o microempresário até a média empresa familiar.
+          </p>
+          <div class="compare-card tobe" style="margin-top: 0.5rem;">
+            <h4><i class="fa-solid fa-check"></i> Princípios do Novo Modelo (To-Be)</h4>
+            <ul class="compare-list">
+              <li><i class="fa-solid fa-circle-check"></i> <strong>Início, Meio e Fim:</strong> Prazos e entregáveis delimitados (ex.: 3 meses).</li>
+              <li><i class="fa-solid fa-circle-check"></i> <strong>Defesa do CNPJ:</strong> Cláusula que protege a empresa contra caprichos individuais.</li>
+              <li><i class="fa-solid fa-circle-check"></i> <strong>Escalabilidade Tech/IA:</strong> Diagnóstico automatizado e assistente "Júlio".</li>
+              <li><i class="fa-solid fa-circle-check"></i> <strong>Desintermediação:</strong> Conexão direta entre cliente e parceiros especializados.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Diagram: Transição Estratégica -->
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title"><i class="fa-solid fa-diagram-project"></i> Diagrama do Fluxo de Transição Estratégica</span>
+          <span class="tag tag-primary">Visão de Alto Nível</span>
+        </div>
+        <div class="diagram-container">
+          <pre class="mermaid">
+graph LR
+    subgraph Antigo ["❌ Consultoria Tradicional (Descartada)"]
+        A1[Contrato Aberto 12 Meses] --> A2[Over-delivery Contínuo]
+        A2 --> A3[Expectativa de Onipresença]
+        A3 --> A4[Gargalo de Horas & Esmagamento de Margem]
+    end
+
+    subgraph Novo ["✅ Portfólio Modular & Ecossistema IA"]
+        B1[Diagnóstico Low-Ticket R$250] --> B2[IA 'Júlio' R$120/mês]
+        B1 --> B3[Diagnóstico Entrevista R$980]
+        B3 --> B4[Conselho Familiar 3 Meses]
+        B3 --> B5[Planejamento Estratégico 3 Meses]
+        B4 --> B6[Acompanhamento Avulso R$2.400/mês]
+    end
+          </pre>
+        </div>
+      </div>
+
+      <!-- ICP Card Grid -->
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title"><i class="fa-solid fa-crosshairs"></i> Definição Oficial do Perfil de Cliente Ideal (ICP)</span>
+          <span class="tag tag-purple">Segmentação</span>
+        </div>
+        <div class="grid-3">
+          <div class="kpi-card">
+            <span class="kpi-label">Público-Alvo Principal</span>
+            <span class="kpi-value" style="font-size: 1.3rem;">PMEs Desassistidas</span>
+            <span class="kpi-sub">Faturamento de R$ 300k a R$ 500k/mês (atingindo até R$ 1 milhão). Sem orçamento para consultorias de R$ 20k/mês.</span>
+          </div>
+          <div class="kpi-card">
+            <span class="kpi-label">Público de Entrada (Volume)</span>
+            <span class="kpi-value" style="font-size: 1.3rem;">Pequenos Empresários</span>
+            <span class="kpi-sub">Padarias, comércios locais, clínicas. Sofrem com miopia de gestão e recrutamento amador. Atendidos via SaaS e Cadernos.</span>
+          </div>
+          <div class="kpi-card">
+            <span class="kpi-label">Canais de Acesso Prioritários</span>
+            <span class="kpi-value" style="font-size: 1.3rem;">BNI, BP & Vox</span>
+            <span class="kpi-sub">Acesso facilitado por densidade de rede e relacionamento institucional já existente.</span>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ==========================================
+         TAB 2: PRODUTO, TECNOLOGIA & IA
+         ========================================== -->
+    <section class="tab-panel" id="tab-tech-ai">
+
+      <div class="alert-box ai">
+        <i class="fa-solid fa-brain"></i>
+        <div>
+          <strong>Diretriz de P&D / Inteligência Artificial:</strong> Toda a esteira de produtos deve incorporar inteligência algorítmica e prompts estruturados criados por Cleber (intersecção IA + Processos + Gestão). A IA não substitui a estratégia, mas reduz o custo marginal de entrega a quase zero.
+        </div>
+      </div>
+
+      <!-- Portfolio de Produtos Grid -->
+      <div class="grid-2">
+        
+        <!-- Produto 1: Diagnóstico Automatizado -->
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title"><i class="fa-solid fa-chart-pie"></i> 1. Diagnóstico Empresarial Automatizado (SaaS)</span>
+            <span class="tag tag-emerald">R$ 250 (em até 12x)</span>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+            Formulário inteligente que mitiga a <strong>"miopia do negócio"</strong> do pequeno empresário. Ele responde questões estruturadas em Finanças, Processos, Pessoas e Vendas, e o motor de IA gera o relatório imediato.
+          </p>
+          <ul style="font-size: 0.88rem; color: var(--text-main); margin-left: 1.25rem; margin-bottom: 1rem; line-height: 1.7;">
+            <li><strong>Entregável:</strong> Relatório executivo de gargalos + Caderno de Ativação prático.</li>
+            <li><strong>Diferencial:</strong> Parcelamento em até 12x (barreira de entrada quase nula).</li>
+            <li><strong>Alavanca:</strong> Criação de base qualificada para upsell de produtos mais complexos.</li>
+          </ul>
+          <div class="alert-box info" style="padding: 0.75rem 1rem; margin-bottom: 0;">
+            <i class="fa-solid fa-bullseye"></i> <strong>Meta:</strong> 100 vendas/mês ($\approx$ R$ 25.000/mês) no piloto.
+          </div>
+        </div>
+
+        <!-- Produto 2: Assistente Júlio IA -->
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title"><i class="fa-solid fa-comments"></i> 2. Assistente IA Recorrente ("Júlio")</span>
+            <span class="tag tag-purple">R$ 120 / mês (MRR)</span>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+            Agente inteligente de suporte contínuo pós-diagnóstico. O cliente utiliza o "Júlio" para esclarecer termos técnicos, orientar montagem de DRE e tirar dúvidas de implementação diária.
+          </p>
+          <ul style="font-size: 0.88rem; color: var(--text-main); margin-left: 1.25rem; margin-bottom: 1rem; line-height: 1.7;">
+            <li><strong>Arquitetura:</strong> RAG alimentado com os manuais de gestão e regras da consultoria.</li>
+            <li><strong>Conversão Alvo:</strong> 10% da base de compradores de diagnóstico aderem à assinatura.</li>
+            <li><strong>Objetivo:</strong> Construção de receita previsível de longo prazo com zero tempo sênior.</li>
+          </ul>
+          <div class="alert-box ai" style="padding: 0.75rem 1rem; margin-bottom: 0;">
+            <i class="fa-solid fa-robot"></i> <strong>SLAs:</strong> Respostas imediatas e base de conhecimento controlada.
+          </div>
+        </div>
+
+        <!-- Produto 3: RH Tech com IA -->
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title"><i class="fa-solid fa-user-check"></i> 3. RH Tech — Recrutamento & Seleção Inteligente</span>
+            <span class="tag tag-primary">DIY (R$ 250) / Full Service (1º Salário)</span>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+            Solução focada na dor crônica do empresário que <em>"contrata na tora ou por osmose"</em> e não tem verba para pagar consultorias de RH tradicionais que cobram 1 salário integral.
+          </p>
+          <ul style="font-size: 0.88rem; color: var(--text-main); margin-left: 1.25rem; margin-bottom: 1rem; line-height: 1.7;">
+            <li><strong>Versão DIY (R$ 250):</strong> Plataforma/prompt que cria a descrição da vaga, gera perguntas técnicas/comportamentais e dá notas de fit cultural para currículos.</li>
+            <li><strong>Versão Full Service:</strong> Condução humana completa pela equipe, cobrando o 1º salário.</li>
+            <li><strong>Validação de Mercado:</strong> Validado no caso Sampietro ("melhor eu mesmo fazer com técnica do que quem não conhece minha empresa").</li>
+          </ul>
+        </div>
+
+        <!-- Produto 4: Micro-Agentes de IA e Cadernos -->
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title"><i class="fa-solid fa-file-code"></i> 4. Micro-Agentes de IA & Cadernos de Ativação</span>
+            <span class="tag tag-amber">R$ 40 a R$ 50 (Micro-SaaS)</span>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+            Ferramentas ultra-acessíveis para microempresários sem verba, servindo como gerador de autoridade e canal de aquisição:
+          </p>
+          <ul style="font-size: 0.88rem; color: var(--text-main); margin-left: 1.25rem; margin-bottom: 1rem; line-height: 1.7;">
+            <li><strong>Agente de Análise de Vendas:</strong> O cliente envia a planilha de vendas e a IA devolve curva ABC e oportunidades de faturamento.</li>
+            <li><strong>Cadernos de Ativação:</strong> Manuais práticos operacionais em PDF/Notion (DRE simples, rotina comercial, onboarding de funcionários).</li>
+            <li><strong>Mão de Obra Barata Orientada:</strong> Permite ao dono contratar um estagiário de administração local e guiá-lo com as instruções geradas.</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Benchmarking de HR Techs no Brasil -->
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title"><i class="fa-solid fa-magnifying-glass-chart"></i> Benchmarking de Concorrência HR Tech no Brasil</span>
+          <span class="tag tag-blue">Análise Técnica</span>
+        </div>
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">
+          Mapeamento dos principais players de recrutamento e posicionamento do nosso produto inteligente:
+        </p>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Plataforma</th>
+                <th>Público-Alvo</th>
+                <th>Diferencial Tecnológico</th>
+                <th>Percepção / Gap Identificado</th>
+                <th>Nossa Oportunidade / Posicionamento</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Gupy</strong></td>
+                <td>Grandes Empresas / Corporações</td>
+                <td>IA "GAIA" para triagem e ordenação em massa</td>
+                <td>Alta insatisfação dos candidatos e processos impessoais.</td>
+                <td>Oferecer experiência humanizada, simples e acessível à PME.</td>
+              </tr>
+              <tr>
+                <td><strong>Solides</strong></td>
+                <td>Médias e Grandes Empresas</td>
+                <td>Mapeamento comportamental Profiler e gestão completa</td>
+                <td>Ticket elevado e complexidade de implantação.</td>
+                <td>Focar apenas no fluxo enxuto de contratação rápida DIY por R$ 250.</td>
+              </tr>
+              <tr>
+                <td><strong>Recrutei</strong></td>
+                <td>PMEs e Consultorias de RH</td>
+                <td>ATS, automação de WhatsApp e multi-postagem de vagas</td>
+                <td>Modelo mais próximo do nosso escopo tech.</td>
+                <td>Integrar geração inteligente de perguntas e avaliação por IA.</td>
+              </tr>
+              <tr>
+                <td><strong>Mindsight</strong></td>
+                <td>Gigantes Corporativos</td>
+                <td>Inteligência preditiva e testes psicométricos</td>
+                <td>Inacessível para pequenos empresários locais.</td>
+                <td>Substituir testes acadêmicos complexos por roteiros práticos.</td>
+              </tr>
+              <tr>
+                <td><strong>Reachr / Plural</strong></td>
+                <td>Empresas em Crescimento</td>
+                <td>Cruzamento de hard/soft skills e jornada digital</td>
+                <td>Foco em recrutadores profissionais.</td>
+                <td>Empoderar o próprio <strong>dono do negócio</strong> a fazer a seleção.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ==========================================
+         TAB 3: COMERCIAL & GTM
+         ========================================== -->
+    <section class="tab-panel" id="tab-commercial">
+      
+      <div class="alert-box success">
+        <i class="fa-solid fa-bullseye"></i>
+        <div>
+          <strong>Estratégia de Go-to-Market (GTM):</strong> A máquina de vendas será orientada a volume de diagnósticos e upsell estruturado. Não dependeremos de poucos contratos gigantes e frágeis. A meta inicial é atingir <strong>4,5 vendas por dia útil (100 vendas/mês)</strong>.
+        </div>
+      </div>
+
+      <!-- Escada de Valor -->
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title"><i class="fa-solid fa-stairs"></i> Escada Oficial de Valor & Precificação</span>
+          <span class="tag tag-primary">Tabela de Preços</span>
+        </div>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Nível do Produto</th>
+                <th>Nome do Produto</th>
+                <th>Preço / Modelo</th>
+                <th>Duração / Escopo</th>
+                <th>Público Alvo</th>
+                <th>Canal de Aquisição</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="tag tag-amber">Front-End (Volume)</span></td>
+                <td><strong>Diagnóstico Empresarial Automatizado</strong></td>
+                <td><strong>R$ 250</strong> (12x de ~R$ 25)</td>
+                <td>Imediato (Formulário + IA)</td>
+                <td>Pequenos e Médios Empresários</td>
+                <td>Tráfego Pago, BNI, Redes Sociais</td>
+              </tr>
+              <tr>
+                <td><span class="tag tag-amber">Front-End (RH)</span></td>
+                <td><strong>Ferramenta RH Tech DIY</strong></td>
+                <td><strong>R$ 250</strong> por processo</td>
+                <td>Autônomo (Autoatendimento)</td>
+                <td>Empresários contratando equipe</td>
+                <td>Conteúdo de Contratação / Indicação</td>
+              </tr>
+              <tr>
+                <td><span class="tag tag-purple">Recorrência (MRR)</span></td>
+                <td><strong>Assistente IA "Júlio"</strong></td>
+                <td><strong>R$ 120 / mês</strong></td>
+                <td>Recorrente / Sem fidelidade</td>
+                <td>Compradores do Diagnóstico</td>
+                <td>Upsell pós-diagnóstico (10% conv.)</td>
+              </tr>
+              <tr>
+                <td><span class="tag tag-blue">Mid-Ticket</span></td>
+                <td><strong>Diagnóstico via Entrevista Aprofundada</strong></td>
+                <td><strong>R$ 980 a R$ 1.200</strong></td>
+                <td>Sessão 2h + Relatório Completo</td>
+                <td>PMEs com faturamento > R$ 300k</td>
+                <td>Qualificação do formulário / Venda direta</td>
+              </tr>
+              <tr>
+                <td><span class="tag tag-emerald">High-Ticket Modular</span></td>
+                <td><strong>Estruturação de Conselho Familiar</strong></td>
+                <td><strong>Sob Consulta (R$ 8k - R$ 15k)</strong></td>
+                <td><strong>3 Meses Fechados</strong> (3 sessões)</td>
+                <td>Empresas Familiares em Sucessão</td>
+                <td>Prospecção ativa / Rede BNI / Almoços</td>
+              </tr>
+              <tr>
+                <td><span class="tag tag-emerald">High-Ticket Modular</span></td>
+                <td><strong>Planejamento Estratégico Modular</strong></td>
+                <td><strong>Sob Consulta</strong></td>
+                <td><strong>3 Meses Fechados</strong> (Plano 12M)</td>
+                <td>PMEs em fase de expansão</td>
+                <td>Evolução pós-diagnóstico entrevista</td>
+              </tr>
+              <tr>
+                <td><span class="tag tag-primary">Serviço Pontual</span></td>
+                <td><strong>Acompanhamento de Conselho (Opcional)</strong></td>
+                <td><strong>R$ 2.200 a R$ 2.400 / mês</strong></td>
+                <td>2 reuniões/mês (Extra: R$ 600/sessão)</td>
+                <td>Clientes de Conselho estruturado</td>
+                <td>Contrato de continuidade delimitado</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Pesquisa Ativa de 100 Ligações & Pitch -->
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title"><i class="fa-solid fa-phone-volume"></i> Validação Ativa: 100 Ligações com PMEs</span>
+            <span class="tag tag-amber">Ação Imediata</span>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">
+            Luiz Portal executará uma amostragem com 100 empresários locais para validar a dor de recrutamento e diagnóstico antes de escalar campanhas.
+          </p>
+          <div class="step-timeline">
+            <div class="step-item">
+              <div class="step-num">1</div>
+              <div class="step-content">
+                <h4>Gancho de Aquecimento</h4>
+                <p><em>"Você tem recrutado na sua empresa? Como é o seu processo de seleção hoje? Você contrata na tora ou por indicação?"</em></p>
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-num">2</div>
+              <div class="step-content">
+                <h4>Apresentação da Solução DIY</h4>
+                <p><em>"E se você tivesse uma ferramenta orientada que faz as perguntas técnicas e comportamentais certas por R$ 250 parcelado?"</em></p>
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-num">3</div>
+              <div class="step-content">
+                <h4>Fechamento do Teste</h4>
+                <p>Mensuração direta de intenção de compra real para calibrar o discurso de vendas.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title"><i class="fa-solid fa-quote-left"></i> Script & Narrativa: "O Custo de Não Saber"</span>
+            <span class="tag tag-rose">Narrativa Comercial</span>
+          </div>
+          <div class="alert-box warning" style="margin-bottom: 1rem;">
+            <strong>Argumento Central de Vendas:</strong>
+            <p style="margin-top: 0.5rem; font-size: 0.88rem; font-style: italic;">
+              "Mais da metade das PMEs brasileiras quebram nos primeiros anos por não enxergarem seus gargalos. Quanto está custando todo mês para você não saber onde sua empresa está perdendo dinheiro? Você não precisa de uma consultoria de R$ 20 mil para dar o primeiro passo. Por R$ 250 parcelado em 12 vezes você tem um diagnóstico completo e sabe exatamente o que cobrar da sua equipe ou da sua contabilidade."
+            </p>
+          </div>
+          <ul style="font-size: 0.88rem; color: var(--text-main); margin-left: 1.25rem; line-height: 1.7;">
+            <li><strong>Quebra de Objeção de Preço:</strong> Custa menos que um almoço de negócios por mês.</li>
+            <li><strong>Quebra de Objeção de Execução:</strong> Acompanha o caderno prático de ativação.</li>
+            <li><strong>Gatilho de Urgência:</strong> Estatística real de mortalidade de empresas desassistidas.</li>
+          </ul>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ==========================================
+         TAB 4: MARKETING & CONTEÚDO
+         ========================================== -->
+    <section class="tab-panel" id="tab-marketing">
+
+      <div class="alert-box info">
+        <i class="fa-solid fa-bullhorn"></i>
+        <div>
+          <strong>Diretriz de Marketing & Autoridade:</strong> Construção de autoridade consistente sem depender do formato batido de podcast tradicional. Foco em colaborações informais com grandes referências e demonstração pública de competência técnica em IA + Gestão.
+        </div>
+      </div>
+
+      <div class="grid-2">
+        
+        <!-- Formato Inovador: Almoço / Jantar Gravado -->
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title"><i class="fa-solid fa-utensils"></i> Formato de Conteúdo: "Collabs Informais"</span>
+            <span class="tag tag-purple">Superação do Podcast</span>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+            O formato de podcast tornou-se saturado e pejorativo. A estratégia adotada será conversas autênticas gravadas em ambientes dinâmicos (almoços de negócios, jantares ou mesas redondas informais):
+          </p>
+          <ul style="font-size: 0.88rem; color: var(--text-main); margin-left: 1.25rem; line-height: 1.7;">
+            <li><strong>Tom Natural:</strong> Diálogos que aparentam não ter objetivo comercial explícito, mas culminam em pitches sutis de produtos fatiados.</li>
+            <li><strong>Collabs de Peso:</strong>
+              <ul>
+                <li><strong>Marcelo Nogueira:</strong> Crescimento e escala de empresas.</li>
+                <li><strong>Rogério Magalhães:</strong> Reforma tributária e gestão fiscal.</li>
+                <li><strong>Aline & Cadu:</strong> Estratégia de lançamento e audiência.</li>
+              </ul>
+            </li>
+            <li><strong>Monetização de Eventos ("Almoço com o Senhor"):</strong> Cobrança de taxa de participação para cobrir custos e transformar o evento em fonte de receita e geração de leads qualificados.</li>
+          </ul>
+        </div>
+
+        <!-- Estratégia de Conteúdo de Cleber & Luiz -->
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title"><i class="fa-solid fa-video"></i> Grade Editorial: 3 Vídeos Semanais</span>
+            <span class="tag tag-emerald">YouTube, LinkedIn & Instagram</span>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+            Início da produção regular e disciplinada a partir de <strong>25 de Agosto de 2026</strong>:
+          </p>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Pilar</th>
+                  <th>Responsável</th>
+                  <th>Tema Central</th>
+                  <th>Chamada para Ação (CTA)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Gestão & Negócios</strong></td>
+                  <td>Luiz Portal</td>
+                  <td>Miopia empresarial, conselho familiar e finanças</td>
+                  <td>Fazer Diagnóstico R$ 250</td>
+                </tr>
+                <tr>
+                  <td><strong>Tech, IA & Processos</strong></td>
+                  <td>Cleber</td>
+                  <td>Automação de rotinas com IA, DRE via prompts, RH Tech</td>
+                  <td>Usar Ferramenta RH DIY</td>
+                </tr>
+                <tr>
+                  <td><strong>Casos Reais</strong></td>
+                  <td>Ambos / Collab</td>
+                  <td>Bastidores de empresas atendidas (Goianita, Sampietro)</td>
+                  <td>Conhecer Portfólio Modular</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Posicionamento Digital do Cleber -->
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title"><i class="fa-solid fa-user-astronaut"></i> Posicionamento Estratégico de Cleber</span>
+          <span class="tag tag-primary">Autoridade Técnica</span>
+        </div>
+        <p style="font-size: 0.92rem; color: var(--text-main); margin-bottom: 1rem;">
+          Luiz destacou na reunião o grande diferencial competitivo que a bagagem de Cleber confere à empresa: <strong>a união entre IA avançada, modelagem de processos, gestão ágil e gestão de pessoas</strong>. A maioria dos profissionais de tecnologia entende de código, mas desconhece a dor prática do empresário.
+        </p>
+        <div class="grid-3">
+          <div class="kpi-card highlight">
+            <span class="kpi-label">Eixo 1</span>
+            <span class="kpi-value" style="font-size: 1.2rem;">IA Aplicada a Negócios</span>
+            <span class="kpi-sub">Prompts de gestão, automação de dados e bots operacionais úteis.</span>
+          </div>
+          <div class="kpi-card highlight">
+            <span class="kpi-label">Eixo 2</span>
+            <span class="kpi-value" style="font-size: 1.2rem;">Processos & Governança</span>
+            <span class="kpi-sub">Desenhando rotinas claras que eliminam dependência de indivíduos.</span>
+          </div>
+          <div class="kpi-card highlight">
+            <span class="kpi-label">Eixo 3</span>
+            <span class="kpi-value" style="font-size: 1.2rem;">Gestão de Projetos & Pessoas</span>
+            <span class="kpi-sub">Estruturação de times eficientes e fluxos com início, meio e fim.</span>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ==========================================
+         TAB 5: OPERAÇÕES & PARCERIAS
+         ========================================== -->
+    <section class="tab-panel" id="tab-operations">
+
+      <div class="alert-box warning">
+        <i class="fa-solid fa-handshake-angle"></i>
+        <div>
+          <strong>Diretriz Operacional:</strong> A empresa operará como um <strong>Hub de Diagnóstico e Estruturação</strong>. Elimina-se a intermediação financeira e contratual com executores de ponta (marketing, design, contabilidade). O cliente contrata diretamente o parceiro homologado.
+        </div>
+      </div>
+
+      <!-- Diagrama de Desintermediação -->
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title"><i class="fa-solid fa-network-wired"></i> Novo Modelo Operacional de Ecossistema de Parceiros</span>
+          <span class="tag tag-primary">Fluxo Descentralizado</span>
+        </div>
+        <div class="diagram-container">
+          <pre class="mermaid">
+flowchart TD
+    Cliente[Cliente PME] -->|1. Compra Diagnóstico| Empresa[Nossa Empresa (Hub Estratégico)]
+    Empresa -->|2. Identifica Gargalos & Cria Briefing| Briefing[Briefing Padronizado de Entrega]
+    
+    Briefing -->|3. Encaminhamento Financeiro| Agregar[Agregar (BPO / Gestão Financeira)]
+    Briefing -->|3. Encaminhamento Design/Mkt| VW[Visual Work (Design & Operações)]
+    Briefing -->|3. Encaminhamento Vendas| Formacao[Cursos de Vendas & Liderança]
+
+    Agregar -.->|Contrato & Pagamento Direto| Cliente
+    VW -.->|Contrato & Pagamento Direto| Cliente
+    Formacao -.->|Comissão de Indicação| Empresa
+          </pre>
+        </div>
+      </div>
+
+      <!-- Detalhamento de Operações e SLAs -->
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title"><i class="fa-solid fa-plug"></i> Rede Homologada de Parceiros</span>
+            <span class="tag tag-emerald">Contratos Diretos</span>
+          </div>
+          <ul style="font-size: 0.9rem; color: var(--text-main); display: flex; flex-direction: column; gap: 0.85rem; list-style: none;">
+            <li><i class="fa-solid fa-check-circle" style="color: var(--accent-emerald);"></i> <strong>Agregar (Área Financeira):</strong> Parceiro estratégico para BPO, DRE e reestruturação financeira complexa.</li>
+            <li><i class="fa-solid fa-check-circle" style="color: var(--accent-emerald);"></i> <strong>Visual Work (Operacional/Design):</strong> Terceiro contratado diretamente pelo cliente para execuções gráficas e digitais.</li>
+            <li><i class="fa-solid fa-check-circle" style="color: var(--accent-emerald);"></i> <strong>Formação de Líderes & Vendas:</strong> Parcerias de treinamentos presenciais/remotos (~R$ 4.000) com repasse percentual de comissão.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title"><i class="fa-solid fa-clock-rotate-left"></i> Resolução de Gargalos & SLAs Internos</span>
+            <span class="tag tag-rose">Operações Kelvin / Lani</span>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+            Identificado na reunião o desgaste em atrasos de comunicação entre Kelvin e Lani na entrega de materiais a clientes:
+          </p>
+          <ul style="font-size: 0.88rem; color: var(--text-main); margin-left: 1.25rem; line-height: 1.7;">
+            <li><strong>Protocolo de Briefing:</strong> Toda solicitação a parceiros deve conter documento estruturado com entregáveis, prazos e escopo fechado.</li>
+            <li><strong>SLA Rígido de Resposta:</strong> Limite máximo de 24h para alinhamentos operacionais entre elos de entrega.</li>
+            <li><strong>Isenção de Responsabilidade de Execução:</strong> Se o parceiro falhar na entrega da mão de obra, a responsabilidade jurídica e operacional é direta entre cliente e terceiro.</li>
+          </ul>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ==========================================
+         TAB 6: GOVERNANÇA & JURÍDICO
+         ========================================== -->
+    <section class="tab-panel" id="tab-legal">
+
+      <div class="alert-box danger">
+        <i class="fa-solid fa-shield-halved"></i>
+        <div>
+          <strong>Diretriz Jurídica e de Governança:</strong> Todos os novos contratos devem conter a cláusula expressa de <strong>"Defesa do CNPJ"</strong>. O contrato não é uma assessoria para concordar com a vontade pessoal do fundador, mas para garantir a sustentabilidade do negócio e seus sucessores.
+        </div>
+      </div>
+
+      <!-- Detalhamento dos Produtos High-Ticket Modulares -->
+      <div class="grid-2">
+        
+        <!-- Conselho Familiar -->
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title"><i class="fa-solid fa-people-roof"></i> Estruturação de Conselho Familiar</span>
+            <span class="tag tag-purple">Escopo Fechado de 3 Meses</span>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+            Produto desenhado para sanar conflitos societários e viabilizar a sucessão profissional em empresas familiares:
+          </p>
+          <div class="step-timeline">
+            <div class="step-item">
+              <div class="step-num">1</div>
+              <div class="step-content">
+                <h4>Diagnóstico Individual & Coletivo</h4>
+                <p>Entrevistas confidenciais com o fundador e seus sucessores para mapear gargalos de relacionamento e governança.</p>
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-num">2</div>
+              <div class="step-content">
+                <h4>Estruturação do Estatuto / Regras</h4>
+                <p>Apresentação e aprovação interna do projeto de funcionamento do conselho familiar.</p>
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-num">3</div>
+              <div class="step-content">
+                <h4>3 Primeiras Sessões Conduzidas</h4>
+                <p>Facilitação das primeiras reuniões oficiais com a participação ativa de Luiz Portal.</p>
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-num">4</div>
+              <div class="step-content">
+                <h4>Entrega do Relatório & Trilha de 12 Meses</h4>
+                <p>Início, meio e fim: documento contendo a trilha de desenvolvimento de cada herdeiro/membro para o ano.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Planejamento Estratégico Modular -->
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title"><i class="fa-solid fa-compass-drafting"></i> Planejamento Estratégico Modular</span>
+            <span class="tag tag-emerald">Escopo Fechado de 3 Meses</span>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+            Entrega pura de inteligência estratégica sem responsabilidade por mão de obra braçal:
+          </p>
+          <ul style="font-size: 0.88rem; color: var(--text-main); margin-left: 1.25rem; line-height: 1.7; margin-bottom: 1.25rem;">
+            <li><strong>Módulo 1:</strong> Diagnóstico Empresarial completo em profundidade.</li>
+            <li><strong>Módulo 2:</strong> Definição de metas, OKRs, planos de ação e alocação de recursos para 12 meses.</li>
+            <li><strong>Fronteira Explícita em Contrato:</strong> <em>"Este contrato encerra-se com a entrega do documento de Planejamento. Não inclui execução de rotinas, postagens, lançamentos contábeis ou vendas."</em></li>
+          </ul>
+
+          <div class="card-header" style="margin-top: 1rem;">
+            <span class="card-title" style="font-size: 1.05rem;"><i class="fa-solid fa-file-contract"></i> Cláusulas Mandatórias de Blindagem</span>
+          </div>
+          <ul style="font-size: 0.85rem; color: var(--text-muted); margin-left: 1.25rem; line-height: 1.6;">
+            <li><strong>Teto de Reuniões:</strong> Número exato de encontros presenciais ou virtuais pré-definidos.</li>
+            <li><strong>Reuniões Extras Tarifadas:</strong> R$ 600,00 por encontro avulso caso o cliente solicite reuniões adicionais.</li>
+            <li><strong>Defesa do CNPJ:</strong> Cláusula que resguarda a independência técnica do parecer em caso de divergência com o dono.</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ==========================================
+         TAB 7: FINANCEIRO & SIMULADOR
+         ========================================== -->
+    <section class="tab-panel" id="tab-finance">
+
+      <div class="alert-box success">
+        <i class="fa-solid fa-money-bill-trend-up"></i>
+        <div>
+          <strong>Projeções Financeiras & Unit Economics:</strong> Transição de um faturamento errático e dependente de 2 ou 3 clientes grandes para uma base pulverizada de 100 a 500 assinantes/compradores com alta margem de contribuição.
+        </div>
+      </div>
+
+      <!-- KPI Summary Cards -->
+      <div class="grid-4">
+        <div class="kpi-card highlight">
+          <span class="kpi-label">Diagnósticos (Piloto)</span>
+          <span class="kpi-value">R$ 25.000</span>
+          <span class="kpi-sub">100 diagnósticos/mês a R$ 250</span>
+        </div>
+        <div class="kpi-card highlight">
+          <span class="kpi-label">MRR Inicial Júlio IA</span>
+          <span class="kpi-value">R$ 1.200</span>
+          <span class="kpi-sub">10 assinantes/mês (10% conv. cumulativa)</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-label">Cenário Expansão</span>
+          <span class="kpi-value">R$ 125.000</span>
+          <span class="kpi-sub">500 diagnósticos/mês a R$ 250</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-label">MRR Acumulado (12M)</span>
+          <span class="kpi-value">R$ 14.400+</span>
+          <span class="kpi-sub">Base ativa contínua do assistente IA</span>
+        </div>
+      </div>
+
+      <!-- Interactive Financial Simulator -->
+      <div class="simulator-box">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+          <h3 style="font-size: 1.4rem; font-weight: 700; color: white;"><i class="fa-solid fa-sliders"></i> Simulador Interativo de Faturamento & Recorrência</h3>
+          <span class="badge-header highlight"><i class="fa-solid fa-bolt"></i> Tempo Real</span>
+        </div>
+
+        <div class="sim-controls">
+          <div class="control-group">
+            <label for="rangeDiag">Diagnósticos Automatizados / mês: <strong id="valDiag">100</strong></label>
+            <input type="range" id="rangeDiag" min="20" max="1000" step="10" value="100">
+          </div>
+
+          <div class="control-group">
+            <label for="rangePriceDiag">Preço do Diagnóstico (R$): <strong id="valPriceDiag">R$ 250</strong></label>
+            <input type="range" id="rangePriceDiag" min="150" max="500" step="50" value="250">
+          </div>
+
+          <div class="control-group">
+            <label for="rangeConvJulio">Taxa de Conversão no Júlio IA (%): <strong id="valConvJulio">10%</strong></label>
+            <input type="range" id="rangeConvJulio" min="5" max="30" step="1" value="10">
+          </div>
+
+          <div class="control-group">
+            <label for="rangeConselho">Projetos High-Ticket (Conselho/Plan) / mês: <strong id="valConselho">2</strong></label>
+            <input type="range" id="rangeConselho" min="0" max="10" step="1" value="2">
+          </div>
+        </div>
+
+        <div class="sim-results">
+          <div class="sim-result-card">
+            <div class="res-label">Receita Diagnósticos</div>
+            <div class="res-value" id="resDiag">R$ 25.000</div>
+          </div>
+          <div class="sim-result-card">
+            <div class="res-label">Novos Assinantes Júlio/mês</div>
+            <div class="res-value" id="resNovosJulio">10</div>
+          </div>
+          <div class="sim-result-card">
+            <div class="res-label">MRR Novo Júlio (R$120/m)</div>
+            <div class="res-value" id="resMRR">R$ 1.200</div>
+          </div>
+          <div class="sim-result-card">
+            <div class="res-label">Receita High-Ticket (~R$8k)</div>
+            <div class="res-value" id="resHighTicket">R$ 16.000</div>
+          </div>
+          <div class="sim-result-card highlight">
+            <div class="res-label">Faturamento Total Mensal</div>
+            <div class="res-value" id="resTotal">R$ 42.200</div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ==========================================
+         TAB 8: ROADMAP & MATRIZ RACI
+         ========================================== -->
+    <section class="tab-panel" id="tab-roadmap">
+
+      <div class="alert-box info">
+        <i class="fa-solid fa-list-check"></i>
+        <div>
+          <strong>Plano de Ação Integrado (Piloto de 60 Dias):</strong> Atividades, prazos limites, dependências e matriz RACI para implantação imediata entre Agosto e Outubro de 2026.
+        </div>
+      </div>
+
+      <!-- Gantt / Timeline Diagram -->
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title"><i class="fa-solid fa-timeline"></i> Cronograma Geral de Implantação (Gantt)</span>
+          <span class="tag tag-primary">Agosto - Outubro 2026</span>
+        </div>
+        <div class="diagram-container">
+          <pre class="mermaid">
+gantt
+    title Cronograma de Execução do Piloto
+    dateFormat  YYYY-MM-DD
+    section Fase 1: Portfólio & Contratos
+    Benchmarking & Preços HR Techs (A-01, A-02) :done, 2026-08-14, 2026-08-17
+    Manual do Portfólio Modular                 :active, 2026-08-14, 2026-08-20
+    Minutas com Cláusula CNPJ (AI-03)           :active, 2026-08-16, 2026-08-22
+    section Fase 2: Narrativa & Cadernos
+    Narrativa Comercial & Copywriting           :2026-08-18, 2026-08-23
+    Cadernos de Ativação (DRE/Processos)        :2026-08-20, 2026-09-02
+    Setup Técnico do Júlio IA (Cleber)          :2026-08-22, 2026-08-30
+    section Fase 3: Parcerias & Validação
+    Protocolo & SLAs Parceiros (Kelvin/Lani)    :2026-08-20, 2026-08-27
+    100 Ligações de Validação PMEs (Luiz)       :2026-08-23, 2026-08-31
+    section Fase 4: Go-to-Market & Piloto
+    Início do Conteúdo (3x/semana)              :2026-08-25, 2026-10-31
+    Operação Comercial Piloto (Meta 100/mês)    :2026-09-01, 2026-10-31
+          </pre>
+        </div>
+      </div>
+
+      <!-- Matriz RACI Completa -->
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title"><i class="fa-solid fa-table-list"></i> Matriz RACI Oficial das Demandas</span>
+          <span class="tag tag-emerald">RACI Completo</span>
+        </div>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Código</th>
+                <th>Demanda / Atividade</th>
+                <th>Entregável</th>
+                <th>(R) Executor</th>
+                <th>(A) Aprovador</th>
+                <th>(C) Consultado</th>
+                <th>(I) Informado</th>
+                <th>Prazo</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>A-01</strong></td>
+                <td>Benchmarking de Preços HR Techs</td>
+                <td>Relatório comparativo ATS</td>
+                <td>Cleber</td>
+                <td>Luiz Portal</td>
+                <td>Equipe</td>
+                <td>Equipe</td>
+                <td>17/08/2026</td>
+                <td><span class="tag tag-emerald">Concluído</span></td>
+              </tr>
+              <tr>
+                <td><strong>A-02</strong></td>
+                <td>Definição Final de Preços</td>
+                <td>Tabela oficial de preços</td>
+                <td>Luiz Portal</td>
+                <td>Luiz Portal</td>
+                <td>Cleber</td>
+                <td>Equipe</td>
+                <td>19/08/2026</td>
+                <td><span class="tag tag-amber">Em Andamento</span></td>
+              </tr>
+              <tr>
+                <td><strong>AI-04</strong></td>
+                <td>Banir Termo "Consultoria"</td>
+                <td>Apresentações e site revisados</td>
+                <td>Todos</td>
+                <td>Luiz Portal</td>
+                <td>Cleber</td>
+                <td>Parceiros</td>
+                <td>Imediato</td>
+                <td><span class="tag tag-emerald">Ativo</span></td>
+              </tr>
+              <tr>
+                <td><strong>AI-03</strong></td>
+                <td>Minutas de Contrato & Cláusula CNPJ</td>
+                <td>Contratos de Conselho/Plan</td>
+                <td>Cleber</td>
+                <td>Luiz Portal</td>
+                <td>Jurídico</td>
+                <td>Parceiros</td>
+                <td>22/08/2026</td>
+                <td><span class="tag tag-amber">Em Andamento</span></td>
+              </tr>
+              <tr>
+                <td><strong>A-03</strong></td>
+                <td>Narrativa de Vendas & Copywriting</td>
+                <td>Scripts "Custo de Não Saber"</td>
+                <td>Cleber</td>
+                <td>Luiz Portal</td>
+                <td>Aline/Cadu</td>
+                <td>Equipe</td>
+                <td>23/08/2026</td>
+                <td><span class="tag tag-primary">Planejado</span></td>
+              </tr>
+              <tr>
+                <td><strong>F2.2</strong></td>
+                <td>Cadernos de Ativação (DRE/Vendas)</td>
+                <td>Manuais práticos para PMEs</td>
+                <td>Cleber</td>
+                <td>Cleber</td>
+                <td>Luiz Portal</td>
+                <td>Clientes</td>
+                <td>02/09/2026</td>
+                <td><span class="tag tag-primary">Planejado</span></td>
+              </tr>
+              <tr>
+                <td><strong>F2.3</strong></td>
+                <td>Setup do Assistente "Júlio IA"</td>
+                <td>Bot configurado com RAG</td>
+                <td>Cleber</td>
+                <td>Cleber</td>
+                <td>Luiz Portal</td>
+                <td>Equipe</td>
+                <td>30/08/2026</td>
+                <td><span class="tag tag-primary">Planejado</span></td>
+              </tr>
+              <tr>
+                <td><strong>F3.1</strong></td>
+                <td>Protocolo de Parceiros & SLAs</td>
+                <td>Acordos Agregar / Visual Work</td>
+                <td>Kelvin</td>
+                <td>Luiz Portal</td>
+                <td>Cleber</td>
+                <td>Lani</td>
+                <td>27/08/2026</td>
+                <td><span class="tag tag-primary">Planejado</span></td>
+              </tr>
+              <tr>
+                <td><strong>AI-01</strong></td>
+                <td>100 Ligações de Validação de ICP</td>
+                <td>Mapeamento de 100 PMEs</td>
+                <td>Luiz Portal</td>
+                <td>Luiz Portal</td>
+                <td>Cleber</td>
+                <td>Equipe</td>
+                <td>31/08/2026</td>
+                <td><span class="tag tag-primary">Planejado</span></td>
+              </tr>
+              <tr>
+                <td><strong>AI-02</strong></td>
+                <td>Piloto Comercial de 60 Dias</td>
+                <td>Meta 100 diagnósticos/mês</td>
+                <td>Luiz Portal</td>
+                <td>Luiz Portal</td>
+                <td>Cleber</td>
+                <td>Todos</td>
+                <td>01/09 a 31/10</td>
+                <td><span class="tag tag-purple">Agendado</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Checklist de Segunda-feira -->
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title"><i class="fa-solid fa-square-check"></i> Checklist de Ação Imediata (Próximos 5 Dias)</span>
+          <span class="tag tag-rose">Prioridade Máxima</span>
+        </div>
+        <ul style="font-size: 0.92rem; color: var(--text-main); display: flex; flex-direction: column; gap: 0.75rem; list-style: none;">
+          <li><i class="fa-regular fa-square"></i> <strong>1. Atualização Cadastral & Acessos:</strong> Validar credenciais de acesso para testes de plataformas e ferramentas (incluindo acesso de suporte).</li>
+          <li><i class="fa-regular fa-square"></i> <strong>2. Redação do Contrato de Conselho Familiar:</strong> Formalizar a minuta padrão contendo os 3 meses de duração, 3 reuniões de conselho e a cláusula de Defesa do CNPJ.</li>
+          <li><i class="fa-regular fa-square"></i> <strong>3. Início das 100 Ligações de Pesquisa:</strong> Luiz disparar as primeiras 20 ligações para validação do script de recrutamento DIY R$ 250.</li>
+          <li><i class="fa-regular fa-square"></i> <strong>4. Estruturação do Repositório do Júlio IA:</strong> Cleber organizar a base vetorial e prompts do assistente inteligente.</li>
+          <li><i class="fa-regular fa-square"></i> <strong>5. Agendamento com Parceiros Estratégicos:</strong> Reunião com Aline/Cadu e almoço com Wagner (Capital Mídias).</li>
+        </ul>
+      </div>
+
+    </section>
+
+  </div>
+
+  <!-- Page Footer -->
+  <footer class="page-footer">
+    <p>Documento Estratégico e Apresentação Executiva Departamental &copy; 2026 — Synkra AIOX / Consultoria Estratégica.</p>
+    <p style="margin-top: 0.35rem; color: var(--text-light); font-size: 0.78rem;">
+      Gerado com base na Sessão de Estratégia de Produto, Mercado e Modelo de Negócio de 13 de Agosto de 2026.
+    </p>
+  </footer>
+
+  <!-- Script for Tabs & Interactive Simulator -->
+  <script>
+    // Tab Navigation Logic
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabPanels = document.querySelectorAll('.tab-panel');
+
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetTab = btn.getAttribute('data-tab');
+
+        tabButtons.forEach(b => b.classList.remove('active'));
+        tabPanels.forEach(p => p.classList.remove('active'));
+
+        btn.classList.add('active');
+        const targetPanel = document.getElementById(targetTab);
+        if (targetPanel) {
+          targetPanel.classList.add('active');
+          // Re-render mermaid if needed in the tab
+          mermaid.contentLoaded();
+        }
+      });
+    });
+
+    // Financial Simulator Logic
+    const rangeDiag = document.getElementById('rangeDiag');
+    const rangePriceDiag = document.getElementById('rangePriceDiag');
+    const rangeConvJulio = document.getElementById('rangeConvJulio');
+    const rangeConselho = document.getElementById('rangeConselho');
+
+    const valDiag = document.getElementById('valDiag');
+    const valPriceDiag = document.getElementById('valPriceDiag');
+    const valConvJulio = document.getElementById('valConvJulio');
+    const valConselho = document.getElementById('valConselho');
+
+    const resDiag = document.getElementById('resDiag');
+    const resNovosJulio = document.getElementById('resNovosJulio');
+    const resMRR = document.getElementById('resMRR');
+    const resHighTicket = document.getElementById('resHighTicket');
+    const resTotal = document.getElementById('resTotal');
+
+    function updateSimulator() {
+      const diagCount = parseInt(rangeDiag.value, 10);
+      const diagPrice = parseInt(rangePriceDiag.value, 10);
+      const convJulio = parseInt(rangeConvJulio.value, 10) / 100;
+      const conselhoCount = parseInt(rangeConselho.value, 10);
+
+      // Labels
+      valDiag.innerText = diagCount;
+      valPriceDiag.innerText = `R$ ${diagPrice}`;
+      valConvJulio.innerText = `${(convJulio * 100).toFixed(0)}%`;
+      valConselho.innerText = conselhoCount;
+
+      // Calculations
+      const totalDiagRevenue = diagCount * diagPrice;
+      const novosJulioCount = Math.round(diagCount * convJulio);
+      const mrrJulio = novosJulioCount * 120;
+      const highTicketRevenue = conselhoCount * 8000; // ticket médio estimado de R$ 8.000
+      const totalRevenue = totalDiagRevenue + mrrJulio + highTicketRevenue;
+
+      // Outputs
+      resDiag.innerText = `R$ ${totalDiagRevenue.toLocaleString('pt-BR')}`;
+      resNovosJulio.innerText = novosJulioCount;
+      resMRR.innerText = `R$ ${mrrJulio.toLocaleString('pt-BR')}`;
+      resHighTicket.innerText = `R$ ${highTicketRevenue.toLocaleString('pt-BR')}`;
+      resTotal.innerText = `R$ ${totalRevenue.toLocaleString('pt-BR')}`;
+    }
+
+    rangeDiag.addEventListener('input', updateSimulator);
+    rangePriceDiag.addEventListener('input', updateSimulator);
+    rangeConvJulio.addEventListener('input', updateSimulator);
+    rangeConselho.addEventListener('input', updateSimulator);
+
+    // Initial calculation
+    updateSimulator();
+  </script>
+</body>
+</html>
