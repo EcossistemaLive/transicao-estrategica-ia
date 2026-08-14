@@ -11,31 +11,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
-  <!-- Mermaid.js with safe dynamic rendering -->
-  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js">
-    // Tab 9: Category Filter Logic
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const productCards = document.querySelectorAll('.product-card');
-
-    filterButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const filter = btn.getAttribute('data-filter');
-
-        filterButtons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-
-        productCards.forEach(card => {
-          const category = card.getAttribute('data-category');
-          if (filter === 'all' || category === filter) {
-            card.style.display = 'flex';
-          } else {
-            card.style.display = 'none';
-          }
-        });
-      });
-    });
-
-  </script>
+  <!-- Mermaid.js -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
   <script>
     mermaid.initialize({
       startOnLoad: false,
@@ -49,32 +26,10 @@
         tertiaryColor: '#ffffff'
       }
     });
-  
-    // Tab 9: Category Filter Logic
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const productCards = document.querySelectorAll('.product-card');
-
-    filterButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const filter = btn.getAttribute('data-filter');
-
-        filterButtons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-
-        productCards.forEach(card => {
-          const category = card.getAttribute('data-category');
-          if (filter === 'all' || category === filter) {
-            card.style.display = 'flex';
-          } else {
-            card.style.display = 'none';
-          }
-        });
-      });
-    });
-
   </script>
 
   <style>
+
     :root {
       --primary: #4338ca;
       --primary-hover: #3730a3;
@@ -820,6 +775,7 @@
       .header-meta-box { text-align: left; }
     }
   
+
 /* Category Filter Navigation */
     .filter-wrapper {
       display: flex;
@@ -1117,8 +1073,7 @@
 </head>
 <body>
 
-  <!-- Top Header -->
-  <header class="top-header">
+<header class="top-header">
     <div class="header-content">
       <div class="header-title-block">
         <h1>Plano Estratégico de Transição: Produtos Escaláveis & IA</h1>
@@ -1158,10 +1113,7 @@
       </nav>
     </div>
 
-    <!-- ==========================================
-         TAB 1: DIRETORIA & ESTRATÉGIA
-         ========================================== -->
-    <section class="tab-panel active" id="tab-board">
+<section class="tab-panel active" id="tab-board">
       
       <!-- Alert Box -->
       <div class="alert-box danger">
@@ -2317,6 +2269,7 @@
 
     </section>
 
+
     <!-- ==========================================
          TAB 9: CATÁLOGO DE PRODUTOS & SOLUÇÕES (15)
          ========================================== -->
@@ -2324,7 +2277,7 @@
       <div class="alert-box ai" style="margin-bottom: 2rem;">
         <i class="fa-solid fa-cubes-stacked"></i>
         <div>
-          <h4 style="color: #4338ca; margin-bottom: 0.25rem;">Portfólio Oficial & Esteira Modular de Soluções — Ecossistema Live</h4>
+          <h4 style="color: #4338ca; margin-bottom: 0.25rem; font-size: 1.1rem; font-weight: 800;">Portfólio Oficial & Esteira Modular de Soluções — Ecossistema Live</h4>
           <p style="font-size: 0.9rem; color: #334155; margin: 0;">
             Conheça todas as 15 soluções desenhadas sob as <strong>Diretrizes Soberanas</strong>: entregas delimitadas com Início, Meio e Fim, sem execução de rotinas braçais, com uso intensivo de Inteligência Artificial e Defesa Inegociável da Saúde do CNPJ.
           </p>
@@ -3171,12 +3124,7 @@
         </table>
       </div>
     </div>
-
-  </div>
-
-  
     </section>
-
 
   </div>
 
@@ -3188,101 +3136,111 @@
     </p>
   </footer>
 
-  <!-- Script for Tabs & Interactive Simulator -->
+  <!-- Robust Script for Tabs, Financial Simulator & Category Filter -->
   <script>
-    // Tab Navigation Logic
-    const tabButtons = document.querySelectorAll('.tab-btn');
-    const tabPanels = document.querySelectorAll('.tab-panel');
+    document.addEventListener('DOMContentLoaded', function() {
+      // 1. Tab Navigation Logic
+      const tabButtons = document.querySelectorAll('.tab-btn');
+      const tabPanels = document.querySelectorAll('.tab-panel');
 
-    tabButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const targetTab = btn.getAttribute('data-tab');
+      tabButtons.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetTabId = this.getAttribute('data-tab');
 
-        tabButtons.forEach(b => b.classList.remove('active'));
-        tabPanels.forEach(p => p.classList.remove('active'));
+          // Remove active class from all buttons and panels
+          tabButtons.forEach(b => b.classList.remove('active'));
+          tabPanels.forEach(p => p.classList.remove('active'));
 
-        btn.classList.add('active');
-        const targetPanel = document.getElementById(targetTab);
-        if (targetPanel) {
-          targetPanel.classList.add('active');
-        }
-      });
-    });
+          // Add active class to clicked button
+          this.classList.add('active');
 
-    // Financial Simulator Logic
-    const rangeDiag = document.getElementById('rangeDiag');
-    const rangePriceDiag = document.getElementById('rangePriceDiag');
-    const rangeConvJulio = document.getElementById('rangeConvJulio');
-    const rangeConselho = document.getElementById('rangeConselho');
-
-    const valDiag = document.getElementById('valDiag');
-    const valPriceDiag = document.getElementById('valPriceDiag');
-    const valConvJulio = document.getElementById('valConvJulio');
-    const valConselho = document.getElementById('valConselho');
-
-    const resDiag = document.getElementById('resDiag');
-    const resNovosJulio = document.getElementById('resNovosJulio');
-    const resMRR = document.getElementById('resMRR');
-    const resHighTicket = document.getElementById('resHighTicket');
-    const resTotal = document.getElementById('resTotal');
-
-    function updateSimulator() {
-      const diagCount = parseInt(rangeDiag.value, 10);
-      const diagPrice = parseInt(rangePriceDiag.value, 10);
-      const convJulio = parseInt(rangeConvJulio.value, 10) / 100;
-      const conselhoCount = parseInt(rangeConselho.value, 10);
-
-      // Labels
-      valDiag.innerText = diagCount;
-      valPriceDiag.innerText = `R$ ${diagPrice}`;
-      valConvJulio.innerText = `${(convJulio * 100).toFixed(0)}%`;
-      valConselho.innerText = conselhoCount;
-
-      // Calculations
-      const totalDiagRevenue = diagCount * diagPrice;
-      const novosJulioCount = Math.round(diagCount * convJulio);
-      const mrrJulio = novosJulioCount * 120;
-      const highTicketRevenue = conselhoCount * 8000; // ticket médio estimado de R$ 8.000
-      const totalRevenue = totalDiagRevenue + mrrJulio + highTicketRevenue;
-
-      // Outputs
-      resDiag.innerText = `R$ ${totalDiagRevenue.toLocaleString('pt-BR')}`;
-      resNovosJulio.innerText = novosJulioCount;
-      resMRR.innerText = `R$ ${mrrJulio.toLocaleString('pt-BR')}`;
-      resHighTicket.innerText = `R$ ${highTicketRevenue.toLocaleString('pt-BR')}`;
-      resTotal.innerText = `R$ ${totalRevenue.toLocaleString('pt-BR')}`;
-    }
-
-    rangeDiag.addEventListener('input', updateSimulator);
-    rangePriceDiag.addEventListener('input', updateSimulator);
-    rangeConvJulio.addEventListener('input', updateSimulator);
-    rangeConselho.addEventListener('input', updateSimulator);
-
-    // Initial calculation
-    updateSimulator();
-  
-    // Tab 9: Category Filter Logic
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const productCards = document.querySelectorAll('.product-card');
-
-    filterButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const filter = btn.getAttribute('data-filter');
-
-        filterButtons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-
-        productCards.forEach(card => {
-          const category = card.getAttribute('data-category');
-          if (filter === 'all' || category === filter) {
-            card.style.display = 'flex';
-          } else {
-            card.style.display = 'none';
+          // Add active class to corresponding panel
+          const targetPanel = document.getElementById(targetTabId);
+          if (targetPanel) {
+            targetPanel.classList.add('active');
+            // Scroll smoothly to top of tabs nav if scrolled past
+            const navWrapper = document.querySelector('.tabs-nav-wrapper');
+            if (navWrapper && window.scrollY > navWrapper.offsetTop) {
+              navWrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
           }
         });
       });
-    });
 
+      // 2. Financial Simulator Logic
+      const rangeDiag = document.getElementById('rangeDiag');
+      const rangePriceDiag = document.getElementById('rangePriceDiag');
+      const rangeConvJulio = document.getElementById('rangeConvJulio');
+      const rangeConselho = document.getElementById('rangeConselho');
+
+      const valDiag = document.getElementById('valDiag');
+      const valPriceDiag = document.getElementById('valPriceDiag');
+      const valConvJulio = document.getElementById('valConvJulio');
+      const valConselho = document.getElementById('valConselho');
+
+      const resDiag = document.getElementById('resDiag');
+      const resNovosJulio = document.getElementById('resNovosJulio');
+      const resMRR = document.getElementById('resMRR');
+      const resHighTicket = document.getElementById('resHighTicket');
+      const resTotal = document.getElementById('resTotal');
+
+      function updateSimulator() {
+        if (!rangeDiag || !rangePriceDiag || !rangeConvJulio || !rangeConselho) return;
+
+        const diagCount = parseInt(rangeDiag.value, 10) || 0;
+        const diagPrice = parseInt(rangePriceDiag.value, 10) || 0;
+        const convJulio = (parseInt(rangeConvJulio.value, 10) || 0) / 100;
+        const conselhoCount = parseInt(rangeConselho.value, 10) || 0;
+
+        if (valDiag) valDiag.innerText = diagCount;
+        if (valPriceDiag) valPriceDiag.innerText = 'R$ ' + diagPrice;
+        if (valConvJulio) valConvJulio.innerText = (convJulio * 100).toFixed(0) + '%';
+        if (valConselho) valConselho.innerText = conselhoCount;
+
+        const totalDiagRevenue = diagCount * diagPrice;
+        const novosJulioCount = Math.round(diagCount * convJulio);
+        const mrrJulio = novosJulioCount * 120;
+        const highTicketRevenue = conselhoCount * 8000;
+        const totalRevenue = totalDiagRevenue + mrrJulio + highTicketRevenue;
+
+        if (resDiag) resDiag.innerText = 'R$ ' + totalDiagRevenue.toLocaleString('pt-BR');
+        if (resNovosJulio) resNovosJulio.innerText = novosJulioCount;
+        if (resMRR) resMRR.innerText = 'R$ ' + mrrJulio.toLocaleString('pt-BR');
+        if (resHighTicket) resHighTicket.innerText = 'R$ ' + highTicketRevenue.toLocaleString('pt-BR');
+        if (resTotal) resTotal.innerText = 'R$ ' + totalRevenue.toLocaleString('pt-BR');
+      }
+
+      if (rangeDiag) rangeDiag.addEventListener('input', updateSimulator);
+      if (rangePriceDiag) rangePriceDiag.addEventListener('input', updateSimulator);
+      if (rangeConvJulio) rangeConvJulio.addEventListener('input', updateSimulator);
+      if (rangeConselho) rangeConselho.addEventListener('input', updateSimulator);
+
+      updateSimulator();
+
+      // 3. Tab 9: Category Filter Logic
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      const productCards = document.querySelectorAll('.product-card');
+
+      filterButtons.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          const filter = this.getAttribute('data-filter');
+
+          filterButtons.forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+
+          productCards.forEach(card => {
+            const category = card.getAttribute('data-category');
+            if (filter === 'all' || category === filter) {
+              card.style.display = 'flex';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+    });
   </script>
 </body>
 </html>
