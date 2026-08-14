@@ -12,7 +12,30 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <!-- Mermaid.js with safe dynamic rendering -->
-  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js">
+    // Tab 9: Category Filter Logic
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const productCards = document.querySelectorAll('.product-card');
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.getAttribute('data-filter');
+
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        productCards.forEach(card => {
+          const category = card.getAttribute('data-category');
+          if (filter === 'all' || category === filter) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+  </script>
   <script>
     mermaid.initialize({
       startOnLoad: false,
@@ -26,6 +49,29 @@
         tertiaryColor: '#ffffff'
       }
     });
+  
+    // Tab 9: Category Filter Logic
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const productCards = document.querySelectorAll('.product-card');
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.getAttribute('data-filter');
+
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        productCards.forEach(card => {
+          const category = card.getAttribute('data-category');
+          if (filter === 'all' || category === filter) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
   </script>
 
   <style>
@@ -773,6 +819,300 @@
       .grid-2, .grid-3 { grid-template-columns: 1fr; }
       .header-meta-box { text-align: left; }
     }
+  
+/* Category Filter Navigation */
+    .filter-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2.5rem;
+      position: sticky;
+      top: 1rem;
+      z-index: 50;
+    }
+
+    .filter-nav {
+      display: flex;
+      gap: 0.4rem;
+      background: var(--bg-card);
+      padding: 0.4rem;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-lg);
+      overflow-x: auto;
+      max-width: 100%;
+    }
+
+    .filter-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.55rem 1.1rem;
+      border-radius: var(--radius-full);
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 0.84rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: var(--transition);
+    }
+
+    .filter-btn:hover {
+      color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    .filter-btn.active {
+      background: var(--primary);
+      color: white;
+      box-shadow: 0 4px 10px rgba(67, 56, 202, 0.3);
+    }
+
+    /* Product Grid */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .product-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-xl);
+      border-color: #cbd5e1;
+    }
+
+    .product-card.featured {
+      border-color: #818cf8;
+      box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+    }
+
+    .card-badge-top {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-full);
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-ia { background: #f3e8ff; color: #7e22ce; }
+    .badge-rh { background: #e0f2fe; color: #0369a1; }
+    .badge-cx { background: #fef3c7; color: #92400e; }
+    .badge-gov { background: #dcfce7; color: #15803d; }
+    .badge-edu { background: #ffe4e6; color: #be123c; }
+
+    .product-header {
+      margin-bottom: 1.25rem;
+      padding-right: 4.5rem;
+    }
+
+    .product-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-md);
+      background: var(--primary-light);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      margin-bottom: 1rem;
+    }
+
+    .product-title {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--secondary);
+      line-height: 1.3;
+      margin-bottom: 0.35rem;
+    }
+
+    .product-slug-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--text-light);
+    }
+
+    /* Section Blocks inside Card */
+    .section-block {
+      margin-bottom: 1.2rem;
+      font-size: 0.88rem;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .section-text {
+      color: #334155;
+      line-height: 1.55;
+    }
+
+    .deliverables-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-top: 0.35rem;
+    }
+
+    .deliverables-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      font-size: 0.84rem;
+      color: #1e293b;
+    }
+
+    .deliverables-list li i {
+      color: var(--accent-emerald);
+      margin-top: 0.2rem;
+      font-size: 0.8rem;
+    }
+
+    .cnpj-alert-mini {
+      background: #fff1f2;
+      border-left: 3px solid var(--accent-rose);
+      padding: 0.6rem 0.85rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.78rem;
+      color: #9f1239;
+      margin-top: 0.75rem;
+      line-height: 1.4;
+    }
+
+    /* Price Box */
+    .price-box {
+      background: #f8fafc;
+      border-top: 1px solid var(--border);
+      padding-top: 1.25rem;
+      margin-top: 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .price-details {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .price-label {
+      font-size: 0.73rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .price-value {
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: var(--secondary);
+      line-height: 1.1;
+    }
+
+    .price-sub {
+      font-size: 0.75rem;
+      color: var(--accent-emerald);
+      font-weight: 600;
+      margin-top: 0.15rem;
+    }
+
+    .product-duration {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #475569;
+      background: white;
+      border: 1px solid var(--border);
+      padding: 0.3rem 0.7rem;
+      border-radius: var(--radius-full);
+      white-space: nowrap;
+    }
+
+    /* Comparison Table Section */
+    .comparison-section {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 4rem;
+    }
+
+    .comparison-title {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--secondary);
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+
+    .comparison-sub {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+    }
+
+    .table-responsive {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.86rem;
+    }
+
+    th {
+      background: #f8fafc;
+      color: var(--secondary);
+      font-weight: 700;
+      padding: 0.9rem;
+      border-bottom: 2px solid var(--border);
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    td {
+      padding: 0.9rem;
+      border-bottom: 1px solid var(--border);
+      color: #334155;
+      vertical-align: middle;
+    }
+
+    tr:hover td {
+      background: #f8faff;
+    }
+
+    
   </style>
 </head>
 <body>
@@ -814,6 +1154,7 @@
         <button class="tab-btn" data-tab="tab-legal"><i class="fa-solid fa-scale-balanced"></i> 6. Governança & Jurídico</button>
         <button class="tab-btn" data-tab="tab-finance"><i class="fa-solid fa-chart-line"></i> 7. Financeiro & Simulador</button>
         <button class="tab-btn" data-tab="tab-roadmap"><i class="fa-solid fa-list-check"></i> 8. Roadmap & RACI</button>
+        <button class="tab-btn" data-tab="tab-products"><i class="fa-solid fa-cubes-stacked"></i> 9. Catálogo de Produtos (15)</button>
       </nav>
     </div>
 
@@ -1976,6 +2317,867 @@
 
     </section>
 
+    <!-- ==========================================
+         TAB 9: CATÁLOGO DE PRODUTOS & SOLUÇÕES (15)
+         ========================================== -->
+    <section class="tab-panel" id="tab-products">
+      <div class="alert-box ai" style="margin-bottom: 2rem;">
+        <i class="fa-solid fa-cubes-stacked"></i>
+        <div>
+          <h4 style="color: #4338ca; margin-bottom: 0.25rem;">Portfólio Oficial & Esteira Modular de Soluções — Ecossistema Live</h4>
+          <p style="font-size: 0.9rem; color: #334155; margin: 0;">
+            Conheça todas as 15 soluções desenhadas sob as <strong>Diretrizes Soberanas</strong>: entregas delimitadas com Início, Meio e Fim, sem execução de rotinas braçais, com uso intensivo de Inteligência Artificial e Defesa Inegociável da Saúde do CNPJ.
+          </p>
+        </div>
+      </div>
+
+<!-- Category Filter Bar -->
+    <div class="filter-wrapper">
+      <div class="filter-nav" id="categoryFilter">
+        <button class="filter-btn active" data-filter="all"><i class="fa-solid fa-layer-group"></i> Todas as Soluções (15)</button>
+        <button class="filter-btn" data-filter="ia"><i class="fa-solid fa-robot"></i> IA & Copilotos</button>
+        <button class="filter-btn" data-filter="rh"><i class="fa-solid fa-users"></i> Recrutamento (RH Tech)</button>
+        <button class="filter-btn" data-filter="cx"><i class="fa-solid fa-magnifying-glass-chart"></i> Experiência & Mercado</button>
+        <button class="filter-btn" data-filter="gov"><i class="fa-solid fa-landmark"></i> Governança, Estratégia & M&A</button>
+        <button class="filter-btn" data-filter="edu"><i class="fa-solid fa-graduation-cap"></i> Liderança & C-Level</button>
+      </div>
+    </div>
+
+    <!-- Products Grid -->
+    <div class="products-grid" id="productsContainer">
+
+      <!-- PRODUTO 1: Diagnóstico Express SaaS -->
+      <div class="product-card featured" data-category="ia">
+        <span class="card-badge-top badge-ia">Front-End / Volume</span>
+        <div>
+          <div class="product-header">
+            <div class="product-icon"><i class="fa-solid fa-chart-pie"></i></div>
+            <h2 class="product-title">Diagnóstico Empresarial Express</h2>
+            <span class="product-slug-tag">SAAS-DIAG-01</span>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-circle-question"></i> O que é e o que faz?</div>
+            <p class="section-text">
+              Formulário automatizado que mapeia a empresa nos <strong>4 Eixos</strong> (Finanças, Processos, Pessoas e Vendas). Combate a miopia de gestão e revela onde a empresa perde margem.
+            </p>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-user-check"></i> Para quem é indicado?</div>
+            <p class="section-text">
+              Pequenos e médios empresários que faturam de R$ 50k a R$ 500k/mês e precisam de clareza imediata sobre seus gargalos operacionais.
+            </p>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-box-open"></i> O que é entregue?</div>
+            <ul class="deliverables-list">
+              <li><i class="fa-solid fa-check"></i> Relatório Executivo em PDF com Score 360° e Gargalos.</li>
+              <li><i class="fa-solid fa-check"></i> Caderno de Ativação Inicial para delegação.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="price-box">
+          <div class="price-details">
+            <span class="price-label">Investimento</span>
+            <span class="price-value">R$ 250,00</span>
+            <span class="price-sub">em até 12x de ~R$ 25 no cartão</span>
+          </div>
+          <span class="product-duration">Entrega Imediata</span>
+        </div>
+      </div>
+
+      <!-- PRODUTO 2: Júlio Bot v8.0 MRR -->
+      <div class="product-card featured" data-category="ia">
+        <span class="card-badge-top badge-ia">Assinatura Mensal</span>
+        <div>
+          <div class="product-header">
+            <div class="product-icon"><i class="fa-solid fa-robot"></i></div>
+            <h2 class="product-title">Júlio Bot v8.0 — Copiloto de Gestão</h2>
+            <span class="product-slug-tag">JULIO-NETLIFY</span>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-circle-question"></i> O que é e o que faz?</div>
+            <p class="section-text">
+              Conselheiro digital de negócios no <strong>Web App Netlify com Firebase Auth</strong>. Tira dúvidas de DRE, orienta montagem de fluxos e faz check-ins de metas.
+            </p>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-user-check"></i> Para quem é indicado?</div>
+            <p class="section-text">
+              Empresários que precisam de suporte contínuo para implantar melhorias sem o custo de um consultor humano fixo.
+            </p>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-box-open"></i> O que é entregue?</div>
+            <ul class="deliverables-list">
+              <li><i class="fa-solid fa-check"></i> Acesso ilimitado ao Web App SPA.</li>
+              <li><i class="fa-solid fa-check"></i> Respostas socráticas e isolamento restrito de dados.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="price-box">
+          <div class="price-details">
+            <span class="price-label">Mensalidade</span>
+            <span class="price-value">R$ 120,00 <span style="font-size:0.85rem; color:var(--text-muted);">/ mês</span></span>
+            <span class="price-sub">sem fidelidade • cancele quando quiser</span>
+          </div>
+          <span class="product-duration">Acesso Contínuo</span>
+        </div>
+      </div>
+
+      <!-- PRODUTO 3: Jarvis Operacional (IA para Suporte Interno) -->
+      <div class="product-card featured" data-category="ia">
+        <span class="card-badge-top badge-ia">IA Corporativa</span>
+        <div>
+          <div class="product-header">
+            <div class="product-icon" style="background:#e0e7ff; color:#4338ca;"><i class="fa-solid fa-network-wired"></i></div>
+            <h2 class="product-title">Jarvis Operacional (IA Suporte Interno)</h2>
+            <span class="product-slug-tag">JARVIS-OPERAC</span>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-circle-question"></i> O que é e o que faz?</div>
+            <p class="section-text">
+              Agente de Inteligência Artificial treinado especificamente nos <strong>POPs, manuais, produtos, scripts, funis e regras internas da sua empresa</strong>, servindo como ponto único de tira-dúvidas para os funcionários (validado em <em>Plan, Ocamoto, Casas Goianita</em>).
+            </p>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-user-check"></i> Para quem é indicado?</div>
+            <p class="section-text">
+              Empresas já estruturadas onde fundadores e gerentes perdem horas respondendo as mesmas dúvidas operacionais a novatos e equipes.
+            </p>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-box-open"></i> O que é entregue?</div>
+            <ul class="deliverables-list">
+              <li><i class="fa-solid fa-check"></i> Ingestão completa dos manuais, PDFs e regras internas.</li>
+              <li><i class="fa-solid fa-check"></i> Interface web segura de consulta interna para a equipe.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="price-box">
+          <div class="price-details">
+            <span class="price-label">Setup + Mensalidade</span>
+            <span class="price-value">Sob Consulta</span>
+            <span class="price-sub">conforme volume de documentos</span>
+          </div>
+          <span class="product-duration">Setup em 7 Dias</span>
+        </div>
+      </div>
+
+      <!-- PRODUTO 4: RH Tech DIY -->
+      <div class="product-card" data-category="rh">
+        <span class="card-badge-top badge-rh">Recrutamento IA</span>
+        <div>
+          <div class="product-header">
+            <div class="product-icon"><i class="fa-solid fa-user-gear"></i></div>
+            <h2 class="product-title">RH Tech DIY (Recrutamento Inteligente)</h2>
+            <span class="product-slug-tag">RH-TECH-DIY</span>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-circle-question"></i> O que é e o que faz?</div>
+            <p class="section-text">
+              Ferramenta que empodera o próprio empresário a conduzir seleções profissionais: cria Job Descriptions, faz triagem automática de currículos por Fit Score e gera o roteiro socrático de perguntas.
+            </p>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-user-check"></i> Para quem é indicado?</div>
+            <p class="section-text">
+              Empresários que contratam sem método, sofrem com alto turnover e não podem pagar consultorias tradicionais de RH.
+            </p>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-box-open"></i> O que é entregue?</div>
+            <ul class="deliverables-list">
+              <li><i class="fa-solid fa-check"></i> Anúncio estruturado de vaga.</li>
+              <li><i class="fa-solid fa-check"></i> Ranking com Fit Score (0 a 100) dos currículos.</li>
+              <li><i class="fa-solid fa-check"></i> Roteiro de 5 a 8 perguntas comportamentais.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="price-box">
+          <div class="price-details">
+            <span class="price-label">Por Processo</span>
+            <span class="price-value">R$ 250,00</span>
+            <span class="price-sub">em até 12x no cartão</span>
+          </div>
+          <span class="product-duration">1 Vaga Completa</span>
+        </div>
+      </div>
+
+      <!-- PRODUTO 5: RH Tech Full-Service -->
+      <div class="product-card" data-category="rh">
+        <span class="card-badge-top badge-rh">Headhunting PME</span>
+        <div>
+          <div class="product-header">
+            <div class="product-icon"><i class="fa-solid fa-user-check"></i></div>
+            <h2 class="product-title">RH Tech Full-Service (Headhunting)</h2>
+            <span class="product-slug-tag">RH-FULL-SERV</span>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-circle-question"></i> O que é e o que faz?</div>
+            <p class="section-text">
+              Condução integral do processo seletivo por especialistas, desde a atração até a entrevista em profundidade, entrega dos finalistas ranqueados e parecer executivo.
+            </p>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-user-check"></i> Para quem é indicado?</div>
+            <p class="section-text">
+              Empresas que precisam contratar posições estratégicas (gerentes, líderes comerciais, financeiro) e não possuem tempo interno para triagem.
+            </p>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-box-open"></i> O que é entregue?</div>
+            <ul class="deliverables-list">
+              <li><i class="fa-solid fa-check"></i> Entrevistas conduzidas por consultores sênior.</li>
+              <li><i class="fa-solid fa-check"></i> Apresentação dos 2 melhores candidatos finalistas.</li>
+              <li><i class="fa-solid fa-check"></i> <strong>Garantia de Reposição de 30 dias.</strong></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="price-box">
+          <div class="price-details">
+            <span class="price-label">Honorários de Sucesso</span>
+            <span class="price-value">1º Salário</span>
+            <span class="price-sub">faturado após a admissão</span>
+          </div>
+          <span class="product-duration">15 a 30 dias</span>
+        </div>
+      </div>
+
+      <!-- PRODUTO 6: Percepção do Cliente & CX (Micro e Pequenas) -->
+      <div class="product-card featured" data-category="cx">
+        <span class="card-badge-top badge-cx">Experiência (CX)</span>
+        <div>
+          <div class="product-header">
+            <div class="product-icon"><i class="fa-solid fa-heart-circle-check"></i></div>
+            <h2 class="product-title">Percepção do Cliente & CX (PMEs)</h2>
+            <span class="product-slug-tag">CX-NPS-BLUE</span>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-circle-question"></i> O que é e o que faz?</div>
+            <p class="section-text">
+              Diagnóstico profundo da experiência dos clientes. Coleta via formulários web proprietários e WhatsApp, cálculo de indicadores (<strong>NPS, CSAT, CES</strong>), mapeamento da jornada e construção do <strong>Blueprint de Serviço</strong>.
+            </p>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-user-check"></i> Para quem é indicado?</div>
+            <p class="section-text">
+              Micro e pequenas empresas que precisam entender a percepção real dos clientes para aumentar recompra e reduzir atritos no atendimento.
+            </p>
+          </div>
+
+          <div class="section-block">
+            <ul class="deliverables-list">
+              <li><i class="fa-solid fa-check"></i> Relatório de Indicadores: NPS, CSAT e CES auditados.</li>
+              <li><i class="fa-solid fa-check"></i> Mapa da Jornada com pontos de contato e emoções.</li>
+              <li><i class="fa-solid fa-check"></i> <strong>Service Blueprint detalhado com POPs de suporte.</strong></li>
+              <li><i class="fa-solid fa-check"></i> Plano de Recomendações Práticas de Ação Imediata.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="price-box">
+          <div class="price-details">
+            <span class="price-label">Projeto Fechado PME</span>
+            <span class="price-value">R$ 3.500 a R$ 6k</span>
+            <span class="price-sub">parcelado por etapas de entrega</span>
+          </div>
+          <span class="product-duration">30 Dias</span>
+        </div>
+      </div>
+
+      <!-- PRODUTO 7: Percepção do Cliente & CX em Profundidade (Grandes / Indústrias) -->
+      <div class="product-card" data-category="cx">
+        <span class="card-badge-top badge-cx">CX Corporativo</span>
+        <div>
+          <div class="product-header">
+            <div class="product-icon" style="background:#fef3c7; color:#92400e;"><i class="fa-solid fa-industry"></i></div>
+            <h2 class="product-title">Percepção do Cliente & CX (Indústrias)</h2>
+            <span class="product-slug-tag">CX-NPS-CORP</span>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-circle-question"></i> O que é e o que faz?</div>
+            <p class="section-text">
+              Pesquisa qualitativa e quantitativa profunda para médias/grandes empresas e indústrias, com entrevistas ativas conduzidas com equipe comercial, clientes B2B e indústrias fornecedoras (em parceria com <strong>Juliana Canuto</strong>).
+            </p>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-user-check"></i> Para quem é indicado?</div>
+            <p class="section-text">
+              Indústrias e empresas médias com múltiplos canais, representantes e grande base de clientes B2B (cases <em>Valen</em> e <em>Ocamoto</em>).
+            </p>
+          </div>
+
+          <div class="section-block">
+            <ul class="deliverables-list">
+              <li><i class="fa-solid fa-check"></i> Entrevistas em profundidade com clientes e indústrias.</li>
+              <li><i class="fa-solid fa-check"></i> Consolidação de dados e matriz analítica de satisfação.</li>
+              <li><i class="fa-solid fa-check"></i> Parecer Executivo de Reposicionamento de Portfólio.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="price-box">
+          <div class="price-details">
+            <span class="price-label">Projeto Corporativo</span>
+            <span class="price-value">A partir R$ 12k</span>
+            <span class="price-sub">conforme amostragem e praças</span>
+          </div>
+          <span class="product-duration">45 a 60 Dias</span>
+        </div>
+      </div>
+
+      <!-- PRODUTO 8: Pesquisa de Mercado & Inteligência Competitiva -->
+      <div class="product-card" data-category="cx">
+        <span class="card-badge-top badge-cx">Inteligência</span>
+        <div>
+          <div class="product-header">
+            <div class="product-icon"><i class="fa-solid fa-chess"></i></div>
+            <h2 class="product-title">Pesquisa de Mercado & Concorrentes</h2>
+            <span class="product-slug-tag">PESQ-MERCADO</span>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-circle-question"></i> O que é e o que faz?</div>
+            <p class="section-text">
+              Investigação analítica do mercado, benchmarking de preços, práticas de concorrentes diretos e identificação de potenciais parceiros estratégicos para o negócio.
+            </p>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-user-check"></i> Para quem é indicado?</div>
+            <p class="section-text">
+              Empresas planejando lançar novos produtos, expandir para novas praças ou que estão perdendo clientes para a concorrência sem entender o motivo.
+            </p>
+          </div>
+
+          <div class="section-block">
+            <ul class="deliverables-list">
+              <li><i class="fa-solid fa-check"></i> Matriz de Benchmarking Competitivo de Preços e Serviços.</li>
+              <li><i class="fa-solid fa-check"></i> Dossiê de Oportunidades e Ameaças de Mercado.</li>
+              <li><i class="fa-solid fa-check"></i> Parecer Estratégico de Diferenciação de Marca.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="price-box">
+          <div class="price-details">
+            <span class="price-label">Projeto Fechado</span>
+            <span class="price-value">R$ 4k a R$ 12k</span>
+            <span class="price-sub">conforme escopo e região</span>
+          </div>
+          <span class="product-duration">30 Dias</span>
+        </div>
+      </div>
+
+      <!-- PRODUTO 9: Negociação, Mediação & M&A -->
+      <div class="product-card featured" data-category="gov">
+        <span class="card-badge-top badge-gov">Estratégia & M&A</span>
+        <div>
+          <div class="product-header">
+            <div class="product-icon"><i class="fa-solid fa-handshake"></i></div>
+            <h2 class="product-title">Negociação, Mediação & M&A</h2>
+            <span class="product-slug-tag">M&A-NEGOCIACAO</span>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-circle-question"></i> O que é e o que faz?</div>
+            <p class="section-text">
+              Estruturação e mediação executiva de processos de <strong>Fusões, Aquisições, Parcerias Estratégicas e Reestruturação de Negócios</strong>. Condução de prospecção, viabilidade e mediação de sócios (case de sucesso na <em>Ocamoto</em>).
+            </p>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-user-check"></i> Para quem é indicado?</div>
+            <p class="section-text">
+              Sócios em processo de compra/venda de quotas, fusão com concorrentes ou formação de joint ventures que exigem mediação profissional e blindagem de interesses.
+            </p>
+          </div>
+
+          <div class="section-block">
+            <ul class="deliverables-list">
+              <li><i class="fa-solid fa-check"></i> Estruturação do Projeto e Tese de Parceria/Fusão.</li>
+              <li><i class="fa-solid fa-check"></i> Análise de Viabilidade Econômico-Financeira.</li>
+              <li><i class="fa-solid fa-check"></i> Mediação das mesas de negociação entre as partes.</li>
+            </ul>
+          </div>
+
+          <div class="cnpj-alert-mini">
+            <i class="fa-solid fa-shield-halved"></i> <strong>Cláusula Soberana de Defesa do CNPJ:</strong> Parecer técnico independente para proteção do patrimônio e continuidade operacional.
+          </div>
+        </div>
+
+        <div class="price-box">
+          <div class="price-details">
+            <span class="price-label">Remuneração Híbrida</span>
+            <span class="price-value">Retainer + Êxito</span>
+            <span class="price-sub">Fixo Mensal + 1% a 8% no Success Fee</span>
+          </div>
+          <span class="product-duration">Conforme Transação</span>
+        </div>
+      </div>
+
+      <!-- PRODUTO 10: Estruturação de Conselho Familiar -->
+      <div class="product-card featured" data-category="gov">
+        <span class="card-badge-top badge-gov">High-Ticket Modular</span>
+        <div>
+          <div class="product-header">
+            <div class="product-icon"><i class="fa-solid fa-people-roof"></i></div>
+            <h2 class="product-title">Estruturação de Conselho Familiar</h2>
+            <span class="product-slug-tag">CONSELHO-FAM-3M</span>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-circle-question"></i> O que é e o que faz?</div>
+            <p class="section-text">
+              Produto de **3 meses fechados** para pacificar conflitos societários e viabilizar a transição profissional entre fundadores e sucessores. Cria regras impessoais e conduz as primeiras reuniões de conselho.
+            </p>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-user-check"></i> Para quem é indicado?</div>
+            <p class="section-text">
+              Empresas familiares onde sócios, irmãos ou herdeiros misturam questões pessoais com a gestão, gerando desgaste e travando o crescimento.
+            </p>
+          </div>
+
+          <div class="section-block">
+            <ul class="deliverables-list">
+              <li><i class="fa-solid fa-check"></i> Diagnóstico confidencial com fundadores e herdeiros.</li>
+              <li><i class="fa-solid fa-check"></i> Estatuto / Regimento Interno do Conselho Familiar.</li>
+              <li><i class="fa-solid fa-check"></i> 3 Sessões Oficiais conduzidas por Luiz Portal.</li>
+              <li><i class="fa-solid fa-check"></i> <strong>Trilha de Governança de 12 Meses.</strong></li>
+            </ul>
+          </div>
+
+          <div class="cnpj-alert-mini">
+            <i class="fa-solid fa-shield-halved"></i> <strong>Cláusula Soberana de Defesa do CNPJ:</strong> Independência técnica inegociável.
+          </div>
+        </div>
+
+        <div class="price-box">
+          <div class="price-details">
+            <span class="price-label">Escopo Fechado (90 Dias)</span>
+            <span class="price-value">R$ 8k a R$ 15k</span>
+            <span class="price-sub">parcelado em 3x mensais</span>
+          </div>
+          <span class="product-duration">3 Meses Fechados</span>
+        </div>
+      </div>
+
+      <!-- PRODUTO 11: Planejamento Estratégico Modular -->
+      <div class="product-card" data-category="gov">
+        <span class="card-badge-top badge-gov">High-Ticket Modular</span>
+        <div>
+          <div class="product-header">
+            <div class="product-icon"><i class="fa-solid fa-compass-drafting"></i></div>
+            <h2 class="product-title">Planejamento Estratégico Modular</h2>
+            <span class="product-slug-tag">PLAN-ESTRAT-3M</span>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-circle-question"></i> O que é e o que faz?</div>
+            <p class="section-text">
+              Estruturação das metas, OKRs, canais de aquisição e eficiência operacional para 12 meses, com prazos e entregáveis rígidos de 90 dias, sem execução de rotinas braçais.
+            </p>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-user-check"></i> Para quem é indicado?</div>
+            <p class="section-text">
+              Empresas em expansão ou reposicionamento que precisam de tração com disciplina orçamentária.
+            </p>
+          </div>
+
+          <div class="section-block">
+            <ul class="deliverables-list">
+              <li><i class="fa-solid fa-check"></i> Diagnóstico Profundo de Gargalos e Margens.</li>
+              <li><i class="fa-solid fa-check"></i> Matriz de Metas e OKRs Trimestrais para 12 Meses.</li>
+              <li><i class="fa-solid fa-check"></i> Plano de Alocação de Recursos e DRE Projetada.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="price-box">
+          <div class="price-details">
+            <span class="price-label">Escopo Fechado (90 Dias)</span>
+            <span class="price-value">R$ 8k a R$ 12k</span>
+            <span class="price-sub">parcelado em 3x mensais</span>
+          </div>
+          <span class="product-duration">3 Meses Fechados</span>
+        </div>
+      </div>
+
+      <!-- PRODUTO 12: Formação: O Código da Nova Liderança -->
+      <div class="product-card featured" data-category="edu">
+        <span class="card-badge-top badge-edu">Educação Executiva</span>
+        <div>
+          <div class="product-header">
+            <div class="product-icon"><i class="fa-solid fa-award"></i></div>
+            <h2 class="product-title">Formação: O Código da Nova Liderança</h2>
+            <span class="product-slug-tag">COD-NOVA-LIDER</span>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-circle-question"></i> O que é e o que faz?</div>
+            <p class="section-text">
+              Programa imersivo de formação de líderes para tomar decisões sob pressão, gerenciar conflitos, manter equipes engajadas e prosperar na incerteza.
+            </p>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-user-check"></i> Para quem é indicado?</div>
+            <p class="section-text">
+              Fundadores, diretores, gerentes e sucessores que precisam sair do operacional e construir autoridade com inteligência emocional.
+            </p>
+          </div>
+
+          <div class="section-block">
+            <ul class="deliverables-list">
+              <li><i class="fa-solid fa-check"></i> Turmas Abertas ou In-Company (16 horas-aula).</li>
+              <li><i class="fa-solid fa-check"></i> Ferramental prático para feedbacks e rituais 1on1.</li>
+              <li><i class="fa-solid fa-check"></i> Certificação e Cadernos de Aplicação Prática.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="price-box">
+          <div class="price-details">
+            <span class="price-label">Turma Aberta (por Aluno)</span>
+            <span class="price-value">R$ 1.900 a R$ 4.299</span>
+            <span class="price-sub">In-Company: R$ 12k a R$ 25k (+10%/aula extra)</span>
+          </div>
+          <span class="product-duration">16 Horas-Aula</span>
+        </div>
+      </div>
+
+      <!-- PRODUTO 13: Palestras & Workshops Corporativos -->
+      <div class="product-card" data-category="edu">
+        <span class="card-badge-top badge-edu">Eventos & Imersões</span>
+        <div>
+          <div class="product-header">
+            <div class="product-icon"><i class="fa-solid fa-chalkboard-user"></i></div>
+            <h2 class="product-title">Palestras & Workshops Corporativos</h2>
+            <span class="product-slug-tag">PALESTRAS-WORK</span>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-circle-question"></i> O que é e o que faz?</div>
+            <p class="section-text">
+              Apresentações e dinâmicas sob medida conduzidas por Luiz Portal e Cleber Donato para convenções de vendas, encontros de liderança e imersões estratégicas.
+            </p>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-user-check"></i> Para quem é indicado?</div>
+            <p class="section-text">
+              Associações, franquias, convenções empresariais e empresas que buscam impacto e mudança de mentalidade de equipe.
+            </p>
+          </div>
+
+          <div class="section-block">
+            <ul class="deliverables-list">
+              <li><i class="fa-solid fa-check"></i> <strong>Workshop com Pitch Comercial:</strong> R$ 890 / sessão.</li>
+              <li><i class="fa-solid fa-check"></i> <strong>Workshop Puro Não-Comercial:</strong> R$ 1.500 / sessão.</li>
+              <li><i class="fa-solid fa-check"></i> <strong>Palestra Executiva Sênior:</strong> R$ 2.000 / hora.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="price-box">
+          <div class="price-details">
+            <span class="price-label">Preço por Formato</span>
+            <span class="price-value">R$ 890 a R$ 2.000/h</span>
+            <span class="price-sub">conforme duração e objetivo comercial</span>
+          </div>
+          <span class="product-duration">2h a 8h de Imersão</span>
+        </div>
+      </div>
+
+      <!-- PRODUTO 14: Almoço com o CEO -->
+      <div class="product-card featured" data-category="edu">
+        <span class="card-badge-top badge-edu">Networking C-Level</span>
+        <div>
+          <div class="product-header">
+            <div class="product-icon"><i class="fa-solid fa-utensils"></i></div>
+            <h2 class="product-title">Almoço com o CEO (Networking Exclusivo)</h2>
+            <span class="product-slug-tag">ALMOCO-COM-CEO</span>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-circle-question"></i> O que é e o que faz?</div>
+            <p class="section-text">
+              Experiência gastronômica executiva no <strong>Restaurante Goya</strong> para um grupo seleto de empresários e CEOs. Espaço reservado de alta confidencialidade para troca de experiências de gestão, dores de sucessão e geração de negócios.
+            </p>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-user-check"></i> Para quem é indicado?</div>
+            <p class="section-text">
+              Fundadores e líderes C-Level que buscam conexões estratégicas de alto valor sem o ruído de eventos genéricos.
+            </p>
+          </div>
+
+          <div class="section-block">
+            <ul class="deliverables-list">
+              <li><i class="fa-solid fa-check"></i> Menu completo Goya (Entrada, Prato Principal, Sobremesa e Café).</li>
+              <li><i class="fa-solid fa-check"></i> Mesa redonda intimista com mediação executiva.</li>
+              <li><i class="fa-solid fa-check"></i> <strong>Brinde VIP Executivo Incluso (Drip Coffee ou Caneta VIP).</strong></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="price-box">
+          <div class="price-details">
+            <span class="price-label">Por Assento / Participante</span>
+            <span class="price-value">R$ 180 a R$ 220</span>
+            <span class="price-sub">vagas rigorosamente limitadas por edição</span>
+          </div>
+          <span class="product-duration">Encontro de 3h</span>
+        </div>
+      </div>
+
+      <!-- PRODUTO 15: Cadernos de Ativação -->
+      <div class="product-card" data-category="ia">
+        <span class="card-badge-top badge-ia">Micro-SaaS & Manuais</span>
+        <div>
+          <div class="product-header">
+            <div class="product-icon"><i class="fa-solid fa-book-open"></i></div>
+            <h2 class="product-title">Micro-Agentes & Cadernos de Ativação</h2>
+            <span class="product-slug-tag">CADERNOS-ATIV</span>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-circle-question"></i> O que é e o que faz?</div>
+            <p class="section-text">
+              Manuais operacionais práticos e checklists para o dono delegar rotinas críticas (DRE, Fechamento de Caixa, Curva ABC, Processo Seletivo) a estagiários e assistentes com padrão de qualidade.
+            </p>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-user-check"></i> Para quem é indicado?</div>
+            <p class="section-text">
+              Empresas que precisam padronizar processos imediatamente sem tempo para criar procedimentos do zero.
+            </p>
+          </div>
+
+          <div class="section-block">
+            <ul class="deliverables-list">
+              <li><i class="fa-solid fa-check"></i> Cadernos de Ativação em PDF / Notion prontos para uso.</li>
+              <li><i class="fa-solid fa-check"></i> Checklists com Definição de Pronto (DoD).</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="price-box">
+          <div class="price-details">
+            <span class="price-label">Preço por Caderno</span>
+            <span class="price-value">R$ 40 a R$ 50</span>
+            <span class="price-sub">acesso vitalício</span>
+          </div>
+          <span class="product-duration">Download Imediato</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Comparison Table -->
+    <div class="comparison-section">
+      <h2 class="comparison-title">Matriz Comparativa de Soluções & Entregáveis</h2>
+      <p class="comparison-sub">Visão consolidada de categorias, duração, preços e formatos de entrega.</p>
+      
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>Produto / Solução</th>
+              <th>Categoria</th>
+              <th>Público-Alvo</th>
+              <th>Formato de Entrega</th>
+              <th>Duração</th>
+              <th>Investimento</th>
+              <th>Defesa do CNPJ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Diagnóstico Express</strong></td>
+              <td>IA & Front-End</td>
+              <td>PMEs Desassistidas</td>
+              <td>SaaS Automatizado + PDF</td>
+              <td>Imediato</td>
+              <td><strong>R$ 250,00</strong> (12x)</td>
+              <td><i class="fa-solid fa-check" style="color:var(--accent-emerald);"></i> Sim</td>
+            </tr>
+            <tr>
+              <td><strong>Júlio Bot v8.0</strong></td>
+              <td>Copiloto IA</td>
+              <td>Compradores do Diagnóstico</td>
+              <td>Netlify Web App (Firebase)</td>
+              <td>Mensal</td>
+              <td><strong>R$ 120,00 / mês</strong></td>
+              <td><i class="fa-solid fa-check" style="color:var(--accent-emerald);"></i> Sim</td>
+            </tr>
+            <tr>
+              <td><strong>Jarvis Operacional</strong></td>
+              <td>IA Corporativa</td>
+              <td>Empresas Estruturadas com POPs</td>
+              <td>IA Embarcada em Base Própria</td>
+              <td>Setup + Mensal</td>
+              <td><strong>Sob Consulta</strong></td>
+              <td><i class="fa-solid fa-check" style="color:var(--accent-emerald);"></i> Sim</td>
+            </tr>
+            <tr>
+              <td><strong>RH Tech DIY</strong></td>
+              <td>Recrutamento</td>
+              <td>Empresários contratando</td>
+              <td>Chat Web SPA / IA</td>
+              <td>Por Vaga</td>
+              <td><strong>R$ 250,00</strong> / vaga</td>
+              <td><i class="fa-solid fa-check" style="color:var(--accent-emerald);"></i> Sim</td>
+            </tr>
+            <tr>
+              <td><strong>RH Tech Full-Service</strong></td>
+              <td>Recrutamento</td>
+              <td>Cargos estratégicos e liderança</td>
+              <td>Headhunting Sênior + IA</td>
+              <td>15 a 30 dias</td>
+              <td><strong>1º Salário</strong> (Garantia 30d)</td>
+              <td><i class="fa-solid fa-check" style="color:var(--accent-emerald);"></i> Sim</td>
+            </tr>
+            <tr>
+              <td><strong>Percepção do Cliente (PMEs)</strong></td>
+              <td>Experiência</td>
+              <td>Micro e Pequenas Empresas</td>
+              <td>NPS/CSAT + Blueprint + Plano</td>
+              <td>30 dias</td>
+              <td><strong>R$ 3.500 a R$ 6k</strong></td>
+              <td><i class="fa-solid fa-check" style="color:var(--accent-emerald);"></i> Sim</td>
+            </tr>
+            <tr>
+              <td><strong>Percepção do Cliente (Indústrias)</strong></td>
+              <td>Experiência</td>
+              <td>Médias, Grandes & Indústrias</td>
+              <td>Entrevistas Profundas (Juliana Canuto)</td>
+              <td>45 a 60 dias</td>
+              <td><strong>A partir R$ 12k</strong></td>
+              <td><i class="fa-solid fa-check" style="color:var(--accent-emerald);"></i> Sim</td>
+            </tr>
+            <tr>
+              <td><strong>Pesquisa de Mercado</strong></td>
+              <td>Inteligência</td>
+              <td>Empresas em expansão</td>
+              <td>Benchmarking & Concorrentes</td>
+              <td>30 dias</td>
+              <td><strong>R$ 4k a R$ 12k</strong></td>
+              <td><i class="fa-solid fa-check" style="color:var(--accent-emerald);"></i> Sim</td>
+            </tr>
+            <tr>
+              <td><strong>Negociação, Mediação & M&A</strong></td>
+              <td>Estratégia</td>
+              <td>Sócios em fusão / venda</td>
+              <td>Mediação + Análise Jurídica</td>
+              <td>Conforme M&A</td>
+              <td><strong>Retainer + 1% a 8% Êxito</strong></td>
+              <td><i class="fa-solid fa-shield-halved" style="color:var(--accent-rose);"></i> <strong>Soberana</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Conselho Familiar</strong></td>
+              <td>Alta Governança</td>
+              <td>Empresas Familiares em Sucessão</td>
+              <td>3 Sessões + Estatuto + Trilha</td>
+              <td><strong>3 Meses</strong></td>
+              <td><strong>R$ 8k a R$ 15k</strong></td>
+              <td><i class="fa-solid fa-shield-halved" style="color:var(--accent-rose);"></i> <strong>Soberana</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Planejamento Estratégico</strong></td>
+              <td>Alta Governança</td>
+              <td>Empresas em Expansão</td>
+              <td>Diagnóstico + OKRs + DRE</td>
+              <td><strong>3 Meses</strong></td>
+              <td><strong>R$ 8k a R$ 12k</strong></td>
+              <td><i class="fa-solid fa-shield-halved" style="color:var(--accent-rose);"></i> <strong>Soberana</strong></td>
+            </tr>
+            <tr>
+              <td><strong>O Código da Nova Liderança</strong></td>
+              <td>Educação</td>
+              <td>Fundadores e Líderes PMEs</td>
+              <td>Turmas Abertas ou In-Company 16h</td>
+              <td>Imersão 16h</td>
+              <td><strong>R$ 1.900 a R$ 4.299/aluno</strong></td>
+              <td><i class="fa-solid fa-check" style="color:var(--accent-emerald);"></i> Sim</td>
+            </tr>
+            <tr>
+              <td><strong>Workshops Corporativos</strong></td>
+              <td>Eventos</td>
+              <td>Convenções e Equipes</td>
+              <td>Presencial / Online (c/ ou s/ pitch)</td>
+              <td>2h a 4h</td>
+              <td><strong>R$ 890 ou R$ 1.500 / aula</strong></td>
+              <td><i class="fa-solid fa-check" style="color:var(--accent-emerald);"></i> Sim</td>
+            </tr>
+            <tr>
+              <td><strong>Palestras Executivas</strong></td>
+              <td>Eventos</td>
+              <td>Convenções e Associações</td>
+              <td>Presencial / Online</td>
+              <td>1h a 2h</td>
+              <td><strong>R$ 2.000 / hora</strong></td>
+              <td><i class="fa-solid fa-check" style="color:var(--accent-emerald);"></i> Sim</td>
+            </tr>
+            <tr>
+              <td><strong>Almoço com o CEO</strong></td>
+              <td>C-Level</td>
+              <td>CEOs e Fundadores Selecionados</td>
+              <td>Buffet Goya + Brinde VIP R$ 18</td>
+              <td>3 Horas</td>
+              <td><strong>R$ 180 a R$ 220 / assento</strong></td>
+              <td><i class="fa-solid fa-check" style="color:var(--accent-emerald);"></i> Sim</td>
+            </tr>
+            <tr>
+              <td><strong>Cadernos de Ativação</strong></td>
+              <td>Micro-SaaS</td>
+              <td>Operação e Delegação</td>
+              <td>Manuais PDF / Notion</td>
+              <td>Vitalício</td>
+              <td><strong>R$ 40 a R$ 50</strong></td>
+              <td><i class="fa-solid fa-check" style="color:var(--accent-emerald);"></i> Sim</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  
+    </section>
+
+
   </div>
 
   <!-- Page Footer -->
@@ -2058,6 +3260,29 @@
 
     // Initial calculation
     updateSimulator();
+  
+    // Tab 9: Category Filter Logic
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const productCards = document.querySelectorAll('.product-card');
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.getAttribute('data-filter');
+
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        productCards.forEach(card => {
+          const category = card.getAttribute('data-category');
+          if (filter === 'all' || category === filter) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
   </script>
 </body>
 </html>
