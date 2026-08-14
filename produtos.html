@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo Oficial de Produtos & Soluções — Ecossistema Live</title>
+  
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --primary: #4338ca;
+      --primary-hover: #3730a3;
+      --primary-light: #eef2ff;
+      --secondary: #0f172a;
+      --accent-emerald: #059669;
+      --accent-amber: #d97706;
+      --accent-purple: #7c3aed;
+      --accent-blue: #0284c7;
+      --accent-rose: #e11d48;
+      --bg-main: #f8fafc;
+      --bg-card: #ffffff;
+      --border: #e2e8f0;
+      --border-hover: #cbd5e1;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --text-light: #94a3b8;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-full: 9999px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07);
+      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08);
+      --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1);
+      --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg-main);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Hero Header */
+    .hero-header {
+      background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%);
+      color: white;
+      padding: 4rem 1.5rem 3.5rem 1.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 4px solid var(--primary);
+    }
+
+    .hero-header::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.2) 0%, rgba(0,0,0,0) 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #c7d2fe;
+      padding: 0.4rem 1rem;
+      border-radius: var(--radius-full);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+      backdrop-filter: blur(8px);
+    }
+
+    .hero-title {
+      font-size: 2.6rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      background: linear-gradient(90deg, #ffffff 0%, #cbd5e1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: #94a3b8;
+      max-width: 760px;
+      margin: 0 auto 1.5rem auto;
+      font-weight: 400;
+    }
+
+    .sovereign-banner {
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      color: #fca5a5;
+      padding: 0.75rem 1.25rem;
+      border-radius: var(--radius-md);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      backdrop-filter: blur(6px);
+    }
+
+    /* Container & Layout */
+    .app-container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 5rem 1.5rem;
+    }
+
+    /* Category Filter Navigation */
+    .filter-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2.5rem;
+      position: sticky;
+      top: 1rem;
+      z-index: 50;
+    }
+
+    .filter-nav {
+      display: flex;
+      gap: 0.5rem;
+      background: var(--bg-card);
+      padding: 0.4rem;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-lg);
+      overflow-x: auto;
+      max-width: 100%;
+    }
+
+    .filter-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.15rem;
+      border-radius: var(--radius-full);
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: var(--transition);
+    }
+
+    .filter-btn:hover {
+      color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    .filter-btn.active {
+      background: var(--primary);
+      color: white;
+      box-shadow: 0 4px 10px rgba(67, 56, 202, 0.3);
+    }
+
+    /* Product Grid */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .product-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-xl);
+      border-color: #cbd5e1;
+    }
+
+    .product-card.featured {
+      border-color: #818cf8;
+      box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+    }
+
+    .card-badge-top {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-full);
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-frontend { background: #fef3c7; color: #92400e; }
+    .badge-mrr { background: #f3e8ff; color: #7e22ce; }
+    .badge-rh { background: #e0f2fe; color: #0369a1; }
+    .badge-highticket { background: #dcfce7; color: #15803d; }
+    .badge-micro { background: #f1f5f9; color: #475569; }
+
+    .product-header {
+      margin-bottom: 1.25rem;
+      padding-right: 4rem;
+    }
+
+    .product-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-md);
+      background: var(--primary-light);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .product-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--secondary);
+      line-height: 1.3;
+      margin-bottom: 0.35rem;
+    }
+
+    .product-slug-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--text-light);
+    }
+
+    /* Section Blocks inside Card */
+    .section-block {
+      margin-bottom: 1.25rem;
+      font-size: 0.9rem;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .section-text {
+      color: #334155;
+      line-height: 1.55;
+    }
+
+    .deliverables-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-top: 0.35rem;
+    }
+
+    .deliverables-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: #1e293b;
+    }
+
+    .deliverables-list li i {
+      color: var(--accent-emerald);
+      margin-top: 0.2rem;
+      font-size: 0.8rem;
+    }
+
+    .cnpj-alert-mini {
+      background: #fff1f2;
+      border-left: 3px solid var(--accent-rose);
+      padding: 0.6rem 0.85rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.8rem;
+      color: #9f1239;
+      margin-top: 0.75rem;
+      line-height: 1.4;
+    }
+
+    /* Price Box */
+    .price-box {
+      background: #f8fafc;
+      border-top: 1px solid var(--border);
+      padding-top: 1.25rem;
+      margin-top: 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .price-details {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .price-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .price-value {
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: var(--secondary);
+      line-height: 1.1;
+    }
+
+    .price-sub {
+      font-size: 0.75rem;
+      color: var(--accent-emerald);
+      font-weight: 600;
+      margin-top: 0.15rem;
+    }
+
+    .product-duration {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #475569;
+      background: white;
+      border: 1px solid var(--border);
+      padding: 0.35rem 0.75rem;
+      border-radius: var(--radius-full);
+      white-space: nowrap;
+    }
+
+    /* Comparison Table Section */
+    .comparison-section {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 4rem;
+    }
+
+    .comparison-title {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--secondary);
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+
+    .comparison-sub {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+    }
+
+    .table-responsive {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+
+    th {
+      background: #f8fafc;
+      color: var(--secondary);
+      font-weight: 700;
+      padding: 1rem;
+      border-bottom: 2px solid var(--border);
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    td {
+      padding: 1rem;
+      border-bottom: 1px solid var(--border);
+      color: #334155;
+      vertical-align: middle;
+    }
+
+    tr:hover td {
+      background: #f8faff;
+    }
+
+    /* Footer */
+    .page-footer {
+      text-align: center;
+      padding: 3rem 1.5rem;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 768px) {
+      .hero-title { font-size: 1.9rem; }
+      .products-grid { grid-template-columns: 1fr; }
+      .comparison-section { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Header -->
+  <header class="hero-header">
+    <div class="hero-content">
+      <div class="hero-tag"><i class="fa-solid fa-cubes-stacked"></i> Portfólio Modular Oficial</div>
+      <h1 class="hero-title">Soluções & Produtos de Gestão com Início, Meio e Fim</h1>
+      <p class="hero-subtitle">
+        Conheça a esteira escalável do Ecossistema Live: ferramentas de Inteligência Artificial, diagnósticos acessíveis e projetos modulares de governança que blindam e aceleram o crescimento do seu CNPJ.
+      </p>
+      <div class="sovereign-banner">
+        <i class="fa-solid fa-shield-halved"></i>
+        <span><strong>Diretriz Mandatória:</strong> Não fazemos consultoria tradicional de longo prazo. Entregamos produtos delimitados com metas claras e Defesa Soberana do CNPJ.</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Area -->
+  <div class="app-container">
+
+    <!-- Category Filter Bar -->
+    <div class="filter-wrapper">
+      <div class="filter-nav" id="categoryFilter">
+        <button class="filter-btn active" data-filter="all"><i class="fa-solid fa-layer-group"></i> Todos (8)</button>
+        <button class="filter-btn" data-filter="frontend"><i class="fa-solid fa-bolt"></i> Front-End & Volume</button>
+        <button class="filter-btn" data-filter="mrr"><i class="fa-solid fa-robot"></i> Copiloto IA (MRR)</button>
+        <button class="filter-btn" data-filter="rh"><i class="fa-solid fa-users"></i> Recrutamento (RH Tech)</button>
+        <button class="filter-btn" data-filter="highticket"><i class="fa-solid fa-landmark"></i> Governança (3 Meses)</button>
+      </div>
+    </div>
+
+    <!-- Products Grid -->
+    <div class="products-grid" id="productsContainer">
+
+      <!-- PRODUTO 1: Diagnóstico Express SaaS -->
+      <div class="product-card featured" data-category="frontend">
+        <span class="card-badge-top badge-frontend">Front-End / Volume</span>
+        <div>
+          <div class="product-header">
+            <div class="product-icon"><i class="fa-solid fa-chart-pie"></i></div>
+            <h2 class="product-title">Diagnóstico Empresarial Express</h2>
+            <span class="product-slug-tag">SAAS-DIAG-01</span>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-circle-question"></i> O que é e o que faz?</div>
+            <p class="section-text">
+              Formulário inteligente que analisa a empresa nos <strong>4 Eixos Cardinais</strong> (Finanças/DRE, Processos, Pessoas e Vendas). Mitiga a <em>"miopia do negócio"</em> e identifica imediatamente onde a empresa está perdendo dinheiro.
+            </p>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-user-check"></i> Para quem é indicado?</div>
+            <p class="section-text">
+              Pequenos e médios empresários (faturamento de R$ 50k a R$ 500k/mês) que trabalham 14h/dia e sentem que o faturamento não se converte em lucro real.
+            </p>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-box-open"></i> O que é entregue?</div>
+            <ul class="deliverables-list">
+              <li><i class="fa-solid fa-check"></i> Relatório Executivo em PDF com Score 360° e Gargalos.</li>
+              <li><i class="fa-solid fa-check"></i> Caderno de Ativação Inicial para delegar tarefas.</li>
+              <li><i class="fa-solid fa-check"></i> Acesso imediato no chat para tirar dúvidas.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="price-box">
+          <div class="price-details">
+            <span class="price-label">Investimento Único</span>
+            <span class="price-value">R$ 250,00</span>
+            <span class="price-sub">em até 12x de ~R$ 25 no cartão</span>
+          </div>
+          <span class="product-duration">Entrega Imediata</span>
+        </div>
+      </div>
+
+      <!-- PRODUTO 2: Júlio Bot v8.0 MRR -->
+      <div class="product-card featured" data-category="mrr">
+        <span class="card-badge-top badge-mrr">Assinatura Mensal</span>
+        <div>
+          <div class="product-header">
+            <div class="product-icon" style="background:#f3e8ff; color:#7c3aed;"><i class="fa-solid fa-robot"></i></div>
+            <h2 class="product-title">Júlio Bot v8.0 — Copiloto de Gestão</h2>
+            <span class="product-slug-tag">JULIO-NETLIFY-SPA</span>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-circle-question"></i> O que é e o que faz?</div>
+            <p class="section-text">
+              Seu conselheiro digital de negócios acessível via Web App no <strong>Netlify com login seguro (Firebase Auth)</strong>. Tira dúvidas de DRE, orienta montagem de fluxos, analisa currículos e faz check-ins de metas.
+            </p>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-user-check"></i> Para quem é indicado?</div>
+            <p class="section-text">
+              Compradores do Diagnóstico que precisam de suporte contínuo para implantar as melhorias no dia a dia sem o custo de um consultor humano fixo.
+            </p>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-box-open"></i> O que é entregue?</div>
+            <ul class="deliverables-list">
+              <li><i class="fa-solid fa-check"></i> Acesso ilimitado ao Web App SPA (Netlify).</li>
+              <li><i class="fa-solid fa-check"></i> Respostas socráticas para DRE, Estoque e Liderança.</li>
+              <li><i class="fa-solid fa-check"></i> Isolamento de dados restrito por CNPJ (Multi-Tenancy).</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="price-box">
+          <div class="price-details">
+            <span class="price-label">Mensalidade Recorrente</span>
+            <span class="price-value">R$ 120,00 <span style="font-size:0.9rem; font-weight:600; color:var(--text-muted);">/ mês</span></span>
+            <span class="price-sub">sem fidelidade • cancele quando quiser</span>
+          </div>
+          <span class="product-duration">Acesso Contínuo</span>
+        </div>
+      </div>
+
+      <!-- PRODUTO 3: RH Tech DIY -->
+      <div class="product-card" data-category="rh">
+        <span class="card-badge-top badge-rh">Autoatendimento IA</span>
+        <div>
+          <div class="product-header">
+            <div class="product-icon" style="background:#e0f2fe; color:#0284c7;"><i class="fa-solid fa-user-gear"></i></div>
+            <h2 class="product-title">RH Tech DIY (Recrutamento Inteligente)</h2>
+            <span class="product-slug-tag">RH-TECH-DIY-250</span>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-circle-question"></i> O que é e o que faz?</div>
+            <p class="section-text">
+              Ferramenta que empodera o próprio empresário a conduzir seleções profissionais. Cria Job Descriptions de alta atração, faz triagem automática de currículos por Fit Score e gera o roteiro socrático de perguntas para a entrevista.
+            </p>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-user-check"></i> Para quem é indicado?</div>
+            <p class="section-text">
+              Empresários que contratam "na tora ou por osmose", sofrem com turnover elevado e não têm verba para pagar consultorias tradicionais de RH.
+            </p>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-box-open"></i> O que é entregue?</div>
+            <ul class="deliverables-list">
+              <li><i class="fa-solid fa-check"></i> Anúncio estruturado pronto para WhatsApp/LinkedIn.</li>
+              <li><i class="fa-solid fa-check"></i> Ranking e Fit Score (0 a 100) dos currículos em PDF.</li>
+              <li><i class="fa-solid fa-check"></i> Roteiro de 5 a 8 perguntas comportamentais para o dono.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="price-box">
+          <div class="price-details">
+            <span class="price-label">Por Processo Seletivo</span>
+            <span class="price-value">R$ 250,00</span>
+            <span class="price-sub">em até 12x no cartão</span>
+          </div>
+          <span class="product-duration">1 Processo Completo</span>
+        </div>
+      </div>
+
+      <!-- PRODUTO 4: RH Tech Full-Service -->
+      <div class="product-card" data-category="rh">
+        <span class="card-badge-top badge-rh">Condução Humana</span>
+        <div>
+          <div class="product-header">
+            <div class="product-icon" style="background:#e0f2fe; color:#0369a1;"><i class="fa-solid fa-user-check"></i></div>
+            <h2 class="product-title">RH Tech Full-Service (Headhunting PME)</h2>
+            <span class="product-slug-tag">RH-FULL-SERVICE</span>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-circle-question"></i> O que é e o que faz?</div>
+            <p class="section-text">
+              Condução integral do processo seletivo por especialistas do Ecossistema Live, desde a atração até a entrevista em profundidade, entrega dos finalistas ranqueados e emissão do Parecer Executivo de Aprovação.
+            </p>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-user-check"></i> Para quem é indicado?</div>
+            <p class="section-text">
+              Empresas que precisam contratar posições-chave (gerentes, líderes comerciais, financeiro) e não possuem tempo hábil para triagem interna.
+            </p>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-box-open"></i> O que é entregue?</div>
+            <ul class="deliverables-list">
+              <li><i class="fa-solid fa-check"></i> Triagem sênior e entrevistas conduzidas pela equipe.</li>
+              <li><i class="fa-solid fa-check"></i> Apresentação dos 2 melhores candidatos finalistas.</li>
+              <li><i class="fa-solid fa-check"></i> <strong>Garantia de Reposição de 30 dias inclusa.</strong></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="price-box">
+          <div class="price-details">
+            <span class="price-label">Honorários de Sucesso</span>
+            <span class="price-value">1º Salário</span>
+            <span class="price-sub">faturado após a admissão</span>
+          </div>
+          <span class="product-duration">15 a 30 dias</span>
+        </div>
+      </div>
+
+      <!-- PRODUTO 5: Diagnóstico via Entrevista 360° -->
+      <div class="product-card" data-category="frontend">
+        <span class="card-badge-top badge-frontend">Mid-Ticket</span>
+        <div>
+          <div class="product-header">
+            <div class="product-icon" style="background:#fef3c7; color:#b45309;"><i class="fa-solid fa-comments-dollar"></i></div>
+            <h2 class="product-title">Diagnóstico via Entrevista 360°</h2>
+            <span class="product-slug-tag">DIAG-360-SESSAO</span>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-circle-question"></i> O que é e o que faz?</div>
+            <p class="section-text">
+              Sessão executiva de 2 horas conduzida por Luiz Portal ou Cleber Donato, cruzando os dados do diagnóstico automatizado com uma análise clínica profunda do modelo de negócios, sociedade e operação.
+            </p>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-user-check"></i> Para quem é indicado?</div>
+            <p class="section-text">
+              PMEs maduras (faturamento acima de R$ 300k/mês) que precisam de validação sênior antes de grandes investimentos ou reestruturações.
+            </p>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-box-open"></i> O que é entregue?</div>
+            <ul class="deliverables-list">
+              <li><i class="fa-solid fa-check"></i> Sessão de 2 horas gravada e transcrita.</li>
+              <li><i class="fa-solid fa-check"></i> Parecer Estratégico de Maturidade e Riscos.</li>
+              <li><i class="fa-solid fa-check"></i> Roteiro de prioridades para os próximos 90 dias.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="price-box">
+          <div class="price-details">
+            <span class="price-label">Investimento Único</span>
+            <span class="price-value">R$ 980,00</span>
+            <span class="price-sub">em até 3x sem juros ou Pix</span>
+          </div>
+          <span class="product-duration">Sessão de 2 Horas</span>
+        </div>
+      </div>
+
+      <!-- PRODUTO 6: Estruturação de Conselho Familiar -->
+      <div class="product-card featured" data-category="highticket">
+        <span class="card-badge-top badge-highticket">High-Ticket Modular</span>
+        <div>
+          <div class="product-header">
+            <div class="product-icon" style="background:#dcfce7; color:#15803d;"><i class="fa-solid fa-people-roof"></i></div>
+            <h2 class="product-title">Estruturação de Conselho Familiar</h2>
+            <span class="product-slug-tag">CONSELHO-FAMILIAR-3M</span>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-circle-question"></i> O que é e o que faz?</div>
+            <p class="section-text">
+              Produto de **3 meses fechados** para pacificar conflitos societários e viabilizar a transição profissional entre fundadores e sucessores. Cria regras impessoais e conduz as primeiras reuniões de conselho.
+            </p>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-user-check"></i> Para quem é indicado?</div>
+            <p class="section-text">
+              Empresas familiares onde sócios, irmãos ou filhos misturam relações de parentesco com a gestão, gerando desgaste e ameaçando o futuro do negócio.
+            </p>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-box-open"></i> O que é entregue?</div>
+            <ul class="deliverables-list">
+              <li><i class="fa-solid fa-check"></i> Diagnóstico confidencial com fundadores e herdeiros.</li>
+              <li><i class="fa-solid fa-check"></i> Estatuto / Regimento Interno do Conselho Familiar.</li>
+              <li><i class="fa-solid fa-check"></i> 3 Sessões Oficiais conduzidas por Luiz Portal.</li>
+              <li><i class="fa-solid fa-check"></i> <strong>Trilha de Governança de 12 Meses.</strong></li>
+            </ul>
+          </div>
+
+          <div class="cnpj-alert-mini">
+            <i class="fa-solid fa-shield-halved"></i> <strong>Cláusula Soberana de Defesa do CNPJ:</strong> Parecer técnico independente para proteger a empresa acima de caprichos individuais.
+          </div>
+        </div>
+
+        <div class="price-box">
+          <div class="price-details">
+            <span class="price-label">Escopo Fechado (90 Dias)</span>
+            <span class="price-value">R$ 8k a R$ 15k</span>
+            <span class="price-sub">parcelado em 3x mensais</span>
+          </div>
+          <span class="product-duration">3 Meses Fechados</span>
+        </div>
+      </div>
+
+      <!-- PRODUTO 7: Planejamento Estratégico Modular -->
+      <div class="product-card" data-category="highticket">
+        <span class="card-badge-top badge-highticket">High-Ticket Modular</span>
+        <div>
+          <div class="product-header">
+            <div class="product-icon" style="background:#dcfce7; color:#166534;"><i class="fa-solid fa-compass-drafting"></i></div>
+            <h2 class="product-title">Planejamento Estratégico Modular</h2>
+            <span class="product-slug-tag">PLAN-ESTRATEGICO-3M</span>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-circle-question"></i> O que é e o que faz?</div>
+            <p class="section-text">
+              Estruturação completa do plano de metas, OKRs, canais de aquisição e eficiência operacional para 12 meses, com prazos e entregáveis rígidos de 90 dias, sem execução de rotinas braçais.
+            </p>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-user-check"></i> Para quem é indicado?</div>
+            <p class="section-text">
+              PMEs em fase de expansão, abertura de filiais ou reposicionamento de mercado que precisam de tração com disciplina financeira.
+            </p>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-box-open"></i> O que é entregue?</div>
+            <ul class="deliverables-list">
+              <li><i class="fa-solid fa-check"></i> Diagnóstico Profundo de Gargalos e Margens.</li>
+              <li><i class="fa-solid fa-check"></i> Matriz de Metas e OKRs Trimestrais para 12 Meses.</li>
+              <li><i class="fa-solid fa-check"></i> Plano de Alocação de Recursos e DRE Projetada.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="price-box">
+          <div class="price-details">
+            <span class="price-label">Escopo Fechado (90 Dias)</span>
+            <span class="price-value">Sob Consulta</span>
+            <span class="price-sub">estimado em ~R$ 8k a R$ 12k</span>
+          </div>
+          <span class="product-duration">3 Meses Fechados</span>
+        </div>
+      </div>
+
+      <!-- PRODUTO 8: Micro-Agentes & Cadernos -->
+      <div class="product-card" data-category="frontend">
+        <span class="card-badge-top badge-micro">Micro-SaaS & Manuais</span>
+        <div>
+          <div class="product-header">
+            <div class="product-icon" style="background:#f1f5f9; color:#334155;"><i class="fa-solid fa-book-open"></i></div>
+            <h2 class="product-title">Micro-Agentes & Cadernos de Ativação</h2>
+            <span class="product-slug-tag">CADERNOS-ATIVACAO</span>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-circle-question"></i> O que é e o que faz?</div>
+            <p class="section-text">
+              Manuais operacionais práticos e agentes especializados em micro-tarefas (ex.: Agente de Análise de Curva ABC de Vendas, Caderno de Abertura de Caixa, Caderno de DRE em 1 Página).
+            </p>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-user-check"></i> Para quem é indicado?</div>
+            <p class="section-text">
+              Microempresários sem orçamento que precisam orientar estagiários ou assistentes a executar tarefas essenciais de gestão com padronização.
+            </p>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-box-open"></i> O que é entregue?</div>
+            <ul class="deliverables-list">
+              <li><i class="fa-solid fa-check"></i> Cadernos de Ativação em PDF / Notion prontos para uso.</li>
+              <li><i class="fa-solid fa-check"></i> Checklist operacional para delegar à equipe.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="price-box">
+          <div class="price-details">
+            <span class="price-label">Preço por Caderno</span>
+            <span class="price-value">R$ 40 a R$ 50</span>
+            <span class="price-sub">acesso vitalício</span>
+          </div>
+          <span class="product-duration">Download Imediato</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Comparison Table -->
+    <div class="comparison-section">
+      <h2 class="comparison-title">Matriz Comparativa da Esteira de Soluções</h2>
+      <p class="comparison-sub">Visão consolidada de escopos, formatos, duração e canais de acesso.</p>
+      
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>Produto</th>
+              <th>Público-Alvo</th>
+              <th>Formato / Plataforma</th>
+              <th>Duração</th>
+              <th>Preço Oficial</th>
+              <th>Defesa do CNPJ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Diagnóstico Express</strong></td>
+              <td>PMEs Desassistidas (R$ 50k a R$ 500k/m)</td>
+              <td>SaaS Automatizado + Motor IA</td>
+              <td>Imediato</td>
+              <td><strong>R$ 250,00</strong> (12x)</td>
+              <td><i class="fa-solid fa-check" style="color:var(--accent-emerald);"></i> Informativa</td>
+            </tr>
+            <tr>
+              <td><strong>Júlio Bot v8.0</strong></td>
+              <td>Assinantes pós-diagnóstico</td>
+              <td>Web App SPA no Netlify (Firebase Auth)</td>
+              <td>Mensal Recorrente</td>
+              <td><strong>R$ 120,00 / mês</strong></td>
+              <td><i class="fa-solid fa-check" style="color:var(--accent-emerald);"></i> Mandatória</td>
+            </tr>
+            <tr>
+              <td><strong>RH Tech DIY</strong></td>
+              <td>Empresários contratando equipe</td>
+              <td>Chat Web SPA / IA</td>
+              <td>Por Vaga</td>
+              <td><strong>R$ 250,00</strong> / vaga</td>
+              <td><i class="fa-solid fa-check" style="color:var(--accent-emerald);"></i> Sim</td>
+            </tr>
+            <tr>
+              <td><strong>RH Tech Full-Service</strong></td>
+              <td>Empresas buscando posições-chave</td>
+              <td>Condução Humana Sênior + IA</td>
+              <td>15 a 30 dias</td>
+              <td><strong>1º Salário</strong> (Garantia 30d)</td>
+              <td><i class="fa-solid fa-check" style="color:var(--accent-emerald);"></i> Sim</td>
+            </tr>
+            <tr>
+              <td><strong>Diagnóstico 360°</strong></td>
+              <td>PMEs maduras (> R$ 300k/m)</td>
+              <td>Sessão Executiva 2h + Parecer</td>
+              <td>2 Horas</td>
+              <td><strong>R$ 980 a R$ 1.200</strong></td>
+              <td><i class="fa-solid fa-check" style="color:var(--accent-emerald);"></i> Sim</td>
+            </tr>
+            <tr>
+              <td><strong>Conselho Familiar</strong></td>
+              <td>Empresas Familiares em Sucessão</td>
+              <td>3 Sessões Presenciais/Remotas + Estatuto</td>
+              <td><strong>3 Meses Fechados</strong></td>
+              <td><strong>R$ 8k a R$ 15k</strong></td>
+              <td><i class="fa-solid fa-shield-halved" style="color:var(--accent-rose);"></i> <strong>Soberana</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Planejamento Estratégico</strong></td>
+              <td>Empresas em Expansão</td>
+              <td>Diagnóstico + OKRs + Trilha 12 Meses</td>
+              <td><strong>3 Meses Fechados</strong></td>
+              <td><strong>Sob Consulta</strong></td>
+              <td><i class="fa-solid fa-shield-halved" style="color:var(--accent-rose);"></i> <strong>Soberana</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Cadernos de Ativação</strong></td>
+              <td>Microempresários descapitalizados</td>
+              <td>Manuais PDF / Notion</td>
+              <td>Vitalício</td>
+              <td><strong>R$ 40 a R$ 50</strong></td>
+              <td><i class="fa-solid fa-check" style="color:var(--accent-emerald);"></i> Sim</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="page-footer">
+    <p>Catálogo Oficial de Soluções &bull; &copy; 2026 Ecossistema Live (LUIZ E A PORTAL — CNPJ: 52.887.139/0001-00). Todos os direitos reservados.</p>
+    <p style="margin-top: 0.4rem; color: var(--text-light); font-size: 0.78rem;">
+      Documento estruturado em conformidade com as diretrizes de governança e transição de modelo de negócio de 13 de Agosto de 2026.
+    </p>
+  </footer>
+
+  <!-- Script for Category Filtering -->
+  <script>
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const productCards = document.querySelectorAll('.product-card');
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.getAttribute('data-filter');
+
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        productCards.forEach(card => {
+          const category = card.getAttribute('data-category');
+          if (filter === 'all' || category === filter) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
