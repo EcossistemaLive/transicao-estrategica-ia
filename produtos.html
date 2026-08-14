@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Catálogo Oficial de Produtos & Soluções — Ecossistema Live</title>
+  <title>Catálogo Oficial de Soluções & Produtos — Ecossistema Live</title>
   
   <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,6 +22,7 @@
       --accent-purple: #7c3aed;
       --accent-blue: #0284c7;
       --accent-rose: #e11d48;
+      --accent-cyan: #0891b2;
       --bg-main: #f8fafc;
       --bg-card: #ffffff;
       --border: #e2e8f0;
@@ -79,7 +80,7 @@
     }
 
     .hero-content {
-      max-width: 900px;
+      max-width: 960px;
       margin: 0 auto;
       position: relative;
       z-index: 1;
@@ -92,7 +93,7 @@
       background: rgba(255,255,255,0.1);
       border: 1px solid rgba(255,255,255,0.2);
       color: #c7d2fe;
-      padding: 0.4rem 1rem;
+      padding: 0.4rem 1.15rem;
       border-radius: var(--radius-full);
       font-size: 0.85rem;
       font-weight: 700;
@@ -114,9 +115,9 @@
     }
 
     .hero-subtitle {
-      font-size: 1.15rem;
+      font-size: 1.12rem;
       color: #94a3b8;
-      max-width: 760px;
+      max-width: 800px;
       margin: 0 auto 1.5rem auto;
       font-weight: 400;
     }
@@ -137,7 +138,7 @@
 
     /* Container & Layout */
     .app-container {
-      max-width: 1300px;
+      max-width: 1360px;
       margin: 0 auto;
       padding: 2.5rem 1.5rem 5rem 1.5rem;
     }
@@ -154,7 +155,7 @@
 
     .filter-nav {
       display: flex;
-      gap: 0.5rem;
+      gap: 0.4rem;
       background: var(--bg-card);
       padding: 0.4rem;
       border-radius: var(--radius-full);
@@ -167,13 +168,13 @@
     .filter-btn {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      padding: 0.6rem 1.15rem;
+      gap: 0.45rem;
+      padding: 0.55rem 1.1rem;
       border-radius: var(--radius-full);
       border: none;
       background: transparent;
       color: var(--text-muted);
-      font-size: 0.88rem;
+      font-size: 0.84rem;
       font-weight: 600;
       cursor: pointer;
       white-space: nowrap;
@@ -236,15 +237,15 @@
       letter-spacing: 0.05em;
     }
 
-    .badge-frontend { background: #fef3c7; color: #92400e; }
-    .badge-mrr { background: #f3e8ff; color: #7e22ce; }
+    .badge-ia { background: #f3e8ff; color: #7e22ce; }
     .badge-rh { background: #e0f2fe; color: #0369a1; }
-    .badge-highticket { background: #dcfce7; color: #15803d; }
-    .badge-micro { background: #f1f5f9; color: #475569; }
+    .badge-cx { background: #fef3c7; color: #92400e; }
+    .badge-gov { background: #dcfce7; color: #15803d; }
+    .badge-edu { background: #ffe4e6; color: #be123c; }
 
     .product-header {
       margin-bottom: 1.25rem;
-      padding-right: 4rem;
+      padding-right: 4.5rem;
     }
 
     .product-icon {
@@ -256,12 +257,12 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.4rem;
+      font-size: 1.35rem;
       margin-bottom: 1rem;
     }
 
     .product-title {
-      font-size: 1.35rem;
+      font-size: 1.3rem;
       font-weight: 800;
       color: var(--secondary);
       line-height: 1.3;
@@ -276,8 +277,8 @@
 
     /* Section Blocks inside Card */
     .section-block {
-      margin-bottom: 1.25rem;
-      font-size: 0.9rem;
+      margin-bottom: 1.2rem;
+      font-size: 0.88rem;
     }
 
     .section-label {
@@ -309,7 +310,7 @@
       display: flex;
       align-items: flex-start;
       gap: 0.5rem;
-      font-size: 0.85rem;
+      font-size: 0.84rem;
       color: #1e293b;
     }
 
@@ -324,7 +325,7 @@
       border-left: 3px solid var(--accent-rose);
       padding: 0.6rem 0.85rem;
       border-radius: var(--radius-sm);
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: #9f1239;
       margin-top: 0.75rem;
       line-height: 1.4;
@@ -347,14 +348,14 @@
     }
 
     .price-label {
-      font-size: 0.75rem;
+      font-size: 0.73rem;
       color: var(--text-muted);
       text-transform: uppercase;
       font-weight: 700;
     }
 
     .price-value {
-      font-size: 1.7rem;
+      font-size: 1.55rem;
       font-weight: 800;
       color: var(--secondary);
       line-height: 1.1;
@@ -368,12 +369,12 @@
     }
 
     .product-duration {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       font-weight: 600;
       color: #475569;
       background: white;
       border: 1px solid var(--border);
-      padding: 0.35rem 0.75rem;
+      padding: 0.3rem 0.7rem;
       border-radius: var(--radius-full);
       white-space: nowrap;
     }
@@ -410,21 +411,21 @@
     table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 0.88rem;
+      font-size: 0.86rem;
     }
 
     th {
       background: #f8fafc;
       color: var(--secondary);
       font-weight: 700;
-      padding: 1rem;
+      padding: 0.9rem;
       border-bottom: 2px solid var(--border);
       text-align: left;
       white-space: nowrap;
     }
 
     td {
-      padding: 1rem;
+      padding: 0.9rem;
       border-bottom: 1px solid var(--border);
       color: #334155;
       vertical-align: middle;
@@ -455,14 +456,14 @@
   <!-- Hero Header -->
   <header class="hero-header">
     <div class="hero-content">
-      <div class="hero-tag"><i class="fa-solid fa-cubes-stacked"></i> Portfólio Modular Oficial</div>
-      <h1 class="hero-title">Soluções & Produtos de Gestão com Início, Meio e Fim</h1>
+      <div class="hero-tag"><i class="fa-solid fa-cubes-stacked"></i> Portfólio Modular Expandido</div>
+      <h1 class="hero-title">Soluções Estratégicas & Produtos do Ecossistema Live</h1>
       <p class="hero-subtitle">
-        Conheça a esteira escalável do Ecossistema Live: ferramentas de Inteligência Artificial, diagnósticos acessíveis e projetos modulares de governança que blindam e aceleram o crescimento do seu CNPJ.
+        Uma esteira completa e modular de soluções de gestão: Inteligência Artificial, Diagnósticos Ágeis, Pesquisas de Experiência (CX), Inteligência de Mercado, Formação de Lideranças, M&A e Governança Sênior.
       </p>
       <div class="sovereign-banner">
         <i class="fa-solid fa-shield-halved"></i>
-        <span><strong>Diretriz Mandatória:</strong> Não fazemos consultoria tradicional de longo prazo. Entregamos produtos delimitados com metas claras e Defesa Soberana do CNPJ.</span>
+        <span><strong>Diretriz Soberana:</strong> Produtos delimitados com Início, Meio e Fim, sem execução braçal e com Defesa Inegociável da Saúde do CNPJ.</span>
       </div>
     </div>
   </header>
@@ -473,11 +474,12 @@
     <!-- Category Filter Bar -->
     <div class="filter-wrapper">
       <div class="filter-nav" id="categoryFilter">
-        <button class="filter-btn active" data-filter="all"><i class="fa-solid fa-layer-group"></i> Todos (8)</button>
-        <button class="filter-btn" data-filter="frontend"><i class="fa-solid fa-bolt"></i> Front-End & Volume</button>
-        <button class="filter-btn" data-filter="mrr"><i class="fa-solid fa-robot"></i> Copiloto IA (MRR)</button>
+        <button class="filter-btn active" data-filter="all"><i class="fa-solid fa-layer-group"></i> Todas as Soluções (15)</button>
+        <button class="filter-btn" data-filter="ia"><i class="fa-solid fa-robot"></i> IA & Copilotos</button>
         <button class="filter-btn" data-filter="rh"><i class="fa-solid fa-users"></i> Recrutamento (RH Tech)</button>
-        <button class="filter-btn" data-filter="highticket"><i class="fa-solid fa-landmark"></i> Governança (3 Meses)</button>
+        <button class="filter-btn" data-filter="cx"><i class="fa-solid fa-magnifying-glass-chart"></i> Experiência & Mercado</button>
+        <button class="filter-btn" data-filter="gov"><i class="fa-solid fa-landmark"></i> Governança, Estratégia & M&A</button>
+        <button class="filter-btn" data-filter="edu"><i class="fa-solid fa-graduation-cap"></i> Liderança & C-Level</button>
       </div>
     </div>
 
@@ -485,8 +487,8 @@
     <div class="products-grid" id="productsContainer">
 
       <!-- PRODUTO 1: Diagnóstico Express SaaS -->
-      <div class="product-card featured" data-category="frontend">
-        <span class="card-badge-top badge-frontend">Front-End / Volume</span>
+      <div class="product-card featured" data-category="ia">
+        <span class="card-badge-top badge-ia">Front-End / Volume</span>
         <div>
           <div class="product-header">
             <div class="product-icon"><i class="fa-solid fa-chart-pie"></i></div>
@@ -497,14 +499,14 @@
           <div class="section-block">
             <div class="section-label"><i class="fa-solid fa-circle-question"></i> O que é e o que faz?</div>
             <p class="section-text">
-              Formulário inteligente que analisa a empresa nos <strong>4 Eixos Cardinais</strong> (Finanças/DRE, Processos, Pessoas e Vendas). Mitiga a <em>"miopia do negócio"</em> e identifica imediatamente onde a empresa está perdendo dinheiro.
+              Formulário automatizado que mapeia a empresa nos <strong>4 Eixos</strong> (Finanças, Processos, Pessoas e Vendas). Combate a miopia de gestão e revela onde a empresa perde margem.
             </p>
           </div>
 
           <div class="section-block">
             <div class="section-label"><i class="fa-solid fa-user-check"></i> Para quem é indicado?</div>
             <p class="section-text">
-              Pequenos e médios empresários (faturamento de R$ 50k a R$ 500k/mês) que trabalham 14h/dia e sentem que o faturamento não se converte em lucro real.
+              Pequenos e médios empresários que faturam de R$ 50k a R$ 500k/mês e precisam de clareza imediata sobre seus gargalos operacionais.
             </p>
           </div>
 
@@ -512,15 +514,14 @@
             <div class="section-label"><i class="fa-solid fa-box-open"></i> O que é entregue?</div>
             <ul class="deliverables-list">
               <li><i class="fa-solid fa-check"></i> Relatório Executivo em PDF com Score 360° e Gargalos.</li>
-              <li><i class="fa-solid fa-check"></i> Caderno de Ativação Inicial para delegar tarefas.</li>
-              <li><i class="fa-solid fa-check"></i> Acesso imediato no chat para tirar dúvidas.</li>
+              <li><i class="fa-solid fa-check"></i> Caderno de Ativação Inicial para delegação.</li>
             </ul>
           </div>
         </div>
 
         <div class="price-box">
           <div class="price-details">
-            <span class="price-label">Investimento Único</span>
+            <span class="price-label">Investimento</span>
             <span class="price-value">R$ 250,00</span>
             <span class="price-sub">em até 12x de ~R$ 25 no cartão</span>
           </div>
@@ -529,123 +530,165 @@
       </div>
 
       <!-- PRODUTO 2: Júlio Bot v8.0 MRR -->
-      <div class="product-card featured" data-category="mrr">
-        <span class="card-badge-top badge-mrr">Assinatura Mensal</span>
+      <div class="product-card featured" data-category="ia">
+        <span class="card-badge-top badge-ia">Assinatura Mensal</span>
         <div>
           <div class="product-header">
-            <div class="product-icon" style="background:#f3e8ff; color:#7c3aed;"><i class="fa-solid fa-robot"></i></div>
+            <div class="product-icon"><i class="fa-solid fa-robot"></i></div>
             <h2 class="product-title">Júlio Bot v8.0 — Copiloto de Gestão</h2>
-            <span class="product-slug-tag">JULIO-NETLIFY-SPA</span>
+            <span class="product-slug-tag">JULIO-NETLIFY</span>
           </div>
 
           <div class="section-block">
             <div class="section-label"><i class="fa-solid fa-circle-question"></i> O que é e o que faz?</div>
             <p class="section-text">
-              Seu conselheiro digital de negócios acessível via Web App no <strong>Netlify com login seguro (Firebase Auth)</strong>. Tira dúvidas de DRE, orienta montagem de fluxos, analisa currículos e faz check-ins de metas.
+              Conselheiro digital de negócios no <strong>Web App Netlify com Firebase Auth</strong>. Tira dúvidas de DRE, orienta montagem de fluxos e faz check-ins de metas.
             </p>
           </div>
 
           <div class="section-block">
             <div class="section-label"><i class="fa-solid fa-user-check"></i> Para quem é indicado?</div>
             <p class="section-text">
-              Compradores do Diagnóstico que precisam de suporte contínuo para implantar as melhorias no dia a dia sem o custo de um consultor humano fixo.
+              Empresários que precisam de suporte contínuo para implantar as melhorias no dia a dia sem o custo de um consultor humano fixo.
             </p>
           </div>
 
           <div class="section-block">
             <div class="section-label"><i class="fa-solid fa-box-open"></i> O que é entregue?</div>
             <ul class="deliverables-list">
-              <li><i class="fa-solid fa-check"></i> Acesso ilimitado ao Web App SPA (Netlify).</li>
-              <li><i class="fa-solid fa-check"></i> Respostas socráticas para DRE, Estoque e Liderança.</li>
-              <li><i class="fa-solid fa-check"></i> Isolamento de dados restrito por CNPJ (Multi-Tenancy).</li>
+              <li><i class="fa-solid fa-check"></i> Acesso ilimitado ao Web App SPA.</li>
+              <li><i class="fa-solid fa-check"></i> Respostas socráticas e isolamento restrito de dados.</li>
             </ul>
           </div>
         </div>
 
         <div class="price-box">
           <div class="price-details">
-            <span class="price-label">Mensalidade Recorrente</span>
-            <span class="price-value">R$ 120,00 <span style="font-size:0.9rem; font-weight:600; color:var(--text-muted);">/ mês</span></span>
+            <span class="price-label">Mensalidade</span>
+            <span class="price-value">R$ 120,00 <span style="font-size:0.85rem; color:var(--text-muted);">/ mês</span></span>
             <span class="price-sub">sem fidelidade • cancele quando quiser</span>
           </div>
           <span class="product-duration">Acesso Contínuo</span>
         </div>
       </div>
 
-      <!-- PRODUTO 3: RH Tech DIY -->
-      <div class="product-card" data-category="rh">
-        <span class="card-badge-top badge-rh">Autoatendimento IA</span>
+      <!-- PRODUTO 3: Assistente de IA para Suporte Interno -->
+      <div class="product-card" data-category="ia">
+        <span class="card-badge-top badge-ia">IA Corporativa</span>
         <div>
           <div class="product-header">
-            <div class="product-icon" style="background:#e0f2fe; color:#0284c7;"><i class="fa-solid fa-user-gear"></i></div>
-            <h2 class="product-title">RH Tech DIY (Recrutamento Inteligente)</h2>
-            <span class="product-slug-tag">RH-TECH-DIY-250</span>
+            <div class="product-icon"><i class="fa-solid fa-network-wired"></i></div>
+            <h2 class="product-title">Assistente de IA para Suporte Interno</h2>
+            <span class="product-slug-tag">IA-SUPORTE-INT</span>
           </div>
 
           <div class="section-block">
             <div class="section-label"><i class="fa-solid fa-circle-question"></i> O que é e o que faz?</div>
             <p class="section-text">
-              Ferramenta que empodera o próprio empresário a conduzir seleções profissionais. Cria Job Descriptions de alta atração, faz triagem automática de currículos por Fit Score e gera o roteiro socrático de perguntas para a entrevista.
+              Agente de Inteligência Artificial treinado especificamente nos <strong>POPs, manuais, produtos e regras internas da sua empresa</strong>, servindo como ponto único de tira-dúvidas para os funcionários.
             </p>
           </div>
 
           <div class="section-block">
             <div class="section-label"><i class="fa-solid fa-user-check"></i> Para quem é indicado?</div>
             <p class="section-text">
-              Empresários que contratam "na tora ou por osmose", sofrem com turnover elevado e não têm verba para pagar consultorias tradicionais de RH.
+              Empresas onde o dono ou gerentes perdem horas repetindo as mesmas instruções operacionais e treinando novatos.
             </p>
           </div>
 
           <div class="section-block">
             <div class="section-label"><i class="fa-solid fa-box-open"></i> O que é entregue?</div>
             <ul class="deliverables-list">
-              <li><i class="fa-solid fa-check"></i> Anúncio estruturado pronto para WhatsApp/LinkedIn.</li>
-              <li><i class="fa-solid fa-check"></i> Ranking e Fit Score (0 a 100) dos currículos em PDF.</li>
-              <li><i class="fa-solid fa-check"></i> Roteiro de 5 a 8 perguntas comportamentais para o dono.</li>
+              <li><i class="fa-solid fa-check"></i> Ingestão completa dos manuais e PDFs da empresa.</li>
+              <li><i class="fa-solid fa-check"></i> Interface web segura de consulta interna para a equipe.</li>
             </ul>
           </div>
         </div>
 
         <div class="price-box">
           <div class="price-details">
-            <span class="price-label">Por Processo Seletivo</span>
-            <span class="price-value">R$ 250,00</span>
-            <span class="price-sub">em até 12x no cartão</span>
+            <span class="price-label">Setup + Manutenção</span>
+            <span class="price-value">Sob Consulta</span>
+            <span class="price-sub">conforme volume de documentos</span>
           </div>
-          <span class="product-duration">1 Processo Completo</span>
+          <span class="product-duration">Setup em 7 Dias</span>
         </div>
       </div>
 
-      <!-- PRODUTO 4: RH Tech Full-Service -->
+      <!-- PRODUTO 4: RH Tech DIY -->
       <div class="product-card" data-category="rh">
-        <span class="card-badge-top badge-rh">Condução Humana</span>
+        <span class="card-badge-top badge-rh">Recrutamento IA</span>
         <div>
           <div class="product-header">
-            <div class="product-icon" style="background:#e0f2fe; color:#0369a1;"><i class="fa-solid fa-user-check"></i></div>
-            <h2 class="product-title">RH Tech Full-Service (Headhunting PME)</h2>
-            <span class="product-slug-tag">RH-FULL-SERVICE</span>
+            <div class="product-icon"><i class="fa-solid fa-user-gear"></i></div>
+            <h2 class="product-title">RH Tech DIY (Recrutamento Inteligente)</h2>
+            <span class="product-slug-tag">RH-TECH-DIY</span>
           </div>
 
           <div class="section-block">
             <div class="section-label"><i class="fa-solid fa-circle-question"></i> O que é e o que faz?</div>
             <p class="section-text">
-              Condução integral do processo seletivo por especialistas do Ecossistema Live, desde a atração até a entrevista em profundidade, entrega dos finalistas ranqueados e emissão do Parecer Executivo de Aprovação.
+              Ferramenta que empodera o próprio empresário a conduzir seleções profissionais: cria Job Descriptions, faz triagem automática de currículos por Fit Score e gera o roteiro socrático de perguntas.
             </p>
           </div>
 
           <div class="section-block">
             <div class="section-label"><i class="fa-solid fa-user-check"></i> Para quem é indicado?</div>
             <p class="section-text">
-              Empresas que precisam contratar posições-chave (gerentes, líderes comerciais, financeiro) e não possuem tempo hábil para triagem interna.
+              Empresários que contratam sem método, sofrem com alto turnover e não podem pagar consultorias tradicionais de RH.
             </p>
           </div>
 
           <div class="section-block">
             <div class="section-label"><i class="fa-solid fa-box-open"></i> O que é entregue?</div>
             <ul class="deliverables-list">
-              <li><i class="fa-solid fa-check"></i> Triagem sênior e entrevistas conduzidas pela equipe.</li>
+              <li><i class="fa-solid fa-check"></i> Anúncio estruturado de vaga.</li>
+              <li><i class="fa-solid fa-check"></i> Ranking com Fit Score (0 a 100) dos currículos.</li>
+              <li><i class="fa-solid fa-check"></i> Roteiro de 5 a 8 perguntas comportamentais.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="price-box">
+          <div class="price-details">
+            <span class="price-label">Por Processo</span>
+            <span class="price-value">R$ 250,00</span>
+            <span class="price-sub">em até 12x no cartão</span>
+          </div>
+          <span class="product-duration">1 Vaga Completa</span>
+        </div>
+      </div>
+
+      <!-- PRODUTO 5: RH Tech Full-Service -->
+      <div class="product-card" data-category="rh">
+        <span class="card-badge-top badge-rh">Headhunting PME</span>
+        <div>
+          <div class="product-header">
+            <div class="product-icon"><i class="fa-solid fa-user-check"></i></div>
+            <h2 class="product-title">RH Tech Full-Service (Headhunting)</h2>
+            <span class="product-slug-tag">RH-FULL-SERV</span>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-circle-question"></i> O que é e o que faz?</div>
+            <p class="section-text">
+              Condução integral do processo seletivo por especialistas, desde a atração até a entrevista em profundidade, entrega dos finalistas ranqueados e parecer executivo.
+            </p>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-user-check"></i> Para quem é indicado?</div>
+            <p class="section-text">
+              Empresas que precisam contratar posições estratégicas (gerentes, líderes comerciais, financeiro) e não possuem tempo interno para triagem.
+            </p>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-box-open"></i> O que é entregue?</div>
+            <ul class="deliverables-list">
+              <li><i class="fa-solid fa-check"></i> Entrevistas conduzidas por consultores sênior.</li>
               <li><i class="fa-solid fa-check"></i> Apresentação dos 2 melhores candidatos finalistas.</li>
-              <li><i class="fa-solid fa-check"></i> <strong>Garantia de Reposição de 30 dias inclusa.</strong></li>
+              <li><i class="fa-solid fa-check"></i> <strong>Garantia de Reposição de 30 dias.</strong></li>
             </ul>
           </div>
         </div>
@@ -660,58 +703,151 @@
         </div>
       </div>
 
-      <!-- PRODUTO 5: Diagnóstico via Entrevista 360° -->
-      <div class="product-card" data-category="frontend">
-        <span class="card-badge-top badge-frontend">Mid-Ticket</span>
+      <!-- PRODUTO 6: Percepção do Cliente & Service Blueprint (CX) -->
+      <div class="product-card featured" data-category="cx">
+        <span class="card-badge-top badge-cx">Experiência (CX)</span>
         <div>
           <div class="product-header">
-            <div class="product-icon" style="background:#fef3c7; color:#b45309;"><i class="fa-solid fa-comments-dollar"></i></div>
-            <h2 class="product-title">Diagnóstico via Entrevista 360°</h2>
-            <span class="product-slug-tag">DIAG-360-SESSAO</span>
+            <div class="product-icon"><i class="fa-solid fa-heart-circle-check"></i></div>
+            <h2 class="product-title">Percepção do Cliente & Service Blueprint</h2>
+            <span class="product-slug-tag">CX-NPS-BLUE</span>
           </div>
 
           <div class="section-block">
             <div class="section-label"><i class="fa-solid fa-circle-question"></i> O que é e o que faz?</div>
             <p class="section-text">
-              Sessão executiva de 2 horas conduzida por Luiz Portal ou Cleber Donato, cruzando os dados do diagnóstico automatizado com uma análise clínica profunda do modelo de negócios, sociedade e operação.
+              Diagnóstico profundo da experiência dos clientes com os produtos, serviços e atendimento. Calcula métricas precisas (<strong>NPS, CSAT, CES</strong>), mapeia a jornada do usuário e constrói o <strong>Blueprint de Serviço</strong> (front stage, back stage e processos de suporte).
             </p>
           </div>
 
           <div class="section-block">
             <div class="section-label"><i class="fa-solid fa-user-check"></i> Para quem é indicado?</div>
             <p class="section-text">
-              PMEs maduras (faturamento acima de R$ 300k/mês) que precisam de validação sênior antes de grandes investimentos ou reestruturações.
+              Empresas com queixas recorrentes de clientes, queda de recompra ou que desejam padronizar o atendimento antes de expandir.
             </p>
           </div>
 
           <div class="section-block">
             <div class="section-label"><i class="fa-solid fa-box-open"></i> O que é entregue?</div>
             <ul class="deliverables-list">
-              <li><i class="fa-solid fa-check"></i> Sessão de 2 horas gravada e transcrita.</li>
-              <li><i class="fa-solid fa-check"></i> Parecer Estratégico de Maturidade e Riscos.</li>
-              <li><i class="fa-solid fa-check"></i> Roteiro de prioridades para os próximos 90 dias.</li>
+              <li><i class="fa-solid fa-check"></i> Relatório de Indicadores: NPS, CSAT e CES auditados.</li>
+              <li><i class="fa-solid fa-check"></i> Mapa da Jornada com pontos de contato e emoções.</li>
+              <li><i class="fa-solid fa-check"></i> <strong>Service Blueprint detalhado com POPs de suporte.</strong></li>
+              <li><i class="fa-solid fa-check"></i> Plano de Recomendações Práticas de Ação Imediata.</li>
             </ul>
           </div>
         </div>
 
         <div class="price-box">
           <div class="price-details">
-            <span class="price-label">Investimento Único</span>
-            <span class="price-value">R$ 980,00</span>
-            <span class="price-sub">em até 3x sem juros ou Pix</span>
+            <span class="price-label">Projeto Fechado</span>
+            <span class="price-value">Sob Consulta</span>
+            <span class="price-sub">conforme porte e volume de clientes</span>
           </div>
-          <span class="product-duration">Sessão de 2 Horas</span>
+          <span class="product-duration">30 a 45 Dias</span>
         </div>
       </div>
 
-      <!-- PRODUTO 6: Estruturação de Conselho Familiar -->
-      <div class="product-card featured" data-category="highticket">
-        <span class="card-badge-top badge-highticket">High-Ticket Modular</span>
+      <!-- PRODUTO 7: Pesquisa de Mercado & Inteligência Competitiva -->
+      <div class="product-card" data-category="cx">
+        <span class="card-badge-top badge-cx">Inteligência</span>
         <div>
           <div class="product-header">
-            <div class="product-icon" style="background:#dcfce7; color:#15803d;"><i class="fa-solid fa-people-roof"></i></div>
+            <div class="product-icon"><i class="fa-solid fa-chess"></i></div>
+            <h2 class="product-title">Pesquisa de Mercado & Concorrentes</h2>
+            <span class="product-slug-tag">PESQ-MERCADO</span>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-circle-question"></i> O que é e o que faz?</div>
+            <p class="section-text">
+              Investigação analítica do mercado, benchmarking de preços, práticas de concorrentes diretos e identificação de potenciais parceiros estratégicos para o negócio.
+            </p>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-user-check"></i> Para quem é indicado?</div>
+            <p class="section-text">
+              Empresas planejando lançar novos produtos, expandir para novas praças ou que estão perdendo clientes para a concorrência sem entender o motivo.
+            </p>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-box-open"></i> O que é entregue?</div>
+            <ul class="deliverables-list">
+              <li><i class="fa-solid fa-check"></i> Matriz de Benchmarking Competitivo de Preços e Serviços.</li>
+              <li><i class="fa-solid fa-check"></i> Dossiê de Oportunidades e Ameaças de Mercado.</li>
+              <li><i class="fa-solid fa-check"></i> Parecer Estratégico de Diferenciação de Marca.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="price-box">
+          <div class="price-details">
+            <span class="price-label">Projeto Fechado</span>
+            <span class="price-value">Sob Consulta</span>
+            <span class="price-sub">escopo sob medida</span>
+          </div>
+          <span class="product-duration">30 Dias</span>
+        </div>
+      </div>
+
+      <!-- PRODUTO 8: Negociação, Mediação & M&A -->
+      <div class="product-card featured" data-category="gov">
+        <span class="card-badge-top badge-gov">Estratégia & M&A</span>
+        <div>
+          <div class="product-header">
+            <div class="product-icon"><i class="fa-solid fa-handshake"></i></div>
+            <h2 class="product-title">Negociação, Mediação & M&A</h2>
+            <span class="product-slug-tag">M&A-NEGOCIACAO</span>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-circle-question"></i> O que é e o que faz?</div>
+            <p class="section-text">
+              Estruturação e mediação executiva de processos de <strong>Fusões, Aquisições, Venda de Participação Societária ou Alianças Estratégicas</strong>. Condução de valuation preliminar, análise jurídica e de viabilidade.
+            </p>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-user-check"></i> Para quem é indicado?</div>
+            <p class="section-text">
+              Sócios em processo de compra/venda de quotas, fusão com concorrentes ou formação de joint ventures que exigem mediação profissional e blindagem de interesses.
+            </p>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-box-open"></i> O que é entregue?</div>
+            <ul class="deliverables-list">
+              <li><i class="fa-solid fa-check"></i> Estruturação do Projeto e Tese de Parceria/Fusão.</li>
+              <li><i class="fa-solid fa-check"></i> Análise Jurídica e de Viabilidade Econômico-Financeira.</li>
+              <li><i class="fa-solid fa-check"></i> Mediação das mesas de negociação entre as partes.</li>
+            </ul>
+          </div>
+
+          <div class="cnpj-alert-mini">
+            <i class="fa-solid fa-shield-halved"></i> <strong>Cláusula Soberana de Defesa do CNPJ:</strong> Parecer técnico independente para proteção do patrimônio e continuidade operacional.
+          </div>
+        </div>
+
+        <div class="price-box">
+          <div class="price-details">
+            <span class="price-label">Modelo de Remuneração</span>
+            <span class="price-value">Retainer + Êxito</span>
+            <span class="price-sub">honorários mensais + success fee</span>
+          </div>
+          <span class="product-duration">Conforme Transação</span>
+        </div>
+      </div>
+
+      <!-- PRODUTO 9: Estruturação de Conselho Familiar -->
+      <div class="product-card featured" data-category="gov">
+        <span class="card-badge-top badge-gov">High-Ticket Modular</span>
+        <div>
+          <div class="product-header">
+            <div class="product-icon"><i class="fa-solid fa-people-roof"></i></div>
             <h2 class="product-title">Estruturação de Conselho Familiar</h2>
-            <span class="product-slug-tag">CONSELHO-FAMILIAR-3M</span>
+            <span class="product-slug-tag">CONSELHO-FAM-3M</span>
           </div>
 
           <div class="section-block">
@@ -724,12 +860,11 @@
           <div class="section-block">
             <div class="section-label"><i class="fa-solid fa-user-check"></i> Para quem é indicado?</div>
             <p class="section-text">
-              Empresas familiares onde sócios, irmãos ou filhos misturam relações de parentesco com a gestão, gerando desgaste e ameaçando o futuro do negócio.
+              Empresas familiares onde sócios, irmãos ou herdeiros misturam questões pessoais com a gestão, gerando desgaste e travando o crescimento.
             </p>
           </div>
 
           <div class="section-block">
-            <div class="section-label"><i class="fa-solid fa-box-open"></i> O que é entregue?</div>
             <ul class="deliverables-list">
               <li><i class="fa-solid fa-check"></i> Diagnóstico confidencial com fundadores e herdeiros.</li>
               <li><i class="fa-solid fa-check"></i> Estatuto / Regimento Interno do Conselho Familiar.</li>
@@ -739,7 +874,7 @@
           </div>
 
           <div class="cnpj-alert-mini">
-            <i class="fa-solid fa-shield-halved"></i> <strong>Cláusula Soberana de Defesa do CNPJ:</strong> Parecer técnico independente para proteger a empresa acima de caprichos individuais.
+            <i class="fa-solid fa-shield-halved"></i> <strong>Cláusula Soberana de Defesa do CNPJ:</strong> Independência técnica inegociável.
           </div>
         </div>
 
@@ -753,32 +888,31 @@
         </div>
       </div>
 
-      <!-- PRODUTO 7: Planejamento Estratégico Modular -->
-      <div class="product-card" data-category="highticket">
-        <span class="card-badge-top badge-highticket">High-Ticket Modular</span>
+      <!-- PRODUTO 10: Planejamento Estratégico Modular -->
+      <div class="product-card" data-category="gov">
+        <span class="card-badge-top badge-gov">High-Ticket Modular</span>
         <div>
           <div class="product-header">
-            <div class="product-icon" style="background:#dcfce7; color:#166534;"><i class="fa-solid fa-compass-drafting"></i></div>
+            <div class="product-icon"><i class="fa-solid fa-compass-drafting"></i></div>
             <h2 class="product-title">Planejamento Estratégico Modular</h2>
-            <span class="product-slug-tag">PLAN-ESTRATEGICO-3M</span>
+            <span class="product-slug-tag">PLAN-ESTRAT-3M</span>
           </div>
 
           <div class="section-block">
             <div class="section-label"><i class="fa-solid fa-circle-question"></i> O que é e o que faz?</div>
             <p class="section-text">
-              Estruturação completa do plano de metas, OKRs, canais de aquisição e eficiência operacional para 12 meses, com prazos e entregáveis rígidos de 90 dias, sem execução de rotinas braçais.
+              Estruturação das metas, OKRs, canais de aquisição e eficiência operacional para 12 meses, com prazos e entregáveis rígidos de 90 dias, sem execução de rotinas braçais.
             </p>
           </div>
 
           <div class="section-block">
             <div class="section-label"><i class="fa-solid fa-user-check"></i> Para quem é indicado?</div>
             <p class="section-text">
-              PMEs em fase de expansão, abertura de filiais ou reposicionamento de mercado que precisam de tração com disciplina financeira.
+              Empresas em expansão ou reposicionamento que precisam de tração com disciplina orçamentária.
             </p>
           </div>
 
           <div class="section-block">
-            <div class="section-label"><i class="fa-solid fa-box-open"></i> O que é entregue?</div>
             <ul class="deliverables-list">
               <li><i class="fa-solid fa-check"></i> Diagnóstico Profundo de Gargalos e Margens.</li>
               <li><i class="fa-solid fa-check"></i> Matriz de Metas e OKRs Trimestrais para 12 Meses.</li>
@@ -790,42 +924,210 @@
         <div class="price-box">
           <div class="price-details">
             <span class="price-label">Escopo Fechado (90 Dias)</span>
-            <span class="price-value">Sob Consulta</span>
-            <span class="price-sub">estimado em ~R$ 8k a R$ 12k</span>
+            <span class="price-value">R$ 8k a R$ 12k</span>
+            <span class="price-sub">parcelado em 3x mensais</span>
           </div>
           <span class="product-duration">3 Meses Fechados</span>
         </div>
       </div>
 
-      <!-- PRODUTO 8: Micro-Agentes & Cadernos -->
-      <div class="product-card" data-category="frontend">
-        <span class="card-badge-top badge-micro">Micro-SaaS & Manuais</span>
+      <!-- PRODUTO 11: Formação Liderança Antifrágil -->
+      <div class="product-card featured" data-category="edu">
+        <span class="card-badge-top badge-edu">Educação Executiva</span>
         <div>
           <div class="product-header">
-            <div class="product-icon" style="background:#f1f5f9; color:#334155;"><i class="fa-solid fa-book-open"></i></div>
-            <h2 class="product-title">Micro-Agentes & Cadernos de Ativação</h2>
-            <span class="product-slug-tag">CADERNOS-ATIVACAO</span>
+            <div class="product-icon"><i class="fa-solid fa-award"></i></div>
+            <h2 class="product-title">Formação Liderança Antifrágil</h2>
+            <span class="product-slug-tag">LIDER-ANTIFRAGIL</span>
           </div>
 
           <div class="section-block">
             <div class="section-label"><i class="fa-solid fa-circle-question"></i> O que é e o que faz?</div>
             <p class="section-text">
-              Manuais operacionais práticos e agentes especializados em micro-tarefas (ex.: Agente de Análise de Curva ABC de Vendas, Caderno de Abertura de Caixa, Caderno de DRE em 1 Página).
+              Programa imersivo de formação e desenvolvimento de líderes. Prepara gestores para tomar decisões sob pressão, gerenciar conflitos, manter equipes motivadas e evoluir em cenários de incerteza.
             </p>
           </div>
 
           <div class="section-block">
             <div class="section-label"><i class="fa-solid fa-user-check"></i> Para quem é indicado?</div>
             <p class="section-text">
-              Microempresários sem orçamento que precisam orientar estagiários ou assistentes a executar tarefas essenciais de gestão com padronização.
+              Fundadores, diretores, gerentes e sucessores que precisam sair do operacional e construir autoridade com disciplina e inteligência emocional.
             </p>
           </div>
 
           <div class="section-block">
-            <div class="section-label"><i class="fa-solid fa-box-open"></i> O que é entregue?</div>
+            <ul class="deliverables-list">
+              <li><i class="fa-solid fa-check"></i> Módulos de Gestão de Conflitos e Tomada de Decisão.</li>
+              <li><i class="fa-solid fa-check"></i> Ferramental prático para feedbacks e rituais 1on1.</li>
+              <li><i class="fa-solid fa-check"></i> Certificação e Cadernos de Aplicação Prática.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="price-box">
+          <div class="price-details">
+            <span class="price-label">Inscrição / In-Company</span>
+            <span class="price-value">Sob Consulta</span>
+            <span class="price-sub">individual ou turmas corporativas</span>
+          </div>
+          <span class="product-duration">Programa Imersivo</span>
+        </div>
+      </div>
+
+      <!-- PRODUTO 12: Palestras & Workshops Corporativos -->
+      <div class="product-card" data-category="edu">
+        <span class="card-badge-top badge-edu">Eventos & Imersões</span>
+        <div>
+          <div class="product-header">
+            <div class="product-icon"><i class="fa-solid fa-chalkboard-user"></i></div>
+            <h2 class="product-title">Palestras & Workshops Corporativos</h2>
+            <span class="product-slug-tag">PALESTRAS-WORK</span>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-circle-question"></i> O que é e o que faz?</div>
+            <p class="section-text">
+              Apresentações e dinâmicas sob medida conduzidas por Luiz Portal e Cleber Donato para convenções de vendas, encontros de liderança e imersões estratégicas.
+            </p>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-user-check"></i> Para quem é indicado?</div>
+            <p class="section-text">
+              Associações, franquias, convenções empresariais e empresas que buscam impacto e mudança de mentalidade de equipe.
+            </p>
+          </div>
+
+          <div class="section-block">
+            <ul class="deliverables-list">
+              <li><i class="fa-solid fa-check"></i> Temas: Governança, IA nos Negócios, Vendas e Liderança.</li>
+              <li><i class="fa-solid fa-check"></i> Formatos de 2h (Palestra) a 8h (Workshop Imersivo).</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="price-box">
+          <div class="price-details">
+            <span class="price-label">Por Apresentação</span>
+            <span class="price-value">R$ 5k a R$ 18k</span>
+            <span class="price-sub">conforme formato e duração</span>
+          </div>
+          <span class="product-duration">2h a 8h de Imersão</span>
+        </div>
+      </div>
+
+      <!-- PRODUTO 13: Almoço com o CEO -->
+      <div class="product-card featured" data-category="edu">
+        <span class="card-badge-top badge-edu">Networking C-Level</span>
+        <div>
+          <div class="product-header">
+            <div class="product-icon"><i class="fa-solid fa-utensils"></i></div>
+            <h2 class="product-title">Almoço com o CEO (Networking Exclusivo)</h2>
+            <span class="product-slug-tag">ALMOCO-COM-CEO</span>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-circle-question"></i> O que é e o que faz?</div>
+            <p class="section-text">
+              Experiência gastronômica executiva reservada para um seleto grupo de empresários e CEOs. Espaço de alta confidencialidade para troca de experiências reais de gestão, dores de sucessão e geração de negócios.
+            </p>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-user-check"></i> Para quem é indicado?</div>
+            <p class="section-text">
+              Fundadores e líderes C-Level que buscam conexões estratégicas de alto valor sem o ruído de eventos genéricos.
+            </p>
+          </div>
+
+          <div class="section-block">
+            <ul class="deliverables-list">
+              <li><i class="fa-solid fa-check"></i> Mesa redonda intimista com mediação executiva.</li>
+              <li><i class="fa-solid fa-check"></i> Apresentação de cases e conexões comerciais diretas.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="price-box">
+          <div class="price-details">
+            <span class="price-label">Acesso / Convite</span>
+            <span class="price-value">Sob Convite</span>
+            <span class="price-sub">vagas limitadas por edição</span>
+          </div>
+          <span class="product-duration">Encontro de 3h</span>
+        </div>
+      </div>
+
+      <!-- PRODUTO 14: Mentoria Coletiva e Individual -->
+      <div class="product-card" data-category="edu">
+        <span class="card-badge-top badge-edu">Mentoria Estratégica</span>
+        <div>
+          <div class="product-header">
+            <div class="product-icon"><i class="fa-solid fa-user-tie"></i></div>
+            <h2 class="product-title">Mentoria Coletiva & Individual</h2>
+            <span class="product-slug-tag">MENTORIA-EXEC</span>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-circle-question"></i> O que é e o que faz?</div>
+            <p class="section-text">
+              Sessões periódicas de direcionamento estratégico, revisão de metas e aconselhamento executivo com foco em destravar a tomada de decisão do fundador.
+            </p>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-user-check"></i> Para quem é indicado?</div>
+            <p class="section-text">
+              CEOs e donos de empresas que buscam um conselheiro de confiança para orientar decisões críticas de carreira e de empresa.
+            </p>
+          </div>
+
+          <div class="section-block">
+            <ul class="deliverables-list">
+              <li><i class="fa-solid fa-check"></i> Encontros quinzenais/mensais estruturados.</li>
+              <li><i class="fa-solid fa-check"></i> Acompanhamento contínuo de metas e indicadores.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="price-box">
+          <div class="price-details">
+            <span class="price-label">Ciclo Trimestral/Semestral</span>
+            <span class="price-value">Sob Consulta</span>
+            <span class="price-sub">individual ou grupo fechado</span>
+          </div>
+          <span class="product-duration">3 a 6 Meses</span>
+        </div>
+      </div>
+
+      <!-- PRODUTO 15: Cadernos de Ativação -->
+      <div class="product-card" data-category="ia">
+        <span class="card-badge-top badge-ia">Micro-SaaS & Manuais</span>
+        <div>
+          <div class="product-header">
+            <div class="product-icon"><i class="fa-solid fa-book-open"></i></div>
+            <h2 class="product-title">Micro-Agentes & Cadernos de Ativação</h2>
+            <span class="product-slug-tag">CADERNOS-ATIV</span>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-circle-question"></i> O que é e o que faz?</div>
+            <p class="section-text">
+              Manuais operacionais práticos e checklists para o dono delegar rotinas críticas (DRE, Fechamento de Caixa, Curva ABC, Processo Seletivo) a estagiários e assistentes com padrão de qualidade.
+            </p>
+          </div>
+
+          <div class="section-block">
+            <div class="section-label"><i class="fa-solid fa-user-check"></i> Para quem é indicado?</div>
+            <p class="section-text">
+              Empresas que precisam padronizar processos imediatamente sem tempo para criar procedimentos do zero.
+            </p>
+          </div>
+
+          <div class="section-block">
             <ul class="deliverables-list">
               <li><i class="fa-solid fa-check"></i> Cadernos de Ativação em PDF / Notion prontos para uso.</li>
-              <li><i class="fa-solid fa-check"></i> Checklist operacional para delegar à equipe.</li>
+              <li><i class="fa-solid fa-check"></i> Checklists com Definição de Pronto (DoD).</li>
             </ul>
           </div>
         </div>
@@ -844,41 +1146,54 @@
 
     <!-- Comparison Table -->
     <div class="comparison-section">
-      <h2 class="comparison-title">Matriz Comparativa da Esteira de Soluções</h2>
-      <p class="comparison-sub">Visão consolidada de escopos, formatos, duração e canais de acesso.</p>
+      <h2 class="comparison-title">Matriz Comparativa de Soluções & Entregáveis</h2>
+      <p class="comparison-sub">Visão consolidada de categorias, duração, preços e formatos de entrega.</p>
       
       <div class="table-responsive">
         <table>
           <thead>
             <tr>
-              <th>Produto</th>
+              <th>Produto / Solução</th>
+              <th>Categoria</th>
               <th>Público-Alvo</th>
-              <th>Formato / Plataforma</th>
+              <th>Formato de Entrega</th>
               <th>Duração</th>
-              <th>Preço Oficial</th>
+              <th>Investimento</th>
               <th>Defesa do CNPJ</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td><strong>Diagnóstico Express</strong></td>
-              <td>PMEs Desassistidas (R$ 50k a R$ 500k/m)</td>
-              <td>SaaS Automatizado + Motor IA</td>
+              <td>IA & Front-End</td>
+              <td>PMEs Desassistidas</td>
+              <td>SaaS Automatizado + PDF</td>
               <td>Imediato</td>
               <td><strong>R$ 250,00</strong> (12x)</td>
-              <td><i class="fa-solid fa-check" style="color:var(--accent-emerald);"></i> Informativa</td>
+              <td><i class="fa-solid fa-check" style="color:var(--accent-emerald);"></i> Sim</td>
             </tr>
             <tr>
               <td><strong>Júlio Bot v8.0</strong></td>
-              <td>Assinantes pós-diagnóstico</td>
-              <td>Web App SPA no Netlify (Firebase Auth)</td>
-              <td>Mensal Recorrente</td>
+              <td>Copiloto IA</td>
+              <td>Compradores do Diagnóstico</td>
+              <td>Netlify Web App (Firebase)</td>
+              <td>Mensal</td>
               <td><strong>R$ 120,00 / mês</strong></td>
-              <td><i class="fa-solid fa-check" style="color:var(--accent-emerald);"></i> Mandatória</td>
+              <td><i class="fa-solid fa-check" style="color:var(--accent-emerald);"></i> Sim</td>
+            </tr>
+            <tr>
+              <td><strong>Assistente IA Suporte Interno</strong></td>
+              <td>IA Corporativa</td>
+              <td>Empresas com POPs e Manuais</td>
+              <td>Bot RAG em Base Própria</td>
+              <td>Contínuo</td>
+              <td><strong>Sob Consulta</strong></td>
+              <td><i class="fa-solid fa-check" style="color:var(--accent-emerald);"></i> Sim</td>
             </tr>
             <tr>
               <td><strong>RH Tech DIY</strong></td>
-              <td>Empresários contratando equipe</td>
+              <td>Recrutamento</td>
+              <td>Empresários contratando</td>
               <td>Chat Web SPA / IA</td>
               <td>Por Vaga</td>
               <td><strong>R$ 250,00</strong> / vaga</td>
@@ -886,39 +1201,98 @@
             </tr>
             <tr>
               <td><strong>RH Tech Full-Service</strong></td>
-              <td>Empresas buscando posições-chave</td>
-              <td>Condução Humana Sênior + IA</td>
+              <td>Recrutamento</td>
+              <td>Cargos estratégicos e liderança</td>
+              <td>Headhunting Sênior + IA</td>
               <td>15 a 30 dias</td>
               <td><strong>1º Salário</strong> (Garantia 30d)</td>
               <td><i class="fa-solid fa-check" style="color:var(--accent-emerald);"></i> Sim</td>
             </tr>
             <tr>
-              <td><strong>Diagnóstico 360°</strong></td>
-              <td>PMEs maduras (> R$ 300k/m)</td>
-              <td>Sessão Executiva 2h + Parecer</td>
-              <td>2 Horas</td>
-              <td><strong>R$ 980 a R$ 1.200</strong></td>
+              <td><strong>Percepção do Cliente & CX</strong></td>
+              <td>Experiência</td>
+              <td>Empresas buscando retenção</td>
+              <td>NPS/CSAT + Blueprint + Plano</td>
+              <td>30 a 45 dias</td>
+              <td><strong>Sob Consulta</strong></td>
               <td><i class="fa-solid fa-check" style="color:var(--accent-emerald);"></i> Sim</td>
             </tr>
             <tr>
+              <td><strong>Pesquisa de Mercado</strong></td>
+              <td>Inteligência</td>
+              <td>Empresas em expansão</td>
+              <td>Benchmarking & Concorrentes</td>
+              <td>30 dias</td>
+              <td><strong>Sob Consulta</strong></td>
+              <td><i class="fa-solid fa-check" style="color:var(--accent-emerald);"></i> Sim</td>
+            </tr>
+            <tr>
+              <td><strong>Negociação, Mediação & M&A</strong></td>
+              <td>Estratégia</td>
+              <td>Sócios em fusão / venda</td>
+              <td>Mediação + Análise Jurídica</td>
+              <td>Conforme M&A</td>
+              <td><strong>Retainer + Êxito</strong></td>
+              <td><i class="fa-solid fa-shield-halved" style="color:var(--accent-rose);"></i> <strong>Soberana</strong></td>
+            </tr>
+            <tr>
               <td><strong>Conselho Familiar</strong></td>
+              <td>Alta Governança</td>
               <td>Empresas Familiares em Sucessão</td>
-              <td>3 Sessões Presenciais/Remotas + Estatuto</td>
-              <td><strong>3 Meses Fechados</strong></td>
+              <td>3 Sessões + Estatuto + Trilha</td>
+              <td><strong>3 Meses</strong></td>
               <td><strong>R$ 8k a R$ 15k</strong></td>
               <td><i class="fa-solid fa-shield-halved" style="color:var(--accent-rose);"></i> <strong>Soberana</strong></td>
             </tr>
             <tr>
               <td><strong>Planejamento Estratégico</strong></td>
+              <td>Alta Governança</td>
               <td>Empresas em Expansão</td>
-              <td>Diagnóstico + OKRs + Trilha 12 Meses</td>
-              <td><strong>3 Meses Fechados</strong></td>
-              <td><strong>Sob Consulta</strong></td>
+              <td>Diagnóstico + OKRs + DRE</td>
+              <td><strong>3 Meses</strong></td>
+              <td><strong>R$ 8k a R$ 12k</strong></td>
               <td><i class="fa-solid fa-shield-halved" style="color:var(--accent-rose);"></i> <strong>Soberana</strong></td>
             </tr>
             <tr>
+              <td><strong>Formação Liderança Antifrágil</strong></td>
+              <td>Educação</td>
+              <td>Fundadores e Líderes PMEs</td>
+              <td>Programa Imersivo / In-Company</td>
+              <td>Imersão</td>
+              <td><strong>Sob Consulta</strong></td>
+              <td><i class="fa-solid fa-check" style="color:var(--accent-emerald);"></i> Sim</td>
+            </tr>
+            <tr>
+              <td><strong>Palestras & Workshops</strong></td>
+              <td>Eventos</td>
+              <td>Convenções e Equipes</td>
+              <td>Presencial / Online</td>
+              <td>2h a 8h</td>
+              <td><strong>R$ 5k a R$ 18k</strong></td>
+              <td><i class="fa-solid fa-check" style="color:var(--accent-emerald);"></i> Sim</td>
+            </tr>
+            <tr>
+              <td><strong>Almoço com o CEO</strong></td>
+              <td>C-Level</td>
+              <td>CEOs e Fundadores Selecionados</td>
+              <td>Encontro Gastronômico</td>
+              <td>3 Horas</td>
+              <td><strong>Sob Convite</strong></td>
+              <td><i class="fa-solid fa-check" style="color:var(--accent-emerald);"></i> Sim</td>
+            </tr>
+            <tr>
+              <td><strong>Mentoria Coletiva e Individual</strong></td>
+              <td>Desenvolvimento</td>
+              <td>Fundadores e Executivos</td>
+              <td>Sessões Periódicas</td>
+              <td>3 a 6 Meses</td>
+              <td><strong>Sob Consulta</strong></td>
+              <td><i class="fa-solid fa-check" style="color:var(--accent-emerald);"></i> Sim</td>
+            </tr>
+            <tr>
               <td><strong>Cadernos de Ativação</strong></td>
-              <td>Microempresários descapitalizados</td>
+              <td>Micro-SaaS</td>
+              <td>Operação e Delegação</td>
               <td>Manuais PDF / Notion</td>
               <td>Vitalício</td>
               <td><strong>R$ 40 a R$ 50</strong></td>
@@ -935,7 +1309,7 @@
   <footer class="page-footer">
     <p>Catálogo Oficial de Soluções &bull; &copy; 2026 Ecossistema Live (LUIZ E A PORTAL — CNPJ: 52.887.139/0001-00). Todos os direitos reservados.</p>
     <p style="margin-top: 0.4rem; color: var(--text-light); font-size: 0.78rem;">
-      Documento estruturado em conformidade com as diretrizes de governança e transição de modelo de negócio de 13 de Agosto de 2026.
+      Documento estruturado em conformidade com as diretrizes de governança e esteira de produtos de 14 de Agosto de 2026.
     </p>
   </footer>
 
